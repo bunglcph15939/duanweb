@@ -44,9 +44,33 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function classes(){
+    //1 User có nhiều classroom
+    public function classrooms(){
         return $this->belongsToMany(
-
+            Classroom::class,
+            'user_classroom',
+            'user_id',
+            'classroom_id'
         );
+    }
+
+    //Tác giả của 1 lớp học
+    public function classroom(){
+        return $this->hasOne(Classroom::class, 'user_id','id');
+    }
+
+    //1 User có nhiều khóa học
+    public function courses(){
+        return $this->belongsToMany(
+            Course::class,
+            'user_course',
+            'user_id',
+            'course_id'
+        );
+    }
+
+    //1 User có nhiều kết quả bài quiz
+    public function quiz_results(){
+        return $this->hasMany(Quiz_result::class,'user_id','id');
     }
 }
