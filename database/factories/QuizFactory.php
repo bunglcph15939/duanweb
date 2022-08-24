@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Question>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Quiz>
  */
-class QuestionFactory extends Factory
+class QuizFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,10 +17,10 @@ class QuestionFactory extends Factory
     public function definition()
     {
         return [
-            'title' => fake()->name(),
-            'type' => rand(0,3),
-            'attachment' => fake()->text(30),
-            'tag' => fake()->name(),
+            'title' => fake()->text(20),
+            'duration' => fake()->time(10),
+            'limit' => 5,
+            'lesson_id' => rand(1,10),
         ];
     }
 }
