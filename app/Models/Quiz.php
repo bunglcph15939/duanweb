@@ -34,6 +34,6 @@ class Quiz extends Model
 
     //Kết quả của quiz do học sinh làm
     public function quiz_results(){
-        return $this->hasMany(Quiz_result::class,'quiz_id','id');
+        return $this->hasMany(QuizResult::class,'quiz_id','id');
     }
 }
