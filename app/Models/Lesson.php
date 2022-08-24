@@ -14,6 +14,7 @@ class Lesson extends Model
         'video_path',
         'video_type',
         'attachment',
+        'order',
         'course_id',
         'section_id'
     ];
