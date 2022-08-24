@@ -17,7 +17,12 @@ class LessonFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'content' => fake()->text(),
+            'video_path' => fake()->imageUrl(),
+            'video_type' => rand(0,4),
+            'attachment' => fake()->text(), 
+            'course_id' =>  rand(1,10),
+            'section_id' => rand(1,10)
         ];
     }
 }
