@@ -71,6 +71,6 @@ class User extends Authenticatable
 
     //1 User có nhiều kết quả bài quiz
     public function quiz_results(){
-        return $this->hasMany(Quiz_result::class,'user_id','id');
+        return $this->hasMany(QuizResult::class,'user_id','id');
     }
 }

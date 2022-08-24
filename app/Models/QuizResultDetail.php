@@ -28,6 +28,6 @@ class QuizResultDetail extends Model
     //1 chi tiết kết quả thuộc 1 quiz
     public function quiz_result()
     {
-        return $this->belongsTo(Quiz_result::class,'quiz_result_id','id');
+        return $this->belongsTo(QuizResult::class,'quiz_result_id','id');
     }
 }
