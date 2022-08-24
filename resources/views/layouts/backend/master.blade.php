@@ -9,54 +9,23 @@
 		<meta name="csrf-token" content="{{ csrf_token() }}" />
 		<link rel="canonical" href="https://keenthemes.com/metronic" />
 		<!--begin::Fonts-->
-		@livewireStyles
+		{{-- @livewireStyles --}}
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
 		<!--end::Fonts-->
 		<!--begin::Global Theme Styles(used by all pages)-->
-		<link href="/assets/admin/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
-		<link href="/assets/admin/plugins/custom/prismjs/prismjs.bundle.css" rel="stylesheet" type="text/css" />
-		<link href="/assets/admin/css/style.bundle.css" rel="stylesheet" type="text/css" />
+		<link href="/backend/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
+		<link href="/backend/plugins/custom/prismjs/prismjs.bundle.css" rel="stylesheet" type="text/css" />
+		<link href="/backend/css/style.bundle.css" rel="stylesheet" type="text/css" />
 		<!--end::Global Theme Styles-->
 		<!--begin::layouts Themes(used by all pages)-->
-		<link href="/assets/admin/css/themes/layout/header/base/light.css" rel="stylesheet" type="text/css" />
-		<link href="/assets/admin/css/themes/layout/header/menu/light.css" rel="stylesheet" type="text/css" />
-		<link href="/assets/admin/css/themes/layout/brand/dark.css" rel="stylesheet" type="text/css" />
-		<link href="/assets/admin/css/themes/layout/aside/dark.css" rel="stylesheet" type="text/css" />
-		<link href="/assets/admin/css/custom.css" rel="stylesheet" type="text/css" />
+		<link href="/backend/css/themes/layout/header/base/light.css" rel="stylesheet" type="text/css" />
+		<link href="/backend/css/themes/layout/header/menu/light.css" rel="stylesheet" type="text/css" />
+		<link href="/backend/css/themes/layout/brand/dark.css" rel="stylesheet" type="text/css" />
+		<link href="/backend/css/themes/layout/aside/dark.css" rel="stylesheet" type="text/css" />
+		<link href="/backend/css/custom.css" rel="stylesheet" type="text/css" />
 		<!--end::layouts Themes-->
 		{{-- <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script> --}}
-		<link rel="shortcut icon" href="/assets/admin/media/logos/favicon.ico" />
-		<style>
-			label[for^='image_']{
-				position: relative;
-			}
-			label[for^='image_']::after{
-				content: '\f058';
-				font-family: "Font Awesome 5 Free";
-				position: absolute;
-				top: 5px;
-				width: 30px;
-				height: 30px;
-				right: 5px;
-				font-size: x-large;
-				display: none;
-				aspect-ratio: 1/1;
-				align-items: center;
-				justify-content: center;
-				z-index: 10000000;
-				color: #187DE4;
-			}
-
-			[name="product-gallery"]:checked ~ label[for^='image_']::after{
-				display: flex;
-			}
-
-			[name="product-gallery"]:checked ~ label>.image-item{
-				border: 5px solid #187DE4;
-				-webkit-box-shadow: 0 3px 5px -1px rgb(0 0 0 / 20%), 0 6px 10px 0 rgb(0 0 0 / 14%), 0 1px 18px 0 rgb(0 0 0 / 12%);
-    			box-shadow: 0 3px 5px -1px rgb(0 0 0 / 20%), 0 6px 10px 0 rgb(0 0 0 / 14%), 0 1px 18px 0 rgb(0 0 0 / 12%);
-			}
-		</style>
+		<link rel="shortcut icon" href="/backend/media/logos/favicon.ico" />
 	</head>
 	<!--end::Head-->
 	<!--begin::Body-->
@@ -66,7 +35,7 @@
 		<div id="kt_header_mobile" class="header-mobile align-items-center header-mobile-fixed">
 			<!--begin::Logo-->
 			<a href="index.html">
-				<img alt="Logo" src="/assets/admin/media/logos/logo-light.png" />
+				<img alt="Logo" src="/backend/media/logos/logo-light.png" />
 			</a>
 			<!--end::Logo-->
 			<!--begin::Toolbar-->
@@ -84,7 +53,7 @@
 				<!--begin::Topbar Mobile Toggle-->
 				<button class="btn btn-hover-text-primary p-0 ml-2" id="kt_header_mobile_topbar_toggle">
 					<span class="svg-icon svg-icon-xl">
-						<!--begin::Svg Icon | path:/assets/admin/media/svg/icons/General/User.svg-->
+						<!--begin::Svg Icon | path:/backend/media/svg/icons/General/User.svg-->
 						<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
 							<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
 								<polygon points="0 0 24 0 24 24 0 24" />
@@ -109,13 +78,13 @@
 					<div class="brand flex-column-auto" id="kt_brand">
 						<!--begin::Logo-->
 						<a href="index.html" class="brand-logo">
-							<img alt="Logo" src="/assets/admin/media/logos/logo-light.png" />
+							<img alt="Logo" src="/backend/media/logos/logo-light.png" />
 						</a>
 						<!--end::Logo-->
 						<!--begin::Toggle-->
 						<button class="brand-toggle btn btn-sm px-0" id="kt_aside_toggle">
 							<span class="svg-icon svg-icon svg-icon-xl">
-								<!--begin::Svg Icon | path:/assets/admin/media/svg/icons/Navigation/Angle-double-left.svg-->
+								<!--begin::Svg Icon | path:/backend/media/svg/icons/Navigation/Angle-double-left.svg-->
 								<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
 									<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
 										<polygon points="0 0 24 0 24 24 0 24" />
@@ -131,7 +100,7 @@
 					<!--end::Brand-->
 					<!--begin::Aside Menu-->
 					
-                    @include('layouts.admin.sidebar')
+                    @include('layouts.backend.sidebar')
 
 					<!--end::Aside Menu-->
 				</div>
@@ -145,7 +114,7 @@
 							<div class="bounce3"></div>
 						</div>
 					</div>
-					@include('layouts.admin.header')
+					@include('layouts.backend.header')
 
 					<!--begin::Content-->
 					<div class="content d-flex flex-column flex-column-fluid" id="kt_content">
@@ -185,7 +154,7 @@
 					</div>
 					<!--end::Content-->
 					
-                    @include('layouts.admin.footer')
+                    @include('layouts.backend.footer')
 
 				</div>
 				<!--end::Wrapper-->
@@ -209,7 +178,7 @@
 				<!--begin::Header-->
 				<div class="d-flex align-items-center mt-5">
 					<div class="symbol symbol-100 mr-5">
-						<div class="symbol-label" style="background-image:url('/assets/admin/media/users/300_21.jpg')"></div>
+						<div class="symbol-label" style="background-image:url('/backend/media/users/300_21.jpg')"></div>
 						<i class="symbol-badge bg-success"></i>
 					</div>
 					<div class="d-flex flex-column">
@@ -220,7 +189,7 @@
 								<span class="navi-link p-0 pb-2">
 									<span class="navi-icon mr-1">
 										<span class="svg-icon svg-icon-lg svg-icon-primary">
-											<!--begin::Svg Icon | path:/assets/admin/media/svg/icons/Communication/Mail-notification.svg-->
+											<!--begin::Svg Icon | path:/backend/media/svg/icons/Communication/Mail-notification.svg-->
 											<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
 												<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
 													<rect x="0" y="0" width="24" height="24" />
@@ -250,7 +219,7 @@
 							<div class="symbol symbol-40 bg-light mr-3">
 								<div class="symbol-label">
 									<span class="svg-icon svg-icon-md svg-icon-success">
-										<!--begin::Svg Icon | path:/assets/admin/media/svg/icons/General/Notification2.svg-->
+										<!--begin::Svg Icon | path:/backend/media/svg/icons/General/Notification2.svg-->
 										<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
 											<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
 												<rect x="0" y="0" width="24" height="24" />
@@ -276,7 +245,7 @@
 							<div class="symbol symbol-40 bg-light mr-3">
 								<div class="symbol-label">
 									<span class="svg-icon svg-icon-md svg-icon-warning">
-										<!--begin::Svg Icon | path:/assets/admin/media/svg/icons/Shopping/Chart-bar1.svg-->
+										<!--begin::Svg Icon | path:/backend/media/svg/icons/Shopping/Chart-bar1.svg-->
 										<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
 											<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
 												<rect x="0" y="0" width="24" height="24" />
@@ -303,7 +272,7 @@
 							<div class="symbol symbol-40 bg-light mr-3">
 								<div class="symbol-label">
 									<span class="svg-icon svg-icon-md svg-icon-danger">
-										<!--begin::Svg Icon | path:/assets/admin/media/svg/icons/Files/Selected-file.svg-->
+										<!--begin::Svg Icon | path:/backend/media/svg/icons/Files/Selected-file.svg-->
 										<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
 											<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
 												<polygon points="0 0 24 0 24 24 0 24" />
@@ -328,7 +297,7 @@
 							<div class="symbol symbol-40 bg-light mr-3">
 								<div class="symbol-label">
 									<span class="svg-icon svg-icon-md svg-icon-primary">
-										<!--begin::Svg Icon | path:/assets/admin/media/svg/icons/Communication/Mail-opened.svg-->
+										<!--begin::Svg Icon | path:/backend/media/svg/icons/Communication/Mail-opened.svg-->
 										<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
 											<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
 												<rect x="0" y="0" width="24" height="24" />
@@ -361,7 +330,7 @@
 					<div class="d-flex align-items-center bg-light-warning rounded p-5 gutter-b">
 						<span class="svg-icon svg-icon-warning mr-5">
 							<span class="svg-icon svg-icon-lg">
-								<!--begin::Svg Icon | path:/assets/admin/media/svg/icons/Home/Library.svg-->
+								<!--begin::Svg Icon | path:/backend/media/svg/icons/Home/Library.svg-->
 								<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
 									<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
 										<rect x="0" y="0" width="24" height="24" />
@@ -383,7 +352,7 @@
 					<div class="d-flex align-items-center bg-light-success rounded p-5 gutter-b">
 						<span class="svg-icon svg-icon-success mr-5">
 							<span class="svg-icon svg-icon-lg">
-								<!--begin::Svg Icon | path:/assets/admin/media/svg/icons/Communication/Write.svg-->
+								<!--begin::Svg Icon | path:/backend/media/svg/icons/Communication/Write.svg-->
 								<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
 									<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
 										<rect x="0" y="0" width="24" height="24" />
@@ -405,7 +374,7 @@
 					<div class="d-flex align-items-center bg-light-danger rounded p-5 gutter-b">
 						<span class="svg-icon svg-icon-danger mr-5">
 							<span class="svg-icon svg-icon-lg">
-								<!--begin::Svg Icon | path:/assets/admin/media/svg/icons/Communication/Group-chat.svg-->
+								<!--begin::Svg Icon | path:/backend/media/svg/icons/Communication/Group-chat.svg-->
 								<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
 									<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
 										<rect x="0" y="0" width="24" height="24" />
@@ -427,7 +396,7 @@
 					<div class="d-flex align-items-center bg-light-info rounded p-5">
 						<span class="svg-icon svg-icon-info mr-5">
 							<span class="svg-icon svg-icon-lg">
-								<!--begin::Svg Icon | path:/assets/admin/media/svg/icons/General/Attachment2.svg-->
+								<!--begin::Svg Icon | path:/backend/media/svg/icons/General/Attachment2.svg-->
 								<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
 									<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
 										<rect x="0" y="0" width="24" height="24" />
@@ -485,7 +454,7 @@
 							</div>
 						</div>
 						<a href="#" class="symbol symbol-70 flex-shrink-0">
-							<img src="/assets/admin/media/stock-600x400/img-1.jpg" title="" alt="" />
+							<img src="/backend/media/stock-600x400/img-1.jpg" title="" alt="" />
 						</a>
 					</div>
 					<!--end::Item-->
@@ -510,7 +479,7 @@
 							</div>
 						</div>
 						<a href="#" class="symbol symbol-70 flex-shrink-0">
-							<img src="/assets/admin/media/stock-600x400/img-2.jpg" title="" alt="" />
+							<img src="/backend/media/stock-600x400/img-2.jpg" title="" alt="" />
 						</a>
 					</div>
 					<!--end::Item-->
@@ -535,7 +504,7 @@
 							</div>
 						</div>
 						<a href="#" class="symbol symbol-70 flex-shrink-0">
-							<img src="/assets/admin/media/stock-600x400/img-3.jpg" title="" alt="" />
+							<img src="/backend/media/stock-600x400/img-3.jpg" title="" alt="" />
 						</a>
 					</div>
 					<!--end::Item-->
@@ -560,7 +529,7 @@
 							</div>
 						</div>
 						<a href="#" class="symbol symbol-70 flex-shrink-0">
-							<img src="/assets/admin/media/stock-600x400/img-4.jpg" title="" alt="" />
+							<img src="/backend/media/stock-600x400/img-4.jpg" title="" alt="" />
 						</a>
 					</div>
 					<!--end::Item-->
@@ -585,7 +554,7 @@
 							</div>
 						</div>
 						<a href="#" class="symbol symbol-70 flex-shrink-0">
-							<img src="/assets/admin/media/stock-600x400/img-8.jpg" title="" alt="" />
+							<img src="/backend/media/stock-600x400/img-8.jpg" title="" alt="" />
 						</a>
 					</div>
 					<!--end::Item-->
@@ -644,7 +613,7 @@
 							<div class="d-flex align-items-center flex-wrap mb-5">
 								<div class="symbol symbol-50 symbol-light mr-5">
 									<span class="symbol-label">
-										<img src="/assets/admin/media/svg/misc/006-plurk.svg" class="h-50 align-self-center" alt="" />
+										<img src="/backend/media/svg/misc/006-plurk.svg" class="h-50 align-self-center" alt="" />
 									</span>
 								</div>
 								<div class="d-flex flex-column flex-grow-1 mr-2">
@@ -658,7 +627,7 @@
 							<div class="d-flex align-items-center flex-wrap mb-5">
 								<div class="symbol symbol-50 symbol-light mr-5">
 									<span class="symbol-label">
-										<img src="/assets/admin/media/svg/misc/015-telegram.svg" class="h-50 align-self-center" alt="" />
+										<img src="/backend/media/svg/misc/015-telegram.svg" class="h-50 align-self-center" alt="" />
 									</span>
 								</div>
 								<div class="d-flex flex-column flex-grow-1 mr-2">
@@ -672,7 +641,7 @@
 							<div class="d-flex align-items-center flex-wrap mb-5">
 								<div class="symbol symbol-50 symbol-light mr-5">
 									<span class="symbol-label">
-										<img src="/assets/admin/media/svg/misc/003-puzzle.svg" class="h-50 align-self-center" alt="" />
+										<img src="/backend/media/svg/misc/003-puzzle.svg" class="h-50 align-self-center" alt="" />
 									</span>
 								</div>
 								<div class="d-flex flex-column flex-grow-1 mr-2">
@@ -686,7 +655,7 @@
 							<div class="d-flex align-items-center flex-wrap mb-5">
 								<div class="symbol symbol-50 symbol-light mr-5">
 									<span class="symbol-label">
-										<img src="/assets/admin/media/svg/misc/005-bebo.svg" class="h-50 align-self-center" alt="" />
+										<img src="/backend/media/svg/misc/005-bebo.svg" class="h-50 align-self-center" alt="" />
 									</span>
 								</div>
 								<div class="d-flex flex-column flex-grow-1 mr-2">
@@ -700,7 +669,7 @@
 							<div class="d-flex align-items-center flex-wrap">
 								<div class="symbol symbol-50 symbol-light mr-5">
 									<span class="symbol-label">
-										<img src="/assets/admin/media/svg/misc/014-kickstarter.svg" class="h-50 align-self-center" alt="" />
+										<img src="/backend/media/svg/misc/014-kickstarter.svg" class="h-50 align-self-center" alt="" />
 									</span>
 								</div>
 								<div class="d-flex flex-column flex-grow-1 mr-2">
@@ -719,7 +688,7 @@
 							<div class="d-flex align-items-center bg-light-warning rounded p-5 mb-5">
 								<span class="svg-icon svg-icon-warning mr-5">
 									<span class="svg-icon svg-icon-lg">
-										<!--begin::Svg Icon | path:/assets/admin/media/svg/icons/Home/Library.svg-->
+										<!--begin::Svg Icon | path:/backend/media/svg/icons/Home/Library.svg-->
 										<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
 											<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
 												<rect x="0" y="0" width="24" height="24" />
@@ -741,7 +710,7 @@
 							<div class="d-flex align-items-center bg-light-success rounded p-5 mb-5">
 								<span class="svg-icon svg-icon-success mr-5">
 									<span class="svg-icon svg-icon-lg">
-										<!--begin::Svg Icon | path:/assets/admin/media/svg/icons/Communication/Write.svg-->
+										<!--begin::Svg Icon | path:/backend/media/svg/icons/Communication/Write.svg-->
 										<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
 											<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
 												<rect x="0" y="0" width="24" height="24" />
@@ -763,7 +732,7 @@
 							<div class="d-flex align-items-center bg-light-danger rounded p-5 mb-5">
 								<span class="svg-icon svg-icon-danger mr-5">
 									<span class="svg-icon svg-icon-lg">
-										<!--begin::Svg Icon | path:/assets/admin/media/svg/icons/Communication/Group-chat.svg-->
+										<!--begin::Svg Icon | path:/backend/media/svg/icons/Communication/Group-chat.svg-->
 										<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
 											<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
 												<rect x="0" y="0" width="24" height="24" />
@@ -785,7 +754,7 @@
 							<div class="d-flex align-items-center bg-light-info rounded p-5">
 								<span class="svg-icon svg-icon-info mr-5">
 									<span class="svg-icon svg-icon-lg">
-										<!--begin::Svg Icon | path:/assets/admin/media/svg/icons/General/Attachment2.svg-->
+										<!--begin::Svg Icon | path:/backend/media/svg/icons/General/Attachment2.svg-->
 										<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
 											<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
 												<rect x="0" y="0" width="24" height="24" />
@@ -1152,7 +1121,7 @@
 								<div class="dropdown dropdown-inline">
 									<button type="button" class="btn btn-clean btn-sm btn-icon btn-icon-md" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 										<span class="svg-icon svg-icon-lg">
-											<!--begin::Svg Icon | path:/assets/admin/media/svg/icons/Communication/Add-user.svg-->
+											<!--begin::Svg Icon | path:/backend/media/svg/icons/Communication/Add-user.svg-->
 											<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
 												<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
 													<polygon points="0 0 24 0 24 24 0 24" />
@@ -1259,7 +1228,7 @@
 									<div class="d-flex flex-column mb-5 align-items-start">
 										<div class="d-flex align-items-center">
 											<div class="symbol symbol-circle symbol-40 mr-3">
-												<img alt="Pic" src="/assets/admin/media/users/300_12.jpg" />
+												<img alt="Pic" src="/backend/media/users/300_12.jpg" />
 											</div>
 											<div>
 												<a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">Matt Pears</a>
@@ -1277,7 +1246,7 @@
 												<a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">You</a>
 											</div>
 											<div class="symbol symbol-circle symbol-40 ml-3">
-												<img alt="Pic" src="/assets/admin/media/users/300_21.jpg" />
+												<img alt="Pic" src="/backend/media/users/300_21.jpg" />
 											</div>
 										</div>
 										<div class="mt-2 rounded p-5 bg-light-primary text-dark-50 font-weight-bold font-size-lg text-right max-w-400px">Hey there, we’re just writing to let you know that you’ve been subscribed to a repository on GitHub.</div>
@@ -1287,7 +1256,7 @@
 									<div class="d-flex flex-column mb-5 align-items-start">
 										<div class="d-flex align-items-center">
 											<div class="symbol symbol-circle symbol-40 mr-3">
-												<img alt="Pic" src="/assets/admin/media/users/300_21.jpg" />
+												<img alt="Pic" src="/backend/media/users/300_21.jpg" />
 											</div>
 											<div>
 												<a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">Matt Pears</a>
@@ -1305,7 +1274,7 @@
 												<a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">You</a>
 											</div>
 											<div class="symbol symbol-circle symbol-40 ml-3">
-												<img alt="Pic" src="/assets/admin/media/users/300_21.jpg" />
+												<img alt="Pic" src="/backend/media/users/300_21.jpg" />
 											</div>
 										</div>
 										<div class="mt-2 rounded p-5 bg-light-primary text-dark-50 font-weight-bold font-size-lg text-right max-w-400px">You’ll receive notifications for all issues, pull requests!</div>
@@ -1315,7 +1284,7 @@
 									<div class="d-flex flex-column mb-5 align-items-start">
 										<div class="d-flex align-items-center">
 											<div class="symbol symbol-circle symbol-40 mr-3">
-												<img alt="Pic" src="/assets/admin/media/users/300_12.jpg" />
+												<img alt="Pic" src="/backend/media/users/300_12.jpg" />
 											</div>
 											<div>
 												<a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">Matt Pears</a>
@@ -1334,7 +1303,7 @@
 												<a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">You</a>
 											</div>
 											<div class="symbol symbol-circle symbol-40 ml-3">
-												<img alt="Pic" src="/assets/admin/media/users/300_21.jpg" />
+												<img alt="Pic" src="/backend/media/users/300_21.jpg" />
 											</div>
 										</div>
 										<div class="mt-2 rounded p-5 bg-light-primary text-dark-50 font-weight-bold font-size-lg text-right max-w-400px">Discover what students who viewed Learn Figma - UI/UX Design. Essential Training also viewed</div>
@@ -1344,7 +1313,7 @@
 									<div class="d-flex flex-column mb-5 align-items-start">
 										<div class="d-flex align-items-center">
 											<div class="symbol symbol-circle symbol-40 mr-3">
-												<img alt="Pic" src="/assets/admin/media/users/300_12.jpg" />
+												<img alt="Pic" src="/backend/media/users/300_12.jpg" />
 											</div>
 											<div>
 												<a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">Matt Pears</a>
@@ -1362,7 +1331,7 @@
 												<a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">You</a>
 											</div>
 											<div class="symbol symbol-circle symbol-40 ml-3">
-												<img alt="Pic" src="/assets/admin/media/users/300_21.jpg" />
+												<img alt="Pic" src="/backend/media/users/300_21.jpg" />
 											</div>
 										</div>
 										<div class="mt-2 rounded p-5 bg-light-primary text-dark-50 font-weight-bold font-size-lg text-right max-w-400px">Company BBQ to celebrate the last quater achievements and goals. Food and drinks provided</div>
@@ -1403,7 +1372,7 @@
 		<!--begin::Scrolltop-->
 		<div id="kt_scrolltop" class="scrolltop">
 			<span class="svg-icon">
-				<!--begin::Svg Icon | path:/assets/admin/media/svg/icons/Navigation/Up-2.svg-->
+				<!--begin::Svg Icon | path:/backend/media/svg/icons/Navigation/Up-2.svg-->
 				<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
 					<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
 						<polygon points="0 0 24 0 24 24 0 24" />
@@ -1464,7 +1433,7 @@
 					<h5 class="font-weight-bold mb-4 text-center">Demo 1</h5>
 					<div class="overlay rounded-lg mb-8 offcanvas-demo offcanvas-demo-active">
 						<div class="overlay-wrapper rounded-lg">
-							<img src="/assets/admin/media/demos/demo1.png" alt="" class="w-100" />
+							<img src="/backend/media/demos/demo1.png" alt="" class="w-100" />
 						</div>
 						<div class="overlay-layer">
 							<a href="../../../../../../demo1/dist" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow" target="_blank">Default</a>
@@ -1474,7 +1443,7 @@
 					<h5 class="font-weight-bold mb-4 text-center">Demo 2</h5>
 					<div class="overlay rounded-lg mb-8 offcanvas-demo">
 						<div class="overlay-wrapper rounded-lg">
-							<img src="/assets/admin/media/demos/demo2.png" alt="" class="w-100" />
+							<img src="/backend/media/demos/demo2.png" alt="" class="w-100" />
 						</div>
 						<div class="overlay-layer">
 							<a href="../../../../../../demo2/dist" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow" target="_blank">Default</a>
@@ -1484,7 +1453,7 @@
 					<h5 class="font-weight-bold mb-4 text-center">Demo 3</h5>
 					<div class="overlay rounded-lg mb-8 offcanvas-demo">
 						<div class="overlay-wrapper rounded-lg">
-							<img src="/assets/admin/media/demos/demo3.png" alt="" class="w-100" />
+							<img src="/backend/media/demos/demo3.png" alt="" class="w-100" />
 						</div>
 						<div class="overlay-layer">
 							<a href="../../../../../../demo3/dist" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow" target="_blank">Default</a>
@@ -1494,7 +1463,7 @@
 					<h5 class="font-weight-bold mb-4 text-center">Demo 4</h5>
 					<div class="overlay rounded-lg mb-8 offcanvas-demo">
 						<div class="overlay-wrapper rounded-lg">
-							<img src="/assets/admin/media/demos/demo4.png" alt="" class="w-100" />
+							<img src="/backend/media/demos/demo4.png" alt="" class="w-100" />
 						</div>
 						<div class="overlay-layer">
 							<a href="../../../../../../demo4/dist" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow" target="_blank">Default</a>
@@ -1504,7 +1473,7 @@
 					<h5 class="font-weight-bold mb-4 text-center">Demo 5</h5>
 					<div class="overlay rounded-lg mb-8 offcanvas-demo">
 						<div class="overlay-wrapper rounded-lg">
-							<img src="/assets/admin/media/demos/demo5.png" alt="" class="w-100" />
+							<img src="/backend/media/demos/demo5.png" alt="" class="w-100" />
 						</div>
 						<div class="overlay-layer">
 							<a href="../../../../../../demo5/dist" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow" target="_blank">Default</a>
@@ -1514,7 +1483,7 @@
 					<h5 class="font-weight-bold mb-4 text-center">Demo 6</h5>
 					<div class="overlay rounded-lg mb-8 offcanvas-demo">
 						<div class="overlay-wrapper rounded-lg">
-							<img src="/assets/admin/media/demos/demo6.png" alt="" class="w-100" />
+							<img src="/backend/media/demos/demo6.png" alt="" class="w-100" />
 						</div>
 						<div class="overlay-layer">
 							<a href="../../../../../../demo6/dist" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow" target="_blank">Default</a>
@@ -1524,7 +1493,7 @@
 					<h5 class="font-weight-bold mb-4 text-center">Demo 7</h5>
 					<div class="overlay rounded-lg mb-8 offcanvas-demo">
 						<div class="overlay-wrapper rounded-lg">
-							<img src="/assets/admin/media/demos/demo7.png" alt="" class="w-100" />
+							<img src="/backend/media/demos/demo7.png" alt="" class="w-100" />
 						</div>
 						<div class="overlay-layer">
 							<a href="../../../../../../demo7/dist" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow" target="_blank">Default</a>
@@ -1534,7 +1503,7 @@
 					<h5 class="font-weight-bold mb-4 text-center">Demo 8</h5>
 					<div class="overlay rounded-lg mb-8 offcanvas-demo">
 						<div class="overlay-wrapper rounded-lg">
-							<img src="/assets/admin/media/demos/demo8.png" alt="" class="w-100" />
+							<img src="/backend/media/demos/demo8.png" alt="" class="w-100" />
 						</div>
 						<div class="overlay-layer">
 							<a href="../../../../../../demo8/dist" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow" target="_blank">Default</a>
@@ -1544,7 +1513,7 @@
 					<h5 class="font-weight-bold mb-4 text-center">Demo 9</h5>
 					<div class="overlay rounded-lg mb-8 offcanvas-demo">
 						<div class="overlay-wrapper rounded-lg">
-							<img src="/assets/admin/media/demos/demo9.png" alt="" class="w-100" />
+							<img src="/backend/media/demos/demo9.png" alt="" class="w-100" />
 						</div>
 						<div class="overlay-layer">
 							<a href="../../../../../../demo9/dist" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow" target="_blank">Default</a>
@@ -1554,7 +1523,7 @@
 					<h5 class="font-weight-bold mb-4 text-center">Demo 10</h5>
 					<div class="overlay rounded-lg mb-8 offcanvas-demo">
 						<div class="overlay-wrapper rounded-lg">
-							<img src="/assets/admin/media/demos/demo10.png" alt="" class="w-100" />
+							<img src="/backend/media/demos/demo10.png" alt="" class="w-100" />
 						</div>
 						<div class="overlay-layer">
 							<a href="../../../../../../demo10/dist" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow" target="_blank">Default</a>
@@ -1564,7 +1533,7 @@
 					<h5 class="font-weight-bold mb-4 text-center">Demo 11</h5>
 					<div class="overlay rounded-lg mb-8 offcanvas-demo">
 						<div class="overlay-wrapper rounded-lg">
-							<img src="/assets/admin/media/demos/demo11.png" alt="" class="w-100" />
+							<img src="/backend/media/demos/demo11.png" alt="" class="w-100" />
 						</div>
 						<div class="overlay-layer">
 							<a href="../../../../../../demo11/dist" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow" target="_blank">Default</a>
@@ -1574,7 +1543,7 @@
 					<h5 class="font-weight-bold mb-4 text-center">Demo 12</h5>
 					<div class="overlay rounded-lg mb-8 offcanvas-demo">
 						<div class="overlay-wrapper rounded-lg">
-							<img src="/assets/admin/media/demos/demo12.png" alt="" class="w-100" />
+							<img src="/backend/media/demos/demo12.png" alt="" class="w-100" />
 						</div>
 						<div class="overlay-layer">
 							<a href="../../../../../../demo12/dist" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow" target="_blank">Default</a>
@@ -1584,7 +1553,7 @@
 					<h5 class="font-weight-bold mb-4 text-center">Demo 13</h5>
 					<div class="overlay rounded-lg mb-8 offcanvas-demo">
 						<div class="overlay-wrapper rounded-lg">
-							<img src="/assets/admin/media/demos/demo13.png" alt="" class="w-100" />
+							<img src="/backend/media/demos/demo13.png" alt="" class="w-100" />
 						</div>
 						<div class="overlay-layer">
 							<a href="../../../../../../demo13/dist" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow" target="_blank">Default</a>
@@ -1594,7 +1563,7 @@
 					<h5 class="font-weight-bold mb-4 text-center">Demo 14</h5>
 					<div class="overlay rounded-lg mb-8 offcanvas-demo">
 						<div class="overlay-wrapper rounded-lg">
-							<img src="/assets/admin/media/demos/demo14.png" alt="" class="w-100" />
+							<img src="/backend/media/demos/demo14.png" alt="" class="w-100" />
 						</div>
 						<div class="overlay-layer">
 							<a href="#" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow disabled opacity-90">Coming soon</a>
@@ -1603,7 +1572,7 @@
 					<h5 class="font-weight-bold mb-4 text-center">Demo 15</h5>
 					<div class="overlay rounded-lg mb-8 offcanvas-demo">
 						<div class="overlay-wrapper rounded-lg">
-							<img src="/assets/admin/media/demos/demo15.png" alt="" class="w-100" />
+							<img src="/backend/media/demos/demo15.png" alt="" class="w-100" />
 						</div>
 						<div class="overlay-layer">
 							<a href="#" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow disabled opacity-90">Coming soon</a>
@@ -1612,7 +1581,7 @@
 					<h5 class="font-weight-bold mb-4 text-center">Demo 16</h5>
 					<div class="overlay rounded-lg mb-8 offcanvas-demo">
 						<div class="overlay-wrapper rounded-lg">
-							<img src="/assets/admin/media/demos/demo16.png" alt="" class="w-100" />
+							<img src="/backend/media/demos/demo16.png" alt="" class="w-100" />
 						</div>
 						<div class="overlay-layer">
 							<a href="#" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow disabled opacity-90">Coming soon</a>
@@ -1621,7 +1590,7 @@
 					<h5 class="font-weight-bold mb-4 text-center">Demo 17</h5>
 					<div class="overlay rounded-lg mb-8 offcanvas-demo">
 						<div class="overlay-wrapper rounded-lg">
-							<img src="/assets/admin/media/demos/demo17.png" alt="" class="w-100" />
+							<img src="/backend/media/demos/demo17.png" alt="" class="w-100" />
 						</div>
 						<div class="overlay-layer">
 							<a href="#" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow disabled opacity-90">Coming soon</a>
@@ -1630,7 +1599,7 @@
 					<h5 class="font-weight-bold mb-4 text-center">Demo 18</h5>
 					<div class="overlay rounded-lg mb-8 offcanvas-demo">
 						<div class="overlay-wrapper rounded-lg">
-							<img src="/assets/admin/media/demos/demo18.png" alt="" class="w-100" />
+							<img src="/backend/media/demos/demo18.png" alt="" class="w-100" />
 						</div>
 						<div class="overlay-layer">
 							<a href="#" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow disabled opacity-90">Coming soon</a>
@@ -1639,7 +1608,7 @@
 					<h5 class="font-weight-bold mb-4 text-center">Demo 19</h5>
 					<div class="overlay rounded-lg mb-8 offcanvas-demo">
 						<div class="overlay-wrapper rounded-lg">
-							<img src="/assets/admin/media/demos/demo19.png" alt="" class="w-100" />
+							<img src="/backend/media/demos/demo19.png" alt="" class="w-100" />
 						</div>
 						<div class="overlay-layer">
 							<a href="#" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow disabled opacity-90">Coming soon</a>
@@ -1648,7 +1617,7 @@
 					<h5 class="font-weight-bold mb-4 text-center">Demo 20</h5>
 					<div class="overlay rounded-lg mb-8 offcanvas-demo">
 						<div class="overlay-wrapper rounded-lg">
-							<img src="/assets/admin/media/demos/demo20.png" alt="" class="w-100" />
+							<img src="/backend/media/demos/demo20.png" alt="" class="w-100" />
 						</div>
 						<div class="overlay-layer">
 							<a href="#" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow disabled opacity-90">Coming soon</a>
@@ -1657,7 +1626,7 @@
 					<h5 class="font-weight-bold mb-4 text-center">Demo 21</h5>
 					<div class="overlay rounded-lg mb-8 offcanvas-demo">
 						<div class="overlay-wrapper rounded-lg">
-							<img src="/assets/admin/media/demos/demo21.png" alt="" class="w-100" />
+							<img src="/backend/media/demos/demo21.png" alt="" class="w-100" />
 						</div>
 						<div class="overlay-layer">
 							<a href="#" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow disabled opacity-90">Coming soon</a>
@@ -1666,7 +1635,7 @@
 					<h5 class="font-weight-bold mb-4 text-center">Demo 22</h5>
 					<div class="overlay rounded-lg mb-8 offcanvas-demo">
 						<div class="overlay-wrapper rounded-lg">
-							<img src="/assets/admin/media/demos/demo22.png" alt="" class="w-100" />
+							<img src="/backend/media/demos/demo22.png" alt="" class="w-100" />
 						</div>
 						<div class="overlay-layer">
 							<a href="#" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow disabled opacity-90">Coming soon</a>
@@ -1675,7 +1644,7 @@
 					<h5 class="font-weight-bold mb-4 text-center">Demo 23</h5>
 					<div class="overlay rounded-lg mb-8 offcanvas-demo">
 						<div class="overlay-wrapper rounded-lg">
-							<img src="/assets/admin/media/demos/demo23.png" alt="" class="w-100" />
+							<img src="/backend/media/demos/demo23.png" alt="" class="w-100" />
 						</div>
 						<div class="overlay-layer">
 							<a href="#" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow disabled opacity-90">Coming soon</a>
@@ -1684,7 +1653,7 @@
 					<h5 class="font-weight-bold mb-4 text-center">Demo 24</h5>
 					<div class="overlay rounded-lg mb-8 offcanvas-demo">
 						<div class="overlay-wrapper rounded-lg">
-							<img src="/assets/admin/media/demos/demo24.png" alt="" class="w-100" />
+							<img src="/backend/media/demos/demo24.png" alt="" class="w-100" />
 						</div>
 						<div class="overlay-layer">
 							<a href="#" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow disabled opacity-90">Coming soon</a>
@@ -1693,7 +1662,7 @@
 					<h5 class="font-weight-bold mb-4 text-center">Demo 25</h5>
 					<div class="overlay rounded-lg mb-8 offcanvas-demo">
 						<div class="overlay-wrapper rounded-lg">
-							<img src="/assets/admin/media/demos/demo25.png" alt="" class="w-100" />
+							<img src="/backend/media/demos/demo25.png" alt="" class="w-100" />
 						</div>
 						<div class="overlay-layer">
 							<a href="#" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow disabled opacity-90">Coming soon</a>
@@ -1702,7 +1671,7 @@
 					<h5 class="font-weight-bold mb-4 text-center">Demo 26</h5>
 					<div class="overlay rounded-lg mb-8 offcanvas-demo">
 						<div class="overlay-wrapper rounded-lg">
-							<img src="/assets/admin/media/demos/demo26.png" alt="" class="w-100" />
+							<img src="/backend/media/demos/demo26.png" alt="" class="w-100" />
 						</div>
 						<div class="overlay-layer">
 							<a href="#" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow disabled opacity-90">Coming soon</a>
@@ -1711,7 +1680,7 @@
 					<h5 class="font-weight-bold mb-4 text-center">Demo 27</h5>
 					<div class="overlay rounded-lg mb-8 offcanvas-demo">
 						<div class="overlay-wrapper rounded-lg">
-							<img src="/assets/admin/media/demos/demo27.png" alt="" class="w-100" />
+							<img src="/backend/media/demos/demo27.png" alt="" class="w-100" />
 						</div>
 						<div class="overlay-layer">
 							<a href="#" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow disabled opacity-90">Coming soon</a>
@@ -1720,7 +1689,7 @@
 					<h5 class="font-weight-bold mb-4 text-center">Demo 28</h5>
 					<div class="overlay rounded-lg mb-8 offcanvas-demo">
 						<div class="overlay-wrapper rounded-lg">
-							<img src="/assets/admin/media/demos/demo28.png" alt="" class="w-100" />
+							<img src="/backend/media/demos/demo28.png" alt="" class="w-100" />
 						</div>
 						<div class="overlay-layer">
 							<a href="#" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow disabled opacity-90">Coming soon</a>
@@ -1729,7 +1698,7 @@
 					<h5 class="font-weight-bold mb-4 text-center">Demo 29</h5>
 					<div class="overlay rounded-lg mb-8 offcanvas-demo">
 						<div class="overlay-wrapper rounded-lg">
-							<img src="/assets/admin/media/demos/demo29.png" alt="" class="w-100" />
+							<img src="/backend/media/demos/demo29.png" alt="" class="w-100" />
 						</div>
 						<div class="overlay-layer">
 							<a href="#" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow disabled opacity-90">Coming soon</a>
@@ -1738,7 +1707,7 @@
 					<h5 class="font-weight-bold mb-4 text-center">Demo 30</h5>
 					<div class="overlay rounded-lg mb-8 offcanvas-demo">
 						<div class="overlay-wrapper rounded-lg">
-							<img src="/assets/admin/media/demos/demo30.png" alt="" class="w-100" />
+							<img src="/backend/media/demos/demo30.png" alt="" class="w-100" />
 						</div>
 						<div class="overlay-layer">
 							<a href="#" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow disabled opacity-90">Coming soon</a>
@@ -1760,21 +1729,21 @@
 		<script>var KTAppSettings = { "breakpoints": { "sm": 576, "md": 768, "lg": 992, "xl": 1200, "xxl": 1400 }, "colors": { "theme": { "base": { "white": "#ffffff", "primary": "#3699FF", "secondary": "#E5EAEE", "success": "#1BC5BD", "info": "#8950FC", "warning": "#FFA800", "danger": "#F64E60", "light": "#E4E6EF", "dark": "#181C32" }, "light": { "white": "#ffffff", "primary": "#E1F0FF", "secondary": "#EBEDF3", "success": "#C9F7F5", "info": "#EEE5FF", "warning": "#FFF4DE", "danger": "#FFE2E5", "light": "#F3F6F9", "dark": "#D6D6E0" }, "inverse": { "white": "#ffffff", "primary": "#ffffff", "secondary": "#3F4254", "success": "#ffffff", "info": "#ffffff", "warning": "#ffffff", "danger": "#ffffff", "light": "#464E5F", "dark": "#ffffff" } }, "gray": { "gray-100": "#F3F6F9", "gray-200": "#EBEDF3", "gray-300": "#E4E6EF", "gray-400": "#D1D3E0", "gray-500": "#B5B5C3", "gray-600": "#7E8299", "gray-700": "#5E6278", "gray-800": "#3F4254", "gray-900": "#181C32" } }, "font-family": "Poppins" };</script>
 		<!--end::Global Config-->
 		<!--begin::Global Theme Bundle(used by all pages)-->
-		<script src="/assets/admin/plugins/global/plugins.bundle.js"></script>
-		<script src="/assets/admin/plugins/custom/prismjs/prismjs.bundle.js"></script>
-		<script src="/assets/admin/js/scripts.bundle.js"></script>
+		<script src="/backend/plugins/global/plugins.bundle.js"></script>
+		<script src="/backend/plugins/custom/prismjs/prismjs.bundle.js"></script>
+		<script src="/backend/js/scripts.bundle.js"></script>
 		<!--end::Global Theme Bundle-->
 		<!--begin::Page Scripts(used by this page)-->
-		<script src="/assets/admin/js/pages/widgets.js"></script>
+		<script src="/backend/js/pages/widgets.js"></script>
 		<!--sweet alert 2-->
-		<script src="/assets/admin/js/pages/features/miscellaneous/sweetalert2.js"></script>
-		<script src="/assets/admin/js/pages/crud/forms/widgets/select2.js"></script>
+		<script src="/backend/js/pages/features/miscellaneous/sweetalert2.js"></script>
+		<script src="/backend/js/pages/crud/forms/widgets/select2.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js" integrity="sha512-57oZ/vW8ANMjR/KQ6Be9v/+/h6bq9/l3f0Oc7vn6qMqyhvPd1cvKBRWWpzu0QoneImqr2SkmO4MSqU+RpHom3Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-		<script src="/assets/admin/js/pages/my-script.js"></script>
+		<script src="/backend/js/pages/my-script.js"></script>
 		<!-- custom js tag -->
 		@yield('custom-js-tag')
 		@stack('add-script')
-		@livewireScripts
+		{{-- @livewireScripts --}}
 		<!--end::Page Scripts-->
 	</body>
 	<!--end::Body-->

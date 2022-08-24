@@ -16,7 +16,14 @@ class CourseCategory extends Model
     ];
 
     // 1 danh mục khóa học có nhiều khóa học
-    public function courses(){
+    public function courses()
+    {
         return $this->hasMany(Course::class,'category_id','id');
+    }
+
+    // child
+    public function child()
+    {
+        return $this->hasMany(Course::class, 'parent_id', 'id');
     }
 }

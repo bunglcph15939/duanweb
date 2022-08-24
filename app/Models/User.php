@@ -54,9 +54,9 @@ class User extends Authenticatable
         );
     }
 
-    //Tác giả của 1 lớp học
+    //Tác giả có nhiều lớp học
     public function classroom(){
-        return $this->hasOne(Classroom::class, 'user_id','id');
+        return $this->hasMany(Classroom::class, 'user_id','id');
     }
 
     //1 User có nhiều khóa học
