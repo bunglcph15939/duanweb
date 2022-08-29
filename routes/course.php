@@ -8,5 +8,5 @@ use Illuminate\Support\Facades\Route;
  */
 
 Route::prefix('course')->group(function () {
-    
+
 });
