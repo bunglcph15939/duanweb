@@ -57,6 +57,7 @@
     <script src="/frontend/js/custom.js"></script>
     <script src="/frontend/js/bootstrap-select.min.js"></script>
     <script src="/frontend/unpkg.com/ionicons%405.2.3/dist/ionicons.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
 
 </body>
 
