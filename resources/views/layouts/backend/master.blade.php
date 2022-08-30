@@ -9,7 +9,7 @@
 		<meta name="csrf-token" content="{{ csrf_token() }}" />
 		<link rel="canonical" href="https://keenthemes.com/metronic" />
 		<!--begin::Fonts-->
-		{{-- @livewireStyles --}}
+		@livewireStyles
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
 		<!--end::Fonts-->
 		<!--begin::Global Theme Styles(used by all pages)-->
@@ -1740,10 +1740,11 @@
 		<script src="/backend/js/pages/crud/forms/widgets/select2.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js" integrity="sha512-57oZ/vW8ANMjR/KQ6Be9v/+/h6bq9/l3f0Oc7vn6qMqyhvPd1cvKBRWWpzu0QoneImqr2SkmO4MSqU+RpHom3Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 		<script src="/backend/js/pages/my-script.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 		<!-- custom js tag -->
 		@yield('custom-js-tag')
 		@stack('add-script')
-		{{-- @livewireScripts --}}
+		@livewireScripts
 		<!--end::Page Scripts-->
 	</body>
 	<!--end::Body-->

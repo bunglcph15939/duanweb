@@ -28,7 +28,9 @@ class UserRequest extends FormRequest
             'email' => ['required', 'email', 'max:255',
               Rule::unique('users')->ignore($this->user)],
             'password'=>['required','min:6','max:50'],
-            'avatar' => ['required','image','max:5120'],
+            'password_confirm' => 'required|same:password',
+            'avatar' => [ 'mimes:jpeg,jpg,png,gif','required','image','max:5120'],
+            
 
         ];
     }
@@ -47,6 +49,9 @@ class UserRequest extends FormRequest
             'avatar.required'=>'Trường avatar không được bỏ trống',
             'avatar.image'=>'Trường avatar bắt buộc là ảnh',
             'avatar.max'=>'Ảnh vượt quá 5mb',
+            'avatar.mimes'=>'Phải là dạng ảnh',
+            'same' => 'Mật khẩu phải trùng nhau',
+            'password_confirm.required' => 'Password Comfirm không được để chống'
         ];
 
     }
