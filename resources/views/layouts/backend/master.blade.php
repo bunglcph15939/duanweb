@@ -101,7 +101,7 @@
 					</div>
 					<!--end::Brand-->
 					<!--begin::Aside Menu-->
-					
+
                     @include('layouts.backend.sidebar')
 
 					<!--end::Aside Menu-->
@@ -146,7 +146,7 @@
 						<div class="d-flex flex-column-fluid">
 							<!--begin::Container-->
 							<div class="container">
-								
+
                                 @yield('content')
 
 							</div>
@@ -155,7 +155,7 @@
 						<!--end::Entry-->
 					</div>
 					<!--end::Content-->
-					
+
                     @include('layouts.backend.footer')
 
 				</div>
@@ -1743,6 +1743,8 @@
 		<script src="https://cdn.ckeditor.com/4.19.0/standard/ckeditor.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js" integrity="sha512-57oZ/vW8ANMjR/KQ6Be9v/+/h6bq9/l3f0Oc7vn6qMqyhvPd1cvKBRWWpzu0QoneImqr2SkmO4MSqU+RpHom3Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 		<script src="/backend/js/pages/my-script.js"></script>
+		{{-- <script src="/backend/plugins/custom/kanban/kanban.bundle.js"></script>
+		<script src="/backend/js/pages/features/miscellaneous/kanban-board.js"></script> --}}
 		<!-- custom js tag -->
 		@yield('custom-js-tag')
 		@stack('add-script')
