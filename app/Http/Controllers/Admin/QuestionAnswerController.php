@@ -55,7 +55,6 @@ class QuestionAnswerController extends Controller
             $img = $request->attachment;
             $request_array['attachment'] =  Helpers::storage_image($img);
         }
-
         //-------add question--------
         Question::create($request_array);
         //get maxid into question_id
@@ -107,7 +106,7 @@ class QuestionAnswerController extends Controller
         $question->title = $request->title;
         $question->type = $request->type;
         if ($request->hasFile('attachment')) {
-            $request->attachment =  Helpers::storage_image($request->attachment);
+            $question->attachment =  Helpers::storage_image($request->attachment);
         }
         $question->tag = $request->tag;
         $question->save();

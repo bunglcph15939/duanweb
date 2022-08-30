@@ -12,7 +12,7 @@
         </div>
 
         <div class="card-body" id="table-main">
-            {{-- @include('screens.backend.questionquiz.components.layout.table') --}}
+        
         </div>
     </div>
     <!--end::Card-->
@@ -53,21 +53,6 @@
                 }
             }
         }
-
-        // $('#model_fileUpload').onchange = (a) => {
-        //     // console.log(a.target.files[0].name);
-        //     $('#show_img_model').src = URL.createObjectURL(a.target.files[0]);
-        //     $('#show_img_model').onload = function() {
-        //         URL.revokeObjectURL($('#show_img_model').src) // free memory
-        //     }
-        // }
-
-        // $$('#list_image img').forEach(element => {
-        //     element.onclick = (a) => {
-        //         $('#fileUpload').files[0] = a.target.src;
-        //         $('#show_img').src = a.target.src
-        //     }
-        // });
         
     </script>
 

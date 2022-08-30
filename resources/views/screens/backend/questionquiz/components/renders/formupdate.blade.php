@@ -53,9 +53,7 @@
                         .then(
                             data => {
                                 document.querySelector('#modal-body-update').innerHTML = res.data
-                                setTimeout(() => {
-                                    KTTagifyDemos.init()
-                                }, 50);
+                                KTTagifyDemos.init()
                             }
                         )
                 }

@@ -43,15 +43,14 @@
                 <div class="tab-content" id="tab-content">
                     <div class="tab-pane fade show active" id="kt_tab_pane_0_2" role="tabpanel"
                         aria-labelledby="kt_tab_pane_2">
-                        <strong>Image</strong>
-                        <br>
-                        <input type="file" name="attachment" accept=".png, .jpg, .jpeg" id="file_image" />
-                    </div>
-
-                    <div class="tab-pane fade" id="kt_tab_pane_1_2" role="tabpanel" aria-labelledby="kt_tab_pane_2">
-                        <strong>Mp3</strong>
-                        <br>
-                        <input type="file" name="attachment" accept=".png, .jpg, .jpeg" />
+                        <div class="form-group">
+                            <label>Ảnh slide</label>
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input file-image" name="attachment" accept=".png, .jpg, .jpeg, .jfif, .webp" id="customFile">
+                                <label class="custom-file-label" for="customFile">Choose file</label>
+                            </div>
+                            <div class="preview-image new"></div>
+                        </div>
                     </div>
                 </div>
 
