@@ -101,7 +101,7 @@
 					</div>
 					<!--end::Brand-->
 					<!--begin::Aside Menu-->
-					
+
                     @include('layouts.backend.sidebar')
 
 					<!--end::Aside Menu-->
@@ -146,7 +146,7 @@
 						<div class="d-flex flex-column-fluid">
 							<!--begin::Container-->
 							<div class="container">
-								
+
                                 @yield('content')
 
 							</div>
@@ -155,7 +155,7 @@
 						<!--end::Entry-->
 					</div>
 					<!--end::Content-->
-					
+
                     @include('layouts.backend.footer')
 
 				</div>

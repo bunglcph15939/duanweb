@@ -20,6 +20,7 @@ class LessonFactory extends Factory
             'title' => fake()->text(30),
             'content' => fake()->text(),
             'video_path' => fake()->imageUrl(),
+
             'video_type' => rand(0,4),
             'lesson_type'  => 'video',
             'attachment' => fake()->text(),
