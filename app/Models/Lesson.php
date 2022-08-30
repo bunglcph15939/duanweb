@@ -10,6 +10,7 @@ class Lesson extends Model
     use HasFactory;
 
     protected $fillable = [
+        'title',
         'content',
         'video_path',
         'video_type',
@@ -31,6 +32,6 @@ class Lesson extends Model
 
     //Quiz trong các bài học
     public function quizs(){
-        return $this->hasMany(Quiz::class,'quiz_id','id');
+        return $this->belongsToMany(Quiz::class, 'lesson_quiz', 'lesson_id', 'quiz_id');
     }
 }
