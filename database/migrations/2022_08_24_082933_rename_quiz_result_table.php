@@ -25,8 +25,8 @@ return new class extends Migration
         Schema::rename('quiz_result','quiz_results');
 
         Schema::table('quiz_results', function (Blueprint $table){
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('quiz_id')->references('id')->on('quizs');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('quiz_id')->references('id')->on('quizs')->onDelete('cascade');
         });
     }
 

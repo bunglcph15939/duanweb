@@ -11,7 +11,7 @@ class ExportFileUser implements FromCollection, WithStrictNullComparison
 
     public $user;
 
-    public function __construct( $user)
+    public function __construct($user)
     {
         $this->user = $user;
     }

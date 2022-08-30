@@ -77,8 +77,7 @@ class UserComponent extends Component
 
     public function exportUser(){
         $ex = User::where('name', 'LIKE', "%$this->search%")
-        ->orderby($this->orderBy, $this->orderAsc)->paginate();
-        // dd($ex);
+        ->orderby($this->orderBy, $this->orderAsc)->role($this->role)->get();
         return Excel::download(new ExportFileUser($ex), 'users.xlsx');
     }
 

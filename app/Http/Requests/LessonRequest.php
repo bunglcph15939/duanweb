@@ -2,9 +2,14 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\RequiredIfFieldExists;
+use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\Exceptions\HttpResponseException;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Validation\ValidationException;
 
-class LessionRequest extends FormRequest
+class LessonRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -16,6 +21,13 @@ class LessionRequest extends FormRequest
         return true;
     }
 
+    protected $rules = [
+        'title'         => 'required',
+        'section_id'    => 'required',
+        'video_url'     => 'sometimes|required',
+        'attachment.*'  => 'nullable|mimes:doc,docx,pdf,zip,rar'
+    ];
+
     /**
      * Get the validation rules that apply to the request.
      *
@@ -23,29 +35,43 @@ class LessionRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'content'=>'required|max:255|min:5|alpha',
-            'video_path'=>'mimes:mp4,mov,ogg | max:20000',
-            'video_type'=>'required|max:255|min:5|string',
-            'attachment'=>'required|max:255|min:5|string',
-
-        ];
+        return $this->rules;
     }
+
+    protected function prepareForValidation()
+    {
+        if($this->get('lesson_type') == 'video' && request()->method() == 'POST') $this->rules['video_file'] = 'required|mimes:mp4,ogx,oga,ogv,ogg,webm';
+        if($this->get('lesson_type') == 'document' && request()->method() == 'POST') $this->rules['doc_file'] = 'required|mimes:doc,docx,pdf';
+        if($this->get('lesson_type') == 'video' && request()->method() == 'PUT') $this->rules['video_file'] = 'nullable|mimes:mp4,ogx,oga,ogv,ogg,webm';
+        if($this->get('lesson_type') == 'document' && request()->method() == 'PUT') $this->rules['doc_file'] = 'nullable|mimes:doc,docx,pdf';
+    }
+
     public function messages(){
         return [
-            'content.required'=>'Trường content không được bỏ trống',
-            'content.max'=>'Trường content tối đa 255 kí tự',
-            'content.min'=>'Trường content tối thiểu 5 kí tự',
-            'content.alpha'=>'Trường content bắt buộc là chữ',
-
-            'video_path.mimes'=>'Định dạng video phải thuộc mp4,mov,ogg',
-            'video_path.max'=>'Video tối đa cho phép là 20mb',
-
-            'video_type.required'=>'Trường video_type không được bỏ trống',
-            'video_type.max'=>'Trường video_type tối đa 255 kí tự',
-            'video_type.min'=>'Trường video_type tối thiểu 5 kí tự',
-            'video_type.alpha'=>'Trường video_type bắt buộc là chữ',
-
+            'required'      => ':attribute không được để trống',
+            'mimes'         => 'Sai định dạng cho phép'
         ];
+    }
+
+    public function attributes()
+    {
+        return [
+            'title'         => 'Tên bài học',
+            'section_id'    => 'Chương học',
+            'video_file'    => 'Tệp video',
+            'video_url'     => 'Link video',
+            'doc_file'      => 'Tệp tài liệu'
+        ];
+    }
+
+    protected function failedValidation(Validator $validator)
+    {
+        if ($this->wantsJson() || $this->ajax()) {
+            $errors = (new ValidationException($validator))->errors();
+            throw new HttpResponseException(
+                response()->json(['errors' => $errors], JsonResponse::HTTP_UNPROCESSABLE_ENTITY)
+            );
+        }
+        parent::failedValidation($validator);
     }
 }

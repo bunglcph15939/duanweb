@@ -43,7 +43,7 @@
                             </a>
                         </li>
                         <li class="navi-item">
-                            <div wire:click="exportUser()" class="navi-link">
+                            <div wire:click="exportUser() " class="navi-link">
                                 <span class="navi-icon">
                                     <i class="la la-file-excel-o"></i>
                                 </span>

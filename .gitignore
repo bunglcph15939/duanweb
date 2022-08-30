@@ -3,6 +3,7 @@
 /public/hot
 /public/storage
 /storage/*.key
+/storage/app
 /vendor
 .env
 .env.backup
@@ -15,3 +16,5 @@ yarn-error.log
 /.idea
 /.vscode
 composer.lock
+/public/images
+/public/documents
