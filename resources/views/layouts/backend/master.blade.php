@@ -9,14 +9,16 @@
 		<meta name="csrf-token" content="{{ csrf_token() }}" />
 		<link rel="canonical" href="https://keenthemes.com/metronic" />
 		<!--begin::Fonts-->
-		{{-- @livewireStyles --}}
+		@livewireStyles
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
 		<!--end::Fonts-->
 		<!--begin::Global Theme Styles(used by all pages)-->
 		<link href="/backend/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
 		<link href="/backend/plugins/custom/prismjs/prismjs.bundle.css" rel="stylesheet" type="text/css" />
 		<link href="/backend/css/style.bundle.css" rel="stylesheet" type="text/css" />
+		{{-- <link href="/backend/plugins/custom/kanban/kanban.bundle.css" rel="stylesheet" type="text/css" /> --}}
 		<!--end::Global Theme Styles-->
+		{{-- <link href="/backend/css/pages/wizard/wizard-3.css" rel="stylesheet" type="text/css" /> --}}
 		<!--begin::layouts Themes(used by all pages)-->
 		<link href="/backend/css/themes/layout/header/base/light.css" rel="stylesheet" type="text/css" />
 		<link href="/backend/css/themes/layout/header/menu/light.css" rel="stylesheet" type="text/css" />
@@ -1737,13 +1739,16 @@
 		<script src="/backend/js/pages/widgets.js"></script>
 		<!--sweet alert 2-->
 		<script src="/backend/js/pages/features/miscellaneous/sweetalert2.js"></script>
-		<script src="/backend/js/pages/crud/forms/widgets/select2.js"></script>
+		{{-- <script src="/backend/js/pages/crud/forms/widgets/select2.js"></script> --}}
+		<script src="https://cdn.ckeditor.com/4.19.0/standard/ckeditor.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js" integrity="sha512-57oZ/vW8ANMjR/KQ6Be9v/+/h6bq9/l3f0Oc7vn6qMqyhvPd1cvKBRWWpzu0QoneImqr2SkmO4MSqU+RpHom3Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 		<script src="/backend/js/pages/my-script.js"></script>
+		{{-- <script src="/backend/plugins/custom/kanban/kanban.bundle.js"></script>
+		<script src="/backend/js/pages/features/miscellaneous/kanban-board.js"></script> --}}
 		<!-- custom js tag -->
 		@yield('custom-js-tag')
 		@stack('add-script')
-		{{-- @livewireScripts --}}
+		@livewireScripts
 		<!--end::Page Scripts-->
 	</body>
 	<!--end::Body-->

@@ -11,6 +11,7 @@ class CourseCategory extends Model
 
     protected $fillable = [
         'name',
+        'slug',
         'parent_id',
         'thumbnail',
     ];

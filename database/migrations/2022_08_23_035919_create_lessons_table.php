@@ -15,9 +15,12 @@ return new class extends Migration
     {
         Schema::create('lessons', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
             $table->text('content')->nullable();
             $table->string('video_path')->nullable();
             $table->string('video_type')->nullable();
+            $table->string('lesson_type');
+            $table->string('doc_file')->nullable(); // if
             $table->string('attachment')->nullable();
             $table->tinyInteger('order');
             $table->unsignedBigInteger('course_id');
