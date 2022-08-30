@@ -47,7 +47,6 @@
             url: '{{ URL::to('/course_category/search_course_category') }}',
             data: {
                 'search': $value,
-                'page': 1,
             },
             success: function(data) {
                 console.log($value);
@@ -63,7 +62,6 @@
             'csrftoken': '{{ csrf_token() }}'
         }
     });
-
     function add_course_category(id_form,id_modal) {
         formData = new FormData(document.getElementById(id_form));
         console.log(formData)
@@ -80,15 +78,16 @@
                     'Thanh cong',
                     'success'
                 )
-                modal = document.querySelector('.modal-backdrop')
+                modal =document.querySelector('.modal-backdrop')
                 modal.classList.remove('show');
                 modal.style.display = 'none'
-                modal1 = document.getElementById(id_modal)
+                modal1 =  document.getElementById(id_modal)
                 modal1.classList.remove('show');
                 modal1.style.display = 'none'
                 window.location.reload()
             },
             error: function(response) {
+                
                 Swal.fire({
                     icon: 'error',
                     title: 'Oops...',
