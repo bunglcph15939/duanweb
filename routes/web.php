@@ -15,11 +15,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('screens.frontend.index');
-});
+})->name('home');
 
-Route::get('/login', function() {
-    return view('screens.frontend.login');
-});
+
 
 Route::get('/admin', function(){
     return view('screens.backend.dashboard');
