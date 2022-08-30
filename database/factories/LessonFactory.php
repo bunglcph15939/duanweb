@@ -23,7 +23,6 @@ class LessonFactory extends Factory
 
             'video_type' => rand(0,4),
             'lesson_type'  => 'video',
-
             'attachment' => fake()->text(),
             'order' => rand(1,3),
             'course_id' =>  rand(1,10),

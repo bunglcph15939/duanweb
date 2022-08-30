@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Route;
  * Users Role Route
  */
 
-
 Route::prefix('admin/courses')->name('admin.course.')->group(function () {
     Route::get('/', [CourseController::class, 'index'])->name('list');
     Route::get('/add', [CourseController::class, 'create'])->name('create');
@@ -19,4 +18,3 @@ Route::prefix('admin/courses')->name('admin.course.')->group(function () {
     Route::patch('/{course}', [CourseController::class, 'changeStatus'])->name('changestatus');
     Route::delete('/{course}', [CourseController::class, 'destroy'])->name('delete');
 });
-
