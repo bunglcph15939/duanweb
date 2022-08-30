@@ -16,7 +16,7 @@
         id.value = item.id
         name.value = item.name;
         var kt_image_5 = document.getElementById('kt_image_5');
-        kt_image_5.style = 'background-image: url(' + item.thumbnail + ')'
+        kt_image_5.style = 'background-image: url( http://127.0.0.1:8000/' + item.thumbnail+ ')'
     }
     /**
      * Lấy dữ liệu thêm item con
@@ -35,7 +35,7 @@
         idItem.value = item.id
         nameItem.value = item.name;
         var img_3 = document.getElementById('img_3');
-        img_3.style = 'background-image: url(' + item.thumbnail + ')'
+        img_3.style = 'background-image: url( http://127.0.0.1:8000/' + item.thumbnail+ ')'
     }
     /**
      * ajax search
@@ -44,7 +44,7 @@
         $value = $(this).val();
         $.ajax({
             type: 'get',
-            url: '{{ URL::to('/course_category/search_course_category') }}',
+            url: '{{ URL::to('/admin/course_category/search_course_category') }}',
             data: {
                 'search': $value,
             },
@@ -67,7 +67,7 @@
         console.log(formData)
         $.ajax({
             type: 'post',
-            url: '{{ URL::to('/course_category/store') }}',
+            url: '{{ URL::to('/admin/course_category/store') }}',
             data: formData,
             processData: false,
             contentType: false,
@@ -87,7 +87,7 @@
                 window.location.reload()
             },
             error: function(response) {
-                
+
                 Swal.fire({
                     icon: 'error',
                     title: 'Oops...',
@@ -109,7 +109,7 @@
         console.log(formData)
         $.ajax({
             type: 'post',
-            url: '{{ URL::to('/course_category/update') }}',
+            url: '{{ URL::to('/admin/course_category/update') }}',
             data: formData,
             processData: false,
             contentType: false,

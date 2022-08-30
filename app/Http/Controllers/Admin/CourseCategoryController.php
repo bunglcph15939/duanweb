@@ -18,7 +18,7 @@ class CourseCategoryController extends Controller
         if($request->hasFile('thumbnail')){
             $img=$request->thumbnail;
             $imgName=$img->hashName();
-            $course_category->thumbnail=$img->storeAs('album/image',$imgName);
+            $course_category->thumbnail=$img->storeAs('images/course_category',$imgName);
         }
         $course_category->save();
             $output=view('layouts.blade_api.courseCategory',[
@@ -33,7 +33,7 @@ class CourseCategoryController extends Controller
         if($request->hasFile('thumbnail')){
             $img=$data['thumbnail'];
             $imgName=$img->hashName();
-            $data['thumbnail']= $img->storeAs('album/image',$imgName);
+            $data['thumbnail']= $img->storeAs('images/course_category',$imgName);
         }
         $CourseCategory->update($data);
         $output=view('layouts.blade_api.courseCategory',[

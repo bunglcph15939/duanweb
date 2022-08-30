@@ -15,7 +15,7 @@
         $value = $(this).val();
         $.ajax({
             type: 'get',
-            url: '{{ URL::to('/classroom/search_name') }}',
+            url: '{{ URL::to('/admin/classroom/search_name') }}',
             data: {
                 'search': $value
             },
@@ -37,7 +37,7 @@
         $value = $(this).val();
         $.ajax({
             type: 'get',
-            url: '{{ URL::to('/classroom/fillter') }}',
+            url: '{{ URL::to('/admin/classroom/fillter') }}',
             data: {
                 'fillter': $value
             },
@@ -55,7 +55,7 @@
         $value = item.id;
         $.ajax({
             type: 'get',
-            url: '{{ URL::to('/classroom/change_status') }}',
+            url: '{{ URL::to('/admin/classroom/change_status') }}',
             data: {
                 'change_status': $value
             },
@@ -78,7 +78,7 @@
         console.log(formData)
         $.ajax({
             type: 'post',
-            url: '{{ URL::to('/classroom/update') }}',
+            url: '{{ URL::to('/admin/classroom/update') }}',
             data: formData,
 
             processData: false,
@@ -117,7 +117,7 @@
         console.log(formData)
         $.ajax({
             type: 'post',
-            url: '{{ URL::to('/classroom/store') }}',
+            url: '{{ URL::to('/admin/classroom/store') }}',
             data: formData,
 
             processData: false,

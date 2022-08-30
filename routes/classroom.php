@@ -7,7 +7,7 @@ use App\Http\Controllers\Admin\ClassroomController;
  * Users Role Route
  */
 
-Route::prefix('classroom')->name('classroom.')->group(function () {
+Route::prefix('admin/classroom')->name('classroom.')->group(function () {
     Route::get('/',[ClassroomController::class,'index']);
     Route::post('/store/',[ClassroomController::class,'store_classroom']);
     Route::get('change_status',[ClassroomController::class,'change_status']);

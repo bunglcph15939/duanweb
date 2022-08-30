@@ -2,7 +2,7 @@
     @foreach ($course_category as $item)
             <div class="col-md-6 col-lg-6 col-xl-4 on-hover-action mt-4" id="1">
                 <div class="card d-block">
-                    <img class="card-img-top" src="{{ $item->thumbnail }}" alt="Card image cap">
+                    <img class="card-img-top" src="{{ asset($item->thumbnail) }}" height="300px" alt="Card image cap">
                     <div class="card-body">
                         <h4 class="card-title mb-0">{{ $item->name }}</h4>
                         <small style="font-style: italic;">
