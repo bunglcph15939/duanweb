@@ -3,8 +3,11 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Contracts\Validation\Validator;
+use Illuminate\Http\Exceptions\HttpResponseException;
+use Illuminate\Http\JsonResponse;
 
-class AnswerRequest extends FormRequest
+class QuestionAnswerRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,15 +26,9 @@ class AnswerRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'content.*'=>'sometimes|required|max:255|min:5',
-        ];
-    }
-    public function messages(){
-        return [
-            'content.required'=>'Trường content bắt buộc nhập',
-            'content.max'=>'Trường content tối đa 255 kí tự',
-            'content.min'=>'Trường content tối thiêu 5 kí tự',
-        ];
+        return array_merge(
+            with(new QuestionRequest())->rules(),
+            with(new AnswerRequest())->rules()
+        );
     }
 }

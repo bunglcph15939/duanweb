@@ -1,5 +1,18 @@
 <?php
 
+
+namespace App\helpers;
+
+class Helpers
+{
+    public static function storage_image($img):string
+    {
+        $imgName = $img->hashName();
+        $image = $img->storeAs('albums/images', $imgName);
+        return $image;
+    }
+}
+
 // get youtube id
 if(!function_exists('getYoutubeID')){
     function getYoutubeID($url){
@@ -18,3 +31,5 @@ if(!function_exists('getPathImage')){
         }
     }
 }
+
+
