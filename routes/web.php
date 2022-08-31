@@ -23,6 +23,7 @@ Route::get('/admin', function(){
     return view('screens.backend.dashboard');
 });
 
+
 // preview pdf
 Route::get('/pdf/{file}', function ($file) {
     // file path
@@ -34,3 +35,4 @@ Route::get('/pdf/{file}', function ($file) {
    ];
   return response()->file($path, $header);
 })->name('pdf');
+

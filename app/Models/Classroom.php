@@ -41,4 +41,13 @@ class Classroom extends Model
             'course_id'
         )->withTimestamps();
     }
+
+    public function quizs(){
+        return $this->belongsToMany(
+            Quiz::class,
+            'class_quiz',
+            'class_id',
+            'quiz_id'
+        );
+    }
 }
