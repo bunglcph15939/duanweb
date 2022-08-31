@@ -20,7 +20,6 @@ class QuizFactory extends Factory
             'title' => fake()->text(20),
             'duration' => fake()->time(10),
             'limit' => 5,
-            'lesson_id' => rand(1,10),
         ];
     }
 }

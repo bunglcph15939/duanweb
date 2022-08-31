@@ -24,3 +24,5 @@ Route::get('/login', function() {
 Route::get('/admin', function(){
     return view('screens.backend.dashboard');
 });
+
+

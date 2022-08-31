@@ -13,8 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->tinyInteger('status')->default(0);
+        Schema::create('class_quiz', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('class_id');
+            $table->unsignedBigInteger('quiz_id');
+            $table->foreign('quiz_id')->references('id')->on('quizs');
+            $table->foreign('class_id')->references('id')->on('classrooms');
         });
     }
 
@@ -25,8 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('status');
-        });
+        Schema::dropIfExists('class_quiz');
     }
 };

@@ -18,8 +18,13 @@ class Quiz extends Model
     ];
 
     //Quiz thuộc lesson
-    public function lesson(){
-        return $this->belongsTo(Lesson::class,'lesson_id','id');
+    public function lessons(){
+        return $this->belongsToMany(
+            Lesson::class,
+            'lesson_quizs',
+            'quiz_id',
+            'lesson_id'
+        );
     }
 
     //1 bài quiz có nhiều câu hỏi
@@ -35,5 +40,23 @@ class Quiz extends Model
     //Kết quả của quiz do học sinh làm
     public function quiz_results(){
         return $this->hasMany(QuizResult::class,'quiz_id','id');
+    }
+
+    public function users(){
+        return $this->belongsToMany(
+            User::class,
+            'user_quiz',
+            'quiz_id',
+            'user_id'
+        );
+    }
+
+    public function classrooms(){
+        return $this->belongsToMany(
+            Classroom::class,
+            'class_quiz',
+            'quiz_id',
+            'class_id'
+        );
     }
 }
