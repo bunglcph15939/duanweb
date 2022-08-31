@@ -15,9 +15,7 @@
             <a class="btn btn-light  btn-sm mr-2" id="change_status"onclick="change({{ $item }})"><i
                     class="ki ki-reload text-warning"></i></a>
 
-            <a class="btn btn-light  btn-sm" data-toggle="modal" data-target="#editModal"
-                onclick="javascript:edit_classroom({{ $item }})">
-                <i class="flaticon2-gear text-primary"></i></a>
+                    <a href="{{route('classroom.form_update_classroom',$item->id)}}" class="btn btn-light  btn-sm"><i class="flaticon2-gear text-primary"></i></a>
         </td>
     </tr>
 @endforeach

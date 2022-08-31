@@ -1,5 +1,5 @@
 <div>
-    
+
 <div class="card card-custom">
     <div class="card-header flex-wrap border-0 pt-6 pb-0">
         <div class="card-title">
@@ -123,9 +123,9 @@
                                 <select wire:model="role" class="form-control" id="kt_datatable_search_type">
                                     <option value="">All</option>
                                     @foreach ($roles as $key => $role)
-                                        <option value="{{$key}}">{{$role}}</option>    
+                                        <option value="{{$key}}">{{$role}}</option>
                                     @endforeach
-                                    
+
                                 </select>
                             </div>
                         </div>
@@ -172,23 +172,23 @@
                     </td>
                     <td>{{$user->created_at}}</td>
                     <td nowrap="nowrap">
-                        <button 
-                            {{-- data-url="{{route('admin.user.edit-user')}}" 
+                        <button
+                            {{-- data-url="{{route('admin.user.edit-user')}}"
                             data-id="{{ $user->id }}" --}}
                             wire:click.prevent="editUser({{$user->id}})"
                             class="btn btn-light-primary px-6 font-weight-bold"
                             {{-- class="show-form-edit btn btn-light-primary px-6 font-weight-bold"  --}}
-                            data-bs-toggle="modal" data-bs-target="#exampleModal" 
+                            data-bs-toggle="modal" data-bs-target="#exampleModal"
                             >
                             <i class="flaticon2-gear text-primary"></i>
                         </button>
                         {{-- <a href="" class="btn btn-icon btn-primary"><i class="fas fa-trash"></i></a> --}}
                         {{-- <a href="javascript:;" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger"><i class="la la-trash-o"></i>Delete</a> --}}
                     </td>
-                </tr>   
+                </tr>
                 @endforeach
-                
-                
+
+
 
             </tbody>
         </table>
@@ -196,7 +196,7 @@
         {{ $users->links('vendor.livewire.bootstrap') }}
     </div>
 </div>
-  
+
   <!-- Modal -->
   <div wire:ignore.self class="modal fade modal-edit-user" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -220,7 +220,7 @@
                           {{$userRole == $role ? "selected" : ""}}
                           {{-- wire:key="{{$userRole}}" --}}
                            value="{{$key}}">{{$role}}
-                          </option>    
+                          </option>
                       @endforeach
                     </select>
                   </div>
