@@ -21,7 +21,7 @@ class Quiz extends Model
     public function lessons(){
         return $this->belongsToMany(
             Lesson::class,
-            'lesson_quizs',
+            'lesson_quiz',
             'quiz_id',
             'lesson_id'
         );

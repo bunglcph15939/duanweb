@@ -20,8 +20,8 @@ return new class extends Migration
             $table->dateTime('end_time');
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('quiz_id');
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('quiz_id')->references('id')->on('quizs');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('quiz_id')->references('id')->on('quizs')->onDelete('cascade');
             $table->timestamps();
         });
     }

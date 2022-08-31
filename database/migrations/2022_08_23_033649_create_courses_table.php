@@ -20,8 +20,8 @@ return new class extends Migration
             $table->text('thumbnail');
             $table->char('status');
             $table->tinyInteger('config');
-            $table->unsignedBigInteger('category_id');
-            $table->foreign('category_id')->references('id')->on('course_categories');
+            $table->unsignedBigInteger('category_id')->nullable();
+            $table->foreign('category_id')->references('id')->on('course_categories')->onDelete('set null');
             $table->timestamps();
         });
     }

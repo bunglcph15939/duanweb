@@ -12,6 +12,7 @@ class Course extends Model
     protected $fillable = [
         'title',
         'content',
+        'slug',
         'thumbnail',
         'status',
         'config',
@@ -36,7 +37,7 @@ class Course extends Model
             Classroom::class,
             'class_course',
             'course_id',
-            'classroom_id'
+            'class_id'
         );
     }
 
@@ -49,4 +50,25 @@ class Course extends Model
     public function lessons(){
         return $this->hasMany(Lesson::class,'course_id','id');
     }
+
+    public function scopeFindByName($query, $request){
+        if($request->q){
+            $query->where('title', 'like', '%'.$request->q.'%');
+        }
+    }
+
+    public function scopeFindByCategory($query, $request){
+        if($request->category){
+            $query->whereHas('category', function($q) use ($request){
+                return $q->where('slug', $request->category);
+            });
+        }
+    }
+
+    public function scopeFindByStatus($query, $request){
+        if($request->status != null){
+            $query->where('status', $request->status);
+        }
+    }
+
 }

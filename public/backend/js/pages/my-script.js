@@ -1,4 +1,4 @@
-$("#customFile").on("change", function () {
+$(document).on("change", "#customFile.file-image", function () {
     $this = $(this)
     $this.parent(".custom-file").next(".preview-image.new").empty()
     $this.closest(".form-group").find(".preview-image.old").show()
@@ -61,6 +61,7 @@ $(document).ready(function(){
   $('.delete-item').click(function(e){
     e.preventDefault()
     $this = $(this)
+    let form = $this.attr('form')
     return Swal.fire({
       title: 'Bạn có chắc chắn muốn xóa?',
       icon: 'warning',
@@ -72,7 +73,25 @@ $(document).ready(function(){
     }).then((result) => {
       if (result.isConfirmed) {
         $this.closest('form').submit()
+        if(form) $('#'+form).submit()
       }
     })
   })
 })
+
+$.ajaxSetup({
+  headers: {
+      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+  }
+})
+
+function salert(type, message){
+  Swal.fire({
+      position: 'top-right',
+      icon: type,
+      title: message,
+      showConfirmButton: false,
+      timer: 1300,
+      timerProgressBar: true
+  })
+}

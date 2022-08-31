@@ -24,23 +24,14 @@ class AnswerRequest extends FormRequest
     public function rules()
     {
         return [
-            'content'=>'required|max:255|min:5',
-            'is_correct'=>'|max:4|min:1|integer',
+            'content.*'=>'sometimes|required|max:255|min:5',
         ];
     }
     public function messages(){
         return [
-
             'content.required'=>'Trường content bắt buộc nhập',
             'content.max'=>'Trường content tối đa 255 kí tự',
             'content.min'=>'Trường content tối thiêu 5 kí tự',
-
-            
-            'is_correct.max'=>'Trường is_correct tối đa 4 kí tự',
-            'is_correct.min'=>'Trường is_correct tối thiêu 1 kí tự',
-            'is_correct.integer'=>'Trường is_correct bắt buộc là số'
-
         ];
-
     }
 }
