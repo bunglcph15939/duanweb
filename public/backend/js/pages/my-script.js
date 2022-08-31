@@ -1,4 +1,4 @@
-$("#customFile.file-image").on("change", function () {
+$(document).on("change", "#customFile.file-image", function () {
     $this = $(this)
     $this.parent(".custom-file").next(".preview-image.new").empty()
     $this.closest(".form-group").find(".preview-image.old").show()

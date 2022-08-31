@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->tinyInteger('type');
-            $table->string('attachment');
+            $table->string('attachment')->nullable();
             $table->string('tag');
             $table->timestamps();
         });
