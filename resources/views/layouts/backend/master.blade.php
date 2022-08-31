@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<<<<<<< HEAD
 <!--begin::Head-->
 <head>
     <meta charset="utf-8"/>
@@ -10,14 +9,16 @@
     <meta name="csrf-token" content="{{ csrf_token() }}"/>
     <link rel="canonical" href="https://keenthemes.com/metronic"/>
     <!--begin::Fonts-->
-     @livewireStyles
+    @livewireStyles
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700"/>
     <!--end::Fonts-->
     <!--begin::Global Theme Styles(used by all pages)-->
     <link href="/backend/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css"/>
     <link href="/backend/plugins/custom/prismjs/prismjs.bundle.css" rel="stylesheet" type="text/css"/>
     <link href="/backend/css/style.bundle.css" rel="stylesheet" type="text/css"/>
+    {{-- <link href="/backend/plugins/custom/kanban/kanban.bundle.css" rel="stylesheet" type="text/css" /> --}}
     <!--end::Global Theme Styles-->
+    {{-- <link href="/backend/css/pages/wizard/wizard-3.css" rel="stylesheet" type="text/css" /> --}}
     <!--begin::layouts Themes(used by all pages)-->
     <link href="/backend/css/themes/layout/header/base/light.css" rel="stylesheet" type="text/css"/>
     <link href="/backend/css/themes/layout/header/menu/light.css" rel="stylesheet" type="text/css"/>
@@ -27,7 +28,6 @@
     <!--end::layouts Themes-->
     {{-- <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script> --}}
     <link rel="shortcut icon" href="/backend/media/logos/favicon.ico"/>
-    @yield('custom-css')
 </head>
 <!--end::Head-->
 <!--begin::Body-->
@@ -55,63 +55,7 @@
         <!--end::Header Menu Mobile Toggle-->
         <!--begin::Topbar Mobile Toggle-->
         <button class="btn btn-hover-text-primary p-0 ml-2" id="kt_header_mobile_topbar_toggle">
-=======
-	<!--begin::Head-->
-	<head>
-		<meta charset="utf-8" />
-		<title>@yield('title')</title>
-		<meta name="description" content="User profile personal information example" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-		<meta name="csrf-token" content="{{ csrf_token() }}" />
-		<link rel="canonical" href="https://keenthemes.com/metronic" />
-		<!--begin::Fonts-->
-		@livewireStyles
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
-		<!--end::Fonts-->
-		<!--begin::Global Theme Styles(used by all pages)-->
-		<link href="/backend/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
-		<link href="/backend/plugins/custom/prismjs/prismjs.bundle.css" rel="stylesheet" type="text/css" />
-		<link href="/backend/css/style.bundle.css" rel="stylesheet" type="text/css" />
-		{{-- <link href="/backend/plugins/custom/kanban/kanban.bundle.css" rel="stylesheet" type="text/css" /> --}}
-		<!--end::Global Theme Styles-->
-		{{-- <link href="/backend/css/pages/wizard/wizard-3.css" rel="stylesheet" type="text/css" /> --}}
-		<!--begin::layouts Themes(used by all pages)-->
-		<link href="/backend/css/themes/layout/header/base/light.css" rel="stylesheet" type="text/css" />
-		<link href="/backend/css/themes/layout/header/menu/light.css" rel="stylesheet" type="text/css" />
-		<link href="/backend/css/themes/layout/brand/dark.css" rel="stylesheet" type="text/css" />
-		<link href="/backend/css/themes/layout/aside/dark.css" rel="stylesheet" type="text/css" />
-		<link href="/backend/css/custom.css" rel="stylesheet" type="text/css" />
-		<!--end::layouts Themes-->
-		{{-- <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script> --}}
-		<link rel="shortcut icon" href="/backend/media/logos/favicon.ico" />
-	</head>
-	<!--end::Head-->
-	<!--begin::Body-->
-	<body id="kt_body" class="header-fixed header-mobile-fixed subheader-enabled subheader-fixed aside-enabled aside-fixed aside-minimize-hoverable page-loading">
-		<!--begin::Main-->
-		<!--begin::Header Mobile-->
-		<div id="kt_header_mobile" class="header-mobile align-items-center header-mobile-fixed">
-			<!--begin::Logo-->
-			<a href="index.html">
-				<img alt="Logo" src="/backend/media/logos/logo-light.png" />
-			</a>
-			<!--end::Logo-->
-			<!--begin::Toolbar-->
-			<div class="d-flex align-items-center">
-				<!--begin::Aside Mobile Toggle-->
-				<button class="btn p-0 burger-icon burger-icon-left" id="kt_aside_mobile_toggle">
-					<span></span>
-				</button>
-				<!--end::Aside Mobile Toggle-->
-				<!--begin::Header Menu Mobile Toggle-->
-				<button class="btn p-0 burger-icon ml-4" id="kt_header_mobile_toggle">
-					<span></span>
-				</button>
-				<!--end::Header Menu Mobile Toggle-->
-				<!--begin::Topbar Mobile Toggle-->
-				<button class="btn btn-hover-text-primary p-0 ml-2" id="kt_header_mobile_topbar_toggle">
->>>>>>> 609b3a5459cc9189b19912386f707a561ae9b4a7
-					<span class="svg-icon svg-icon-xl">
+            <span class="svg-icon svg-icon-xl">
 						<!--begin::Svg Icon | path:/backend/media/svg/icons/General/User.svg-->
 						<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
                              height="24px" viewBox="0 0 24 24" version="1.1">
@@ -125,7 +69,7 @@
                                     fill="#000000" fill-rule="nonzero"/>
 							</g>
 						</svg>
-                        <!--end::Svg Icon-->
+                <!--end::Svg Icon-->
 					</span>
         </button>
         <!--end::Topbar Mobile Toggle-->
@@ -165,126 +109,72 @@
 								</svg>
                                 <!--end::Svg Icon-->
 							</span>
-<<<<<<< HEAD
-                </button>
-                <!--end::Toolbar-->
-            </div>
-            <!--end::Brand-->
-            <!--begin::Aside Menu-->
-=======
-						</button>
-						<!--end::Toolbar-->
-					</div>
-					<!--end::Brand-->
-					<!--begin::Aside Menu-->
-
-                    @include('layouts.backend.sidebar')
->>>>>>> 609b3a5459cc9189b19912386f707a561ae9b4a7
-
-            @include('layouts.backend.sidebar')
-
-<<<<<<< HEAD
-            <!--end::Aside Menu-->
+            </button>
+            <!--end::Toolbar-->
         </div>
-        <!--end::Aside-->
-        <!--begin::Wrapper-->
-        <div class="d-flex flex-column flex-row-fluid wrapper" id="kt_wrapper">
-            <div class="pre-loading">
-                <div class="spinner-custom">
-                    <div class="bounce1"></div>
-                    <div class="bounce2"></div>
-                    <div class="bounce3"></div>
-                </div>
-            </div>
-            @include('layouts.backend.header')
-
-            <!--begin::Content-->
-            <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
-                <!--begin::Subheader-->
-                <div class="subheader py-2 py-lg-6 subheader-solid" id="kt_subheader">
-                    <div
-                        class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
-                        <!--begin::Info-->
-                        <div class="d-flex align-items-center flex-wrap mr-1">
-                            <!--begin::Mobile Toggle-->
-                            <button class="burger-icon burger-icon-left mr-4 d-inline-block d-lg-none"
-                                    id="kt_subheader_mobile_toggle">
-                                <span></span>
-                            </button>
-                            <!--end::Mobile Toggle-->
-                            <!--begin::Page Heading-->
-                            <div class="d-flex align-items-baseline flex-wrap mr-5">
-                                <!--begin::Page Title-->
-                                <h5 class="text-dark font-weight-bold my-1 mr-5">@yield('title-heading')</h5>
-                                <!--end::Page Title-->
-                            </div>
-                            <!--end::Page Heading-->
-                        </div>
-                        <!--end::Info-->
-                    </div>
-                </div>
-                <!--end::Subheader-->
-                <!--begin::Entry-->
-                <div class="d-flex flex-column-fluid">
-                    <!--begin::Container-->
-                    <div class="container">
-=======
-					<!--begin::Content-->
-					<div class="content d-flex flex-column flex-column-fluid" id="kt_content">
-						<!--begin::Subheader-->
-						<div class="subheader py-2 py-lg-6 subheader-solid" id="kt_subheader">
-							<div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
-								<!--begin::Info-->
-								<div class="d-flex align-items-center flex-wrap mr-1">
-									<!--begin::Mobile Toggle-->
-									<button class="burger-icon burger-icon-left mr-4 d-inline-block d-lg-none" id="kt_subheader_mobile_toggle">
-										<span></span>
-									</button>
-									<!--end::Mobile Toggle-->
-									<!--begin::Page Heading-->
-									<div class="d-flex align-items-baseline flex-wrap mr-5">
-										<!--begin::Page Title-->
-										<h5 class="text-dark font-weight-bold my-1 mr-5">@yield('title-heading')</h5>
-										<!--end::Page Title-->
-									</div>
-									<!--end::Page Heading-->
-								</div>
-								<!--end::Info-->
-							</div>
-						</div>
-						<!--end::Subheader-->
-						<!--begin::Entry-->
-						<div class="d-flex flex-column-fluid">
-							<!--begin::Container-->
-							<div class="container">
-
-                                @yield('content')
-
-							</div>
-							<!--end::Container-->
-						</div>
-						<!--end::Entry-->
-					</div>
-					<!--end::Content-->
-
-                    @include('layouts.backend.footer')
->>>>>>> 609b3a5459cc9189b19912386f707a561ae9b4a7
-
-                        @yield('content')
-
-                    </div>
-                    <!--end::Container-->
-                </div>
-                <!--end::Entry-->
-            </div>
-            <!--end::Content-->
-
-            @include('layouts.backend.footer')
-
-        </div>
-        <!--end::Wrapper-->
+        <!--end::Brand-->
+        <!--begin::Aside Menu-->
+        @include('layouts.backend.sidebar')
+        <!--end::Aside Menu-->
     </div>
-    <!--end::Page-->
+    <!--end::Aside-->
+    <!--begin::Wrapper-->
+    <div class="d-flex flex-column flex-row-fluid wrapper" id="kt_wrapper">
+        <div class="pre-loading">
+            <div class="spinner-custom">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+        </div>
+        @include('layouts.backend.header')
+
+        <!--begin::Content-->
+        <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+            <!--begin::Subheader-->
+            <div class="subheader py-2 py-lg-6 subheader-solid" id="kt_subheader">
+                <div
+                    class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
+                    <!--begin::Info-->
+                    <div class="d-flex align-items-center flex-wrap mr-1">
+                        <!--begin::Mobile Toggle-->
+                        <button class="burger-icon burger-icon-left mr-4 d-inline-block d-lg-none"
+                                id="kt_subheader_mobile_toggle">
+                            <span></span>
+                        </button>
+                        <!--end::Mobile Toggle-->
+                        <!--begin::Page Heading-->
+                        <div class="d-flex align-items-baseline flex-wrap mr-5">
+                            <!--begin::Page Title-->
+                            <h5 class="text-dark font-weight-bold my-1 mr-5">@yield('title-heading')</h5>
+                            <!--end::Page Title-->
+                        </div>
+                        <!--end::Page Heading-->
+                    </div>
+                    <!--end::Info-->
+                </div>
+            </div>
+            <!--end::Subheader-->
+            <!--begin::Entry-->
+            <div class="d-flex flex-column-fluid">
+                <!--begin::Container-->
+                <div class="container">
+
+                    @yield('content')
+
+                </div>
+                <!--end::Container-->
+            </div>
+            <!--end::Entry-->
+        </div>
+        <!--end::Content-->
+
+        @include('layouts.backend.footer')
+
+    </div>
+    <!--end::Wrapper-->
+</div>
+<!--end::Page-->
 </div>
 <!--end::Main-->
 <!-- begin::User Panel-->
@@ -1672,7 +1562,6 @@
 				</svg>
                 <!--end::Svg Icon-->
 			</span>
-<<<<<<< HEAD
 </div>
 <!--end::Scrolltop-->
 <!--begin::Sticky Toolbar-->
@@ -2170,387 +2059,19 @@
 <script src="/backend/js/pages/widgets.js"></script>
 <!--sweet alert 2-->
 <script src="/backend/js/pages/features/miscellaneous/sweetalert2.js"></script>
-<script src="/backend/js/pages/crud/forms/widgets/select2.js"></script>
+{{-- <script src="/backend/js/pages/crud/forms/widgets/select2.js"></script> --}}
+<script src="https://cdn.ckeditor.com/4.19.0/standard/ckeditor.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"
         integrity="sha512-57oZ/vW8ANMjR/KQ6Be9v/+/h6bq9/l3f0Oc7vn6qMqyhvPd1cvKBRWWpzu0QoneImqr2SkmO4MSqU+RpHom3Q=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="/backend/js/pages/my-script.js"></script>
-
+{{-- <script src="/backend/plugins/custom/kanban/kanban.bundle.js"></script>
+<script src="/backend/js/pages/features/miscellaneous/kanban-board.js"></script> --}}
 <!-- custom js tag -->
 @yield('custom-js-tag')
 @stack('add-script')
- @livewireScripts
+@livewireScripts
 <!--end::Page Scripts-->
 </body>
 <!--end::Body-->
-=======
-		</div>
-		<!--end::Scrolltop-->
-		<!--begin::Sticky Toolbar-->
-		<ul class="sticky-toolbar nav flex-column pl-2 pr-2 pt-3 pb-3 mt-4">
-			<!--begin::Item-->
-			<li class="nav-item mb-2" id="kt_demo_panel_toggle" data-toggle="tooltip" title="Check out more demos" data-placement="right">
-				<a class="btn btn-sm btn-icon btn-bg-light btn-icon-success btn-hover-success" href="#">
-					<i class="flaticon2-drop"></i>
-				</a>
-			</li>
-			<!--end::Item-->
-			<!--begin::Item-->
-			<li class="nav-item mb-2" data-toggle="tooltip" title="layouts Builder" data-placement="left">
-				<a class="btn btn-sm btn-icon btn-bg-light btn-icon-primary btn-hover-primary" href="https://preview.keenthemes.com/metronic/demo1/builder.html" target="_blank">
-					<i class="flaticon2-gear"></i>
-				</a>
-			</li>
-			<!--end::Item-->
-			<!--begin::Item-->
-			<li class="nav-item mb-2" data-toggle="tooltip" title="Documentation" data-placement="left">
-				<a class="btn btn-sm btn-icon btn-bg-light btn-icon-warning btn-hover-warning" href="https://keenthemes.com/metronic/?page=docs" target="_blank">
-					<i class="flaticon2-telegram-logo"></i>
-				</a>
-			</li>
-			<!--end::Item-->
-			<!--begin::Item-->
-			<li class="nav-item" id="kt_sticky_toolbar_chat_toggler" data-toggle="tooltip" title="Chat Example" data-placement="left">
-				<a class="btn btn-sm btn-icon btn-bg-light btn-icon-danger btn-hover-danger" href="#" data-toggle="modal" data-target="#kt_chat_modal">
-					<i class="flaticon2-chat-1"></i>
-				</a>
-			</li>
-			<!--end::Item-->
-		</ul>
-		<!--end::Sticky Toolbar-->
-		<!--begin::Demo Panel-->
-		<div id="kt_demo_panel" class="offcanvas offcanvas-right p-10">
-			<!--begin::Header-->
-			<div class="offcanvas-header d-flex align-items-center justify-content-between pb-7">
-				<h4 class="font-weight-bold m-0">Select A Demo</h4>
-				<a href="#" class="btn btn-xs btn-icon btn-light btn-hover-primary" id="kt_demo_panel_close">
-					<i class="ki ki-close icon-xs text-muted"></i>
-				</a>
-			</div>
-			<!--end::Header-->
-			<!--begin::Content-->
-			<div class="offcanvas-content">
-				<!--begin::Wrapper-->
-				<div class="offcanvas-wrapper mb-5 scroll-pull">
-					<h5 class="font-weight-bold mb-4 text-center">Demo 1</h5>
-					<div class="overlay rounded-lg mb-8 offcanvas-demo offcanvas-demo-active">
-						<div class="overlay-wrapper rounded-lg">
-							<img src="/backend/media/demos/demo1.png" alt="" class="w-100" />
-						</div>
-						<div class="overlay-layer">
-							<a href="../../../../../../demo1/dist" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow" target="_blank">Default</a>
-							<a href="https://preview.keenthemes.com/metronic/demo1/rtl/index.html" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow" target="_blank">RTL Version</a>
-						</div>
-					</div>
-					<h5 class="font-weight-bold mb-4 text-center">Demo 2</h5>
-					<div class="overlay rounded-lg mb-8 offcanvas-demo">
-						<div class="overlay-wrapper rounded-lg">
-							<img src="/backend/media/demos/demo2.png" alt="" class="w-100" />
-						</div>
-						<div class="overlay-layer">
-							<a href="../../../../../../demo2/dist" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow" target="_blank">Default</a>
-							<a href="https://preview.keenthemes.com/metronic/demo2/rtl/index.html" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow" target="_blank">RTL Version</a>
-						</div>
-					</div>
-					<h5 class="font-weight-bold mb-4 text-center">Demo 3</h5>
-					<div class="overlay rounded-lg mb-8 offcanvas-demo">
-						<div class="overlay-wrapper rounded-lg">
-							<img src="/backend/media/demos/demo3.png" alt="" class="w-100" />
-						</div>
-						<div class="overlay-layer">
-							<a href="../../../../../../demo3/dist" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow" target="_blank">Default</a>
-							<a href="https://preview.keenthemes.com/metronic/demo3/rtl/index.html" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow" target="_blank">RTL Version</a>
-						</div>
-					</div>
-					<h5 class="font-weight-bold mb-4 text-center">Demo 4</h5>
-					<div class="overlay rounded-lg mb-8 offcanvas-demo">
-						<div class="overlay-wrapper rounded-lg">
-							<img src="/backend/media/demos/demo4.png" alt="" class="w-100" />
-						</div>
-						<div class="overlay-layer">
-							<a href="../../../../../../demo4/dist" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow" target="_blank">Default</a>
-							<a href="https://preview.keenthemes.com/metronic/demo4/rtl/index.html" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow" target="_blank">RTL Version</a>
-						</div>
-					</div>
-					<h5 class="font-weight-bold mb-4 text-center">Demo 5</h5>
-					<div class="overlay rounded-lg mb-8 offcanvas-demo">
-						<div class="overlay-wrapper rounded-lg">
-							<img src="/backend/media/demos/demo5.png" alt="" class="w-100" />
-						</div>
-						<div class="overlay-layer">
-							<a href="../../../../../../demo5/dist" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow" target="_blank">Default</a>
-							<a href="https://preview.keenthemes.com/metronic/demo5/rtl/index.html" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow" target="_blank">RTL Version</a>
-						</div>
-					</div>
-					<h5 class="font-weight-bold mb-4 text-center">Demo 6</h5>
-					<div class="overlay rounded-lg mb-8 offcanvas-demo">
-						<div class="overlay-wrapper rounded-lg">
-							<img src="/backend/media/demos/demo6.png" alt="" class="w-100" />
-						</div>
-						<div class="overlay-layer">
-							<a href="../../../../../../demo6/dist" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow" target="_blank">Default</a>
-							<a href="https://preview.keenthemes.com/metronic/demo6/rtl/index.html" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow" target="_blank">RTL Version</a>
-						</div>
-					</div>
-					<h5 class="font-weight-bold mb-4 text-center">Demo 7</h5>
-					<div class="overlay rounded-lg mb-8 offcanvas-demo">
-						<div class="overlay-wrapper rounded-lg">
-							<img src="/backend/media/demos/demo7.png" alt="" class="w-100" />
-						</div>
-						<div class="overlay-layer">
-							<a href="../../../../../../demo7/dist" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow" target="_blank">Default</a>
-							<a href="https://preview.keenthemes.com/metronic/demo7/rtl/index.html" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow" target="_blank">RTL Version</a>
-						</div>
-					</div>
-					<h5 class="font-weight-bold mb-4 text-center">Demo 8</h5>
-					<div class="overlay rounded-lg mb-8 offcanvas-demo">
-						<div class="overlay-wrapper rounded-lg">
-							<img src="/backend/media/demos/demo8.png" alt="" class="w-100" />
-						</div>
-						<div class="overlay-layer">
-							<a href="../../../../../../demo8/dist" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow" target="_blank">Default</a>
-							<a href="https://preview.keenthemes.com/metronic/demo8/rtl/index.html" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow" target="_blank">RTL Version</a>
-						</div>
-					</div>
-					<h5 class="font-weight-bold mb-4 text-center">Demo 9</h5>
-					<div class="overlay rounded-lg mb-8 offcanvas-demo">
-						<div class="overlay-wrapper rounded-lg">
-							<img src="/backend/media/demos/demo9.png" alt="" class="w-100" />
-						</div>
-						<div class="overlay-layer">
-							<a href="../../../../../../demo9/dist" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow" target="_blank">Default</a>
-							<a href="https://preview.keenthemes.com/metronic/demo9/rtl/index.html" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow" target="_blank">RTL Version</a>
-						</div>
-					</div>
-					<h5 class="font-weight-bold mb-4 text-center">Demo 10</h5>
-					<div class="overlay rounded-lg mb-8 offcanvas-demo">
-						<div class="overlay-wrapper rounded-lg">
-							<img src="/backend/media/demos/demo10.png" alt="" class="w-100" />
-						</div>
-						<div class="overlay-layer">
-							<a href="../../../../../../demo10/dist" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow" target="_blank">Default</a>
-							<a href="https://preview.keenthemes.com/metronic/demo10/rtl/index.html" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow" target="_blank">RTL Version</a>
-						</div>
-					</div>
-					<h5 class="font-weight-bold mb-4 text-center">Demo 11</h5>
-					<div class="overlay rounded-lg mb-8 offcanvas-demo">
-						<div class="overlay-wrapper rounded-lg">
-							<img src="/backend/media/demos/demo11.png" alt="" class="w-100" />
-						</div>
-						<div class="overlay-layer">
-							<a href="../../../../../../demo11/dist" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow" target="_blank">Default</a>
-							<a href="https://preview.keenthemes.com/metronic/demo11/rtl/index.html" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow" target="_blank">RTL Version</a>
-						</div>
-					</div>
-					<h5 class="font-weight-bold mb-4 text-center">Demo 12</h5>
-					<div class="overlay rounded-lg mb-8 offcanvas-demo">
-						<div class="overlay-wrapper rounded-lg">
-							<img src="/backend/media/demos/demo12.png" alt="" class="w-100" />
-						</div>
-						<div class="overlay-layer">
-							<a href="../../../../../../demo12/dist" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow" target="_blank">Default</a>
-							<a href="https://preview.keenthemes.com/metronic/demo12/rtl/index.html" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow" target="_blank">RTL Version</a>
-						</div>
-					</div>
-					<h5 class="font-weight-bold mb-4 text-center">Demo 13</h5>
-					<div class="overlay rounded-lg mb-8 offcanvas-demo">
-						<div class="overlay-wrapper rounded-lg">
-							<img src="/backend/media/demos/demo13.png" alt="" class="w-100" />
-						</div>
-						<div class="overlay-layer">
-							<a href="../../../../../../demo13/dist" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow" target="_blank">Default</a>
-							<a href="https://preview.keenthemes.com/metronic/demo13/rtl/index.html" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow" target="_blank">RTL Version</a>
-						</div>
-					</div>
-					<h5 class="font-weight-bold mb-4 text-center">Demo 14</h5>
-					<div class="overlay rounded-lg mb-8 offcanvas-demo">
-						<div class="overlay-wrapper rounded-lg">
-							<img src="/backend/media/demos/demo14.png" alt="" class="w-100" />
-						</div>
-						<div class="overlay-layer">
-							<a href="#" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow disabled opacity-90">Coming soon</a>
-						</div>
-					</div>
-					<h5 class="font-weight-bold mb-4 text-center">Demo 15</h5>
-					<div class="overlay rounded-lg mb-8 offcanvas-demo">
-						<div class="overlay-wrapper rounded-lg">
-							<img src="/backend/media/demos/demo15.png" alt="" class="w-100" />
-						</div>
-						<div class="overlay-layer">
-							<a href="#" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow disabled opacity-90">Coming soon</a>
-						</div>
-					</div>
-					<h5 class="font-weight-bold mb-4 text-center">Demo 16</h5>
-					<div class="overlay rounded-lg mb-8 offcanvas-demo">
-						<div class="overlay-wrapper rounded-lg">
-							<img src="/backend/media/demos/demo16.png" alt="" class="w-100" />
-						</div>
-						<div class="overlay-layer">
-							<a href="#" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow disabled opacity-90">Coming soon</a>
-						</div>
-					</div>
-					<h5 class="font-weight-bold mb-4 text-center">Demo 17</h5>
-					<div class="overlay rounded-lg mb-8 offcanvas-demo">
-						<div class="overlay-wrapper rounded-lg">
-							<img src="/backend/media/demos/demo17.png" alt="" class="w-100" />
-						</div>
-						<div class="overlay-layer">
-							<a href="#" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow disabled opacity-90">Coming soon</a>
-						</div>
-					</div>
-					<h5 class="font-weight-bold mb-4 text-center">Demo 18</h5>
-					<div class="overlay rounded-lg mb-8 offcanvas-demo">
-						<div class="overlay-wrapper rounded-lg">
-							<img src="/backend/media/demos/demo18.png" alt="" class="w-100" />
-						</div>
-						<div class="overlay-layer">
-							<a href="#" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow disabled opacity-90">Coming soon</a>
-						</div>
-					</div>
-					<h5 class="font-weight-bold mb-4 text-center">Demo 19</h5>
-					<div class="overlay rounded-lg mb-8 offcanvas-demo">
-						<div class="overlay-wrapper rounded-lg">
-							<img src="/backend/media/demos/demo19.png" alt="" class="w-100" />
-						</div>
-						<div class="overlay-layer">
-							<a href="#" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow disabled opacity-90">Coming soon</a>
-						</div>
-					</div>
-					<h5 class="font-weight-bold mb-4 text-center">Demo 20</h5>
-					<div class="overlay rounded-lg mb-8 offcanvas-demo">
-						<div class="overlay-wrapper rounded-lg">
-							<img src="/backend/media/demos/demo20.png" alt="" class="w-100" />
-						</div>
-						<div class="overlay-layer">
-							<a href="#" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow disabled opacity-90">Coming soon</a>
-						</div>
-					</div>
-					<h5 class="font-weight-bold mb-4 text-center">Demo 21</h5>
-					<div class="overlay rounded-lg mb-8 offcanvas-demo">
-						<div class="overlay-wrapper rounded-lg">
-							<img src="/backend/media/demos/demo21.png" alt="" class="w-100" />
-						</div>
-						<div class="overlay-layer">
-							<a href="#" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow disabled opacity-90">Coming soon</a>
-						</div>
-					</div>
-					<h5 class="font-weight-bold mb-4 text-center">Demo 22</h5>
-					<div class="overlay rounded-lg mb-8 offcanvas-demo">
-						<div class="overlay-wrapper rounded-lg">
-							<img src="/backend/media/demos/demo22.png" alt="" class="w-100" />
-						</div>
-						<div class="overlay-layer">
-							<a href="#" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow disabled opacity-90">Coming soon</a>
-						</div>
-					</div>
-					<h5 class="font-weight-bold mb-4 text-center">Demo 23</h5>
-					<div class="overlay rounded-lg mb-8 offcanvas-demo">
-						<div class="overlay-wrapper rounded-lg">
-							<img src="/backend/media/demos/demo23.png" alt="" class="w-100" />
-						</div>
-						<div class="overlay-layer">
-							<a href="#" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow disabled opacity-90">Coming soon</a>
-						</div>
-					</div>
-					<h5 class="font-weight-bold mb-4 text-center">Demo 24</h5>
-					<div class="overlay rounded-lg mb-8 offcanvas-demo">
-						<div class="overlay-wrapper rounded-lg">
-							<img src="/backend/media/demos/demo24.png" alt="" class="w-100" />
-						</div>
-						<div class="overlay-layer">
-							<a href="#" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow disabled opacity-90">Coming soon</a>
-						</div>
-					</div>
-					<h5 class="font-weight-bold mb-4 text-center">Demo 25</h5>
-					<div class="overlay rounded-lg mb-8 offcanvas-demo">
-						<div class="overlay-wrapper rounded-lg">
-							<img src="/backend/media/demos/demo25.png" alt="" class="w-100" />
-						</div>
-						<div class="overlay-layer">
-							<a href="#" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow disabled opacity-90">Coming soon</a>
-						</div>
-					</div>
-					<h5 class="font-weight-bold mb-4 text-center">Demo 26</h5>
-					<div class="overlay rounded-lg mb-8 offcanvas-demo">
-						<div class="overlay-wrapper rounded-lg">
-							<img src="/backend/media/demos/demo26.png" alt="" class="w-100" />
-						</div>
-						<div class="overlay-layer">
-							<a href="#" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow disabled opacity-90">Coming soon</a>
-						</div>
-					</div>
-					<h5 class="font-weight-bold mb-4 text-center">Demo 27</h5>
-					<div class="overlay rounded-lg mb-8 offcanvas-demo">
-						<div class="overlay-wrapper rounded-lg">
-							<img src="/backend/media/demos/demo27.png" alt="" class="w-100" />
-						</div>
-						<div class="overlay-layer">
-							<a href="#" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow disabled opacity-90">Coming soon</a>
-						</div>
-					</div>
-					<h5 class="font-weight-bold mb-4 text-center">Demo 28</h5>
-					<div class="overlay rounded-lg mb-8 offcanvas-demo">
-						<div class="overlay-wrapper rounded-lg">
-							<img src="/backend/media/demos/demo28.png" alt="" class="w-100" />
-						</div>
-						<div class="overlay-layer">
-							<a href="#" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow disabled opacity-90">Coming soon</a>
-						</div>
-					</div>
-					<h5 class="font-weight-bold mb-4 text-center">Demo 29</h5>
-					<div class="overlay rounded-lg mb-8 offcanvas-demo">
-						<div class="overlay-wrapper rounded-lg">
-							<img src="/backend/media/demos/demo29.png" alt="" class="w-100" />
-						</div>
-						<div class="overlay-layer">
-							<a href="#" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow disabled opacity-90">Coming soon</a>
-						</div>
-					</div>
-					<h5 class="font-weight-bold mb-4 text-center">Demo 30</h5>
-					<div class="overlay rounded-lg mb-8 offcanvas-demo">
-						<div class="overlay-wrapper rounded-lg">
-							<img src="/backend/media/demos/demo30.png" alt="" class="w-100" />
-						</div>
-						<div class="overlay-layer">
-							<a href="#" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow disabled opacity-90">Coming soon</a>
-						</div>
-					</div>
-				</div>
-				<!--end::Wrapper-->
-				<!--begin::Purchase-->
-				<div class="offcanvas-footer">
-					<a href="https://1.envato.market/EA4JP" target="_blank" class="btn btn-block btn-danger btn-shadow font-weight-bolder text-uppercase">Buy Metronic Now!</a>
-				</div>
-				<!--end::Purchase-->
-			</div>
-			<!--end::Content-->
-		</div>
-		<!--end::Demo Panel-->
-		<script>var HOST_URL = "https://preview.keenthemes.com/metronic/theme/html/tools/preview";</script>
-		<!--begin::Global Config(global config for global JS scripts)-->
-		<script>var KTAppSettings = { "breakpoints": { "sm": 576, "md": 768, "lg": 992, "xl": 1200, "xxl": 1400 }, "colors": { "theme": { "base": { "white": "#ffffff", "primary": "#3699FF", "secondary": "#E5EAEE", "success": "#1BC5BD", "info": "#8950FC", "warning": "#FFA800", "danger": "#F64E60", "light": "#E4E6EF", "dark": "#181C32" }, "light": { "white": "#ffffff", "primary": "#E1F0FF", "secondary": "#EBEDF3", "success": "#C9F7F5", "info": "#EEE5FF", "warning": "#FFF4DE", "danger": "#FFE2E5", "light": "#F3F6F9", "dark": "#D6D6E0" }, "inverse": { "white": "#ffffff", "primary": "#ffffff", "secondary": "#3F4254", "success": "#ffffff", "info": "#ffffff", "warning": "#ffffff", "danger": "#ffffff", "light": "#464E5F", "dark": "#ffffff" } }, "gray": { "gray-100": "#F3F6F9", "gray-200": "#EBEDF3", "gray-300": "#E4E6EF", "gray-400": "#D1D3E0", "gray-500": "#B5B5C3", "gray-600": "#7E8299", "gray-700": "#5E6278", "gray-800": "#3F4254", "gray-900": "#181C32" } }, "font-family": "Poppins" };</script>
-		<!--end::Global Config-->
-		<!--begin::Global Theme Bundle(used by all pages)-->
-		<script src="/backend/plugins/global/plugins.bundle.js"></script>
-		<script src="/backend/plugins/custom/prismjs/prismjs.bundle.js"></script>
-		<script src="/backend/js/scripts.bundle.js"></script>
-		<!--end::Global Theme Bundle-->
-		<!--begin::Page Scripts(used by this page)-->
-		<script src="/backend/js/pages/widgets.js"></script>
-		<!--sweet alert 2-->
-		<script src="/backend/js/pages/features/miscellaneous/sweetalert2.js"></script>
-		{{-- <script src="/backend/js/pages/crud/forms/widgets/select2.js"></script> --}}
-		<script src="https://cdn.ckeditor.com/4.19.0/standard/ckeditor.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js" integrity="sha512-57oZ/vW8ANMjR/KQ6Be9v/+/h6bq9/l3f0Oc7vn6qMqyhvPd1cvKBRWWpzu0QoneImqr2SkmO4MSqU+RpHom3Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-		<script src="/backend/js/pages/my-script.js"></script>
-		{{-- <script src="/backend/plugins/custom/kanban/kanban.bundle.js"></script>
-		<script src="/backend/js/pages/features/miscellaneous/kanban-board.js"></script> --}}
-		<!-- custom js tag -->
-		@yield('custom-js-tag')
-		@stack('add-script')
-		@livewireScripts
-		<!--end::Page Scripts-->
-	</body>
-	<!--end::Body-->
->>>>>>> 609b3a5459cc9189b19912386f707a561ae9b4a7
 </html>
