@@ -46,9 +46,9 @@ class UserComponent extends Component
                             ->role($this->role)
                             ->paginate($this->perPage);
         }
-        
+
         $roles = Role::pluck('name','name')->all();
-        
+
         // dd($roles);
         // $this->users = collect($this->users->items());
         return view('livewire.backend.users.user', ['users' => $this->users, 'roles'=>$roles]);
