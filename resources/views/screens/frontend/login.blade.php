@@ -17,6 +17,11 @@
                 {{ session('msg') }}
             </div>
         @endif
+        @if (session('message'))
+            <div class="alert alert-danger" style="color: red">
+                {{ session('msg') }}
+            </div>
+        @endif
             <form action="{{route('auth.processLogin')}}" method="POST" class="lg:p-10 p-6 space-y-3 relative bg-white shadow-xl rounded-md">
                 @csrf
                 @method('POST')

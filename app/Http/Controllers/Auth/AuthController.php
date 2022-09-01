@@ -7,6 +7,7 @@ use App\Http\Requests\UserRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Auth\Events\Registered;
 
 class AuthController extends Controller
 {
@@ -68,6 +69,9 @@ class AuthController extends Controller
         $user->avatar = $file_name;
         $user->save();
         $user->assignRole(4);
-        return redirect()->route('auth.login')->with('status', 'Đăng kí thành công. Mời đăng nhập');
+        event(new Registered($user));
+        Auth::login($user);
+        return redirect()->route('verification.notice');
+        // return redirect()->route('auth.login')->with('status', 'Đăng kí thành công. Mời đăng nhập');
     }   
 }
