@@ -19,6 +19,7 @@ return new class extends Migration
             $table->text('desc');
             $table->unsignedBigInteger('user_id');
             $table->char('status');
+            $table->string('image');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });

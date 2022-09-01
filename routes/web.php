@@ -18,13 +18,14 @@ Route::name('frontend.')->group(function(){
     Route::get('/', [HomeController::class, 'index'])->name('home');
 });
 
-Route::get('/login', function() {
-    return view('screens.frontend.login');
-});
+Route::get('/', function () {
+    return view('screens.frontend.index');
+})->name('home');
 
 Route::get('/admin', function(){
     return view('screens.backend.dashboard');
 });
+
 
 // preview pdf
 Route::get('/pdf/{file}', function ($file) {
@@ -37,3 +38,4 @@ Route::get('/pdf/{file}', function ($file) {
    ];
   return response()->file($path, $header);
 })->name('pdf');
+

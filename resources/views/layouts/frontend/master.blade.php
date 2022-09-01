@@ -54,7 +54,6 @@
 
 <!-- Bootstrap JS -->
 <script src="/frontend/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-
 <!-- Vendors -->
 <script src="/frontend/vendor/tiny-slider/tiny-slider.js"></script>
 <script src="/frontend/vendor/glightbox/js/glightbox.js"></script>

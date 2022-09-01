@@ -25,7 +25,7 @@ class QuestionRequest extends FormRequest
     {
         return [
             'title'=>'required|max:255|min:5',
-            'attachment'=>'required|max:255|min:5',
+            // 'attachment'=>'sometimes|required',
             'tag'=>'required|max:255|min:5'
         ];
     }
@@ -35,11 +35,6 @@ class QuestionRequest extends FormRequest
                 'title.max'=>'Trường title tối đa 255 kí tự',
                 'title.min'=>'Trường title tối thiểu 5 kí tự',
                 'title.string'=>'Trường title bắt buộc là kiểu chuỗi',
-
-                'attachment.required'=>'Trường attachment không được bỏ trống',
-                'attachment.max'=>'Trường attachment tối đa 255 kí tự',
-                'attachment.min'=>'Trường attachment tối thiểu 5 kí tự',
-                'attachment.string'=>'Trường attachment bắt buộc là kiểu chuỗi',
 
                 'tag.required'=>'Trường tag không được bỏ trống',
                 'tag.max'=>'Trường tag tối đa 255 kí tự',

@@ -17,4 +17,6 @@ Route::prefix('admin/courses')->name('admin.course.')->group(function () {
     Route::put('/{course}', [CourseController::class, 'update'])->name('update');
     Route::patch('/{course}', [CourseController::class, 'changeStatus'])->name('changestatus');
     Route::delete('/{course}', [CourseController::class, 'destroy'])->name('delete');
+
 });
+
