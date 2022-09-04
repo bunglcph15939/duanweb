@@ -7,6 +7,8 @@ use App\Http\Requests\UserRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Auth\Events\Registered;
+use Illuminate\Support\Facades\RateLimiter;
 
 class AuthController extends Controller
 {
@@ -15,15 +17,21 @@ class AuthController extends Controller
     }
 
     // Hien thi man hinh login
-    public function login(){
-        return view('screens.frontend.login');
+    public function login(Request $request){
+        $key = 'login.' .$request->ip();
+        // dd($key);
+        return view('screens.frontend.auth.login',[
+            'key' => $key,
+            'retries' => RateLimiter::retriesLeft($key,5),
+            'secounds'=>RateLimiter::availableIn($key)
+        ]);
     }
 
     // Xu ly login
     public function processLogin(Request $request){
         $rule = [
             'email' => 'required|email',
-            'password' => 'required|',
+            'password' => 'required',
         ];
         $messages = [
             'email.required' => 'Email không được để chống',
@@ -32,23 +40,25 @@ class AuthController extends Controller
         ];
         $request->validate($rule,$messages);
 
+        
+
         $email = $request->email;
         $password = $request->password;
         if(Auth::attempt([
             'email'=> $email,
             'password' => $password
         ])){
-            
-            return redirect()->route('home');
+            RateLimiter::clear('login.' .$request->ip());
+            return redirect()->route('frontend.home');
         }
         else{
-            return back();
+            return back()->with('message','Kiểm tra lại email hoặc mật khẩu');
         }
     }
 
     //Hien thi ra man hinh dang ky
     public function register(){
-        return view('screens.frontend.register');
+        return view('screens.frontend.auth.register');
     }
 
     //Xu ly dang ky
@@ -68,6 +78,21 @@ class AuthController extends Controller
         $user->avatar = $file_name;
         $user->save();
         $user->assignRole(4);
-        return redirect()->route('auth.login')->with('status', 'Đăng kí thành công. Mời đăng nhập');
-    }   
+
+        event(new Registered($user));
+        
+        Auth::login($user);
+        return redirect()->route('verification.notice');
+        // return redirect()->route('auth.login')->with('status', 'Đăng kí thành công. Mời đăng nhập');
+    }  
+    
+    public function logout(Request $request){
+        Auth::logout();
+ 
+        $request->session()->invalidate();
+    
+        $request->session()->regenerateToken();
+
+        return redirect()->route('frontend.home');
+    }
 }

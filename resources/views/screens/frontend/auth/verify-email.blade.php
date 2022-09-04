@@ -37,28 +37,17 @@
 
           <!-- Title -->
                         <span class="mb-0 fs-1">🤔</span>
-                        <h1 class="fs-2">Forgot Password?</h1>
-                        <h5 class="fw-light mb-4">To receive a new password, enter your email address below.</h5>
+                        <h1 class="fs-2">Gửi lại email</h1>
+                        <h5 class="fw-light mb-4">Nếu bạn chưa nhận được email hãy thử gửi lại</h5>
                         
                         <!-- Form START -->
-                        <form action="" method="POST">
+                        <form action="{{ route('verification.send') }}" method="POST">
                             @csrf
                             @method('POST')
-                            <!-- Email -->
-                            <div class="mb-4">
-                                <label for="exampleInputEmail1" class="form-label">Email address *</label>
-                                <div class="input-group input-group-lg">
-                                    <span class="input-group-text bg-light rounded-start border-0 text-secondary px-3"><i class="bi bi-envelope-fill"></i></span>
-                                    <input type="email" name="email" class="form-control border-0 bg-light rounded-end ps-1" placeholder="E-mail" id="exampleInputEmail1">
-                                </div>
-                                @error('email')
-                                    <div id="emailHelp" style="color: red" class="form-text">{{$message}}</div>
-                                @enderror
-                            </div>
                             <!-- Button -->
                             <div class="align-items-center">
                                 <div class="d-grid">
-                                    <button class="btn btn-primary mb-0" type="submit">Reset password</button>
+                                    <button class="btn btn-primary mb-0" type="submit">Resend Verification Email</button>
                                 </div>
                             </div>	
                         </form>
@@ -70,3 +59,42 @@
     </div>
 </section>
 @endsection
+
+
+{{-- <div>
+    <div>
+        <div name="logo">
+            
+        </div>
+
+        <div class="mb-4 text-sm text-gray-600">
+            {{ __('Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn\'t receive the email, we will gladly send you another.') }}
+        </div>
+
+        @if (session('status') == 'verification-link-sent')
+            <div class="mb-4 font-medium text-sm text-green-600">
+                {{ __('A new verification link has been sent to the email address you provided during registration.') }}
+            </div>
+        @endif
+
+        <div class="mt-4 flex items-center justify-between">
+            <form method="POST" action="{{ route('verification.send') }}">
+                @csrf
+
+                <div>
+                    <button>
+                        Resend Verification Email
+                    </button>
+                </div>
+            </form>
+
+            <form method="POST" action="">
+                @csrf
+
+                <button type="submit" class="underline text-sm text-gray-600 hover:text-gray-900">
+                    {{ __('Log out') }}
+                </button>
+            </form>
+        </div>
+    </div>
+</div> --}}
