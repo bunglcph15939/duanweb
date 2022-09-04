@@ -24,6 +24,7 @@ Route::get('/admin', function(){
 })->name('admin');
 
 
+
 // preview pdf
 Route::get('/pdf/{file}', function ($file) {
     // file path

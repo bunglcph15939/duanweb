@@ -557,6 +557,7 @@
 							</li>
 						</ul>
 					</li>
+
 					<li class="nav-item dropdown dropdown-notifications">
 						<a class="nav-link" href="#" id="advanceMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 							<i class="fa-solid fa-bell"></i> <span class="amount-notifi">1</span>						</a>
@@ -595,6 +596,7 @@
 							</li>
 						</ul>
 					</li>
+
 				</ul>
 				<!-- Nav Main menu END -->
 
@@ -642,6 +644,7 @@
 					<li><a class="dropdown-item" href="#"><i class="bi bi-gear fa-fw me-2"></i>Account Settings</a></li>
 					<li><a class="dropdown-item" href="#"><i class="bi bi-info-circle fa-fw me-2"></i>Help</a></li>
 					<li><a class="dropdown-item bg-danger-soft-hover" href="{{route('auth.logout')}}"><i class="bi bi-power fa-fw me-2"></i>Sign Out</a></li>
+
 					<li> <hr class="dropdown-divider"></li>
 					<!-- Dark mode switch START -->
 					<li>

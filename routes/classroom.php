@@ -9,7 +9,6 @@ use App\Http\Controllers\Admin\UserClassroomController;
  */
 
 Route::prefix('admin/classroom')->name('classroom.')->group(function () {
-
     Route::get('/',[ClassroomController::class,'index'])->name('index');
     Route::get('/form_store_classroom',[ClassroomController::class,'create'])->name('form_store_classroom');
     Route::post('/store/',[ClassroomController::class,'store_classroom'])->name('store');
