@@ -17,7 +17,7 @@ class ClassroomController extends Controller
         ->with('courses')
         ->paginate(10);
         $user=User::select('*')->paginate(10);
-        return view('screens.backend.classroom',[
+        return view('screens.backend.classroom.classroom',[
             'classroom'=>$classroom,
             'user'=>$user
         ]);

@@ -10,7 +10,7 @@ class CourseCategoryController extends Controller
 {
     public function index(){
         $course_category=CourseCategory::where('parent_id', 0)->with('childs')->paginate(9);
-        return view('screens.backend.course_category',compact('course_category'));
+        return view('screens.backend.course_category.course_category',compact('course_category'));
     }
     public function store(CourseCategoryRequest $request){
         $course_category=new CourseCategory();
