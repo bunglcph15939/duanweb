@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Session;
 class ForgotController extends Controller
 {
     public function forgotPassword(){
-        return view('screens.frontend.auth.password.forgot');
+        return view('screens.frontend.auth.forgot-password');
     }
 
     public function processForgotPassword(Request $request){
@@ -56,7 +56,7 @@ class ForgotController extends Controller
     }
 
     public function resetPassword(Request $request){
-        return view('screens.frontend.auth.password.resetpassword');
+        return view('screens.frontend.auth.resetpassword');
     }
 
     public function processResetPassword(Request $request){
