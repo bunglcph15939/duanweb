@@ -13,7 +13,8 @@ class Classroom extends Model
         'name',
         'desc',
         'status',
-        'user_id'
+        'user_id',
+        'image'
     ];
 
     //1 lớp học có 1 tác giả
@@ -36,8 +37,17 @@ class Classroom extends Model
         return $this->belongsToMany(
             Course::class,
             'class_course',
-            'classroom_id',
+            'class_id',
             'course_id'
+        )->withTimestamps();
+    }
+
+    public function quizs(){
+        return $this->belongsToMany(
+            Quiz::class,
+            'class_quiz',
+            'class_id',
+            'quiz_id'
         );
     }
 }

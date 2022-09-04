@@ -1,66 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<!-- Mirrored from eduport.webestica.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 30 Aug 2022 16:30:50 GMT -->
+<head>
+	<title>@yield('title')</title>
 
-<!-- Mirrored from demo.foxthemes.net/courseplus-v4.3.1/default/explore.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 23 Aug 2022 13:49:18 GMT -->
-<head> 
+	<!-- Meta Tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="author" content="Webestica.com">
+	<meta name="description" content="Eduport- LMS, Education and Course Theme">
 
-    <!-- Basic Page Needs
-    ================================================== -->
-    <title>@yield('title')</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Courseplus is - Professional A unique and beautiful collection of UI elements">
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="/frontend/images/favicon.ico">
 
-    <!-- Favicon -->
-    <link href="/frontend/images/favicon.png" rel="icon" type="image/png">
+	<!-- Google Font -->
+	<link rel="preconnect" href="https://fonts.googleapis.com/">
+	<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700&amp;family=Roboto:wght@400;500;700&amp;display=swap">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+	<!-- Plugins CSS -->
+	<link rel="stylesheet" type="text/css" href="/frontend/vendor/font-awesome/css/all.min.css">
+	<link rel="stylesheet" type="text/css" href="/frontend/vendor/bootstrap-icons/bootstrap-icons.css">
+	<link rel="stylesheet" type="text/css" href="/frontend/vendor/tiny-slider/tiny-slider.css">
+	<link rel="stylesheet" type="text/css" href="/frontend/vendor/glightbox/css/glightbox.css">
 
-    <!-- icons
-    ================================================== -->
-    <link rel="stylesheet" href="/frontend/css/icons.css">
-
-    <!-- CSS
-    ================================================== -->
-    <link rel="stylesheet" href="/frontend/css/uikit.css">
-    <link rel="stylesheet" href="/frontend/css/style.css">
-    <link href="/frontend/unpkg.com/tailwindcss%402.2.19/dist/tailwind.min.css" rel="stylesheet">
+	<!-- Theme CSS -->
+	<link id="style-switch" rel="stylesheet" type="text/css" href="/frontend/css/style.css">
+	<link id="style-switch" rel="stylesheet" type="text/css" href="/frontend/css/custom.css">
 
 </head>
 
-<body>
-
-    <div id="wrapper" class="is-verticle">
-
-        @include('layouts.frontend.header')
-
-        <!-- Main Contents -->
-        <div class="main_content">
-
-            @yield('content')
-            
-            @include('layouts.frontend.footer')
-
+<body><!-- Pre loader -->
+    <div class="preloader">
+        <div class="preloader-item">
+            <div class="spinner-grow text-primary"></div>
         </div>
-        
-        @include('layouts.frontend.sidebar')
-        
     </div>
+@include('layouts.frontend.header')
 
- 
-    <!-- Javascript
-    ================================================== -->
-    <script src="/frontend/code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="/frontend/cdn.jsdelivr.net/npm/uikit%403.7.6/dist/js/uikit.min.js"></script>
-    <script src="/frontend/js/uikit.js"></script>
-    <script src="/frontend/js/tippy.all.min.js"></script>
-    <script src="/frontend/js/simplebar.js"></script>
-    <script src="/frontend/js/custom.js"></script>
-    <script src="/frontend/js/bootstrap-select.min.js"></script>
-    <script src="/frontend/unpkg.com/ionicons%405.2.3/dist/ionicons.js"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
+<!-- **************** MAIN CONTENT START **************** -->
+<main>
+	
+@yield('content')
 
+</main>
+<!-- **************** MAIN CONTENT END **************** -->
+
+@include('layouts.frontend.footer')
+
+<!-- Back to top -->
+<div class="back-top"><i class="bi bi-arrow-up-short position-absolute top-50 start-50 translate-middle"></i></div>
+
+<!-- Bootstrap JS -->
+<script src="/frontend/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Vendors -->
+<script src="/frontend/vendor/tiny-slider/tiny-slider.js"></script>
+<script src="/frontend/vendor/glightbox/js/glightbox.js"></script>
+<script src="/frontend/vendor/purecounterjs/dist/purecounter_vanilla.js"></script>
+
+<!-- Template Functions -->
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://js.pusher.com/7.2/pusher.min.js"></script>
+<script src="/frontend/js/functions.js"></script>
+<script src="/frontend/js/notifications.js"></script>
+@yield('custom-js-tag')
+@stack('add-script')
 </body>
 
-
-<!-- Mirrored from demo.foxthemes.net/courseplus-v4.3.1/default/explore.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 23 Aug 2022 13:50:23 GMT -->
+<!-- Mirrored from eduport.webestica.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 30 Aug 2022 16:31:40 GMT -->
 </html>

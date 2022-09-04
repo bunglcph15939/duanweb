@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\helpers\Helpers;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\QuestionAnswerRequest;
+use App\Http\Services\UploadService;
 use App\Models\Answer;
 use App\Models\Question;
 use Illuminate\Http\Request;
@@ -53,7 +54,7 @@ class QuestionAnswerController extends Controller
         //-------add image in storage--------
         if ($request->hasFile('attachment')) {
             $img = $request->attachment;
-            $request_array['attachment'] =  Helpers::storage_image($img);
+            $request_array['attachment'] =  UploadService::upload($img, 'question');
         }
         //-------add question--------
         Question::create($request_array);
@@ -106,7 +107,7 @@ class QuestionAnswerController extends Controller
         $question->title = $request->title;
         $question->type = $request->type;
         if ($request->hasFile('attachment')) {
-            $question->attachment =  Helpers::storage_image($request->attachment);
+            $question->attachment = UploadService::upload($request->attachment, 'question');
         }
         $question->tag = $request->tag;
         $question->save();
@@ -156,7 +157,7 @@ class QuestionAnswerController extends Controller
         Answer::destroy($id);
         return response()->json('', 205);
     }
-    // xóa question 
+    // xóa question
     public function destroyQuestion($id)
     {
         $data = Question::select('title')->where('id',$id)->get();

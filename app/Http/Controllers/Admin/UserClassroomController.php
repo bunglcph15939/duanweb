@@ -10,7 +10,7 @@ use App\Models\UserClassroom;
 use App\Notifications\MailAddStudentClass;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Session;
-
+use Pusher\Pusher;
 use Illuminate\Http\Request;
 
 class UserClassroomController extends Controller
@@ -68,9 +68,28 @@ class UserClassroomController extends Controller
                     'user_id' => $studentId,
                     'classroom_id' => $request->id
                 ]);
-                
+
+                // gửi mail
                 $emailUser = User::where('id','=',$studentId)->first();
                 $emailUser->notify(new MailAddStudentClass($request->id));
+
+                // thông báo
+                $class = Classroom::find($request->id);
+                $data['title'] = "Chào mừng bạn đã tham gia lớp học";
+                $data['class'] = $class->name;
+
+                $options = array(
+                    'cluster' => 'ap1',
+                    'useTLS' => true
+                );
+                $pusher = new Pusher(
+                    'c99225feca5b539fb20f',
+                    '06f640a63b9f8a4397db',
+                    '1472142',
+                    $options
+                );
+
+                $pusher->trigger('AddStudentClassNotify', 'send-student-class', $data);
 
                 Session::get('success');
                 $sessions = session()->flash('success', 'Thêm sinh viên mới thành công');

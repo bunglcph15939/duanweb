@@ -38,16 +38,21 @@ class ImportFileUserClass implements ToCollection,WithHeadingRow
 
     public function collection(Collection $rows)
     {   
+        Validator::make($rows->toArray(), [
+            '*.user_id' => 'required',
+
+        ])->validate();
+
         $userListID = $rows->pluck('user_id')->all();
         $userListID = array_filter($userListID, fn($val) => $val != null);
-        $validator = Validator::make(['user_id' => $userListID], [
-            'user_id' => 'required|array',
+        // $validator = Validator::make(['user_id' => $userListID], [
+        //     'user_id' => 'required|array',
 
-        ]);
+        // ]);
 
-        if($validator->fails()){
-            throw new Exception('Vui lòng chọn tệp người dùng chính xác');
-        }
+        // if($validator->fails()){
+        //     throw new Exception('Vui lòng chọn tệp người dùng chính xác');
+        // }
 
         $users = UserClassroom::where('classroom_id', '=', $this->id)
                             ->pluck('user_id')->all();

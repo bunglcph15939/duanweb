@@ -13,15 +13,24 @@ use App\Http\Controllers\Auth\EmailVerificationNotificationController;
  */
 Route::prefix('/register')->name('auth.')->group(function () {
     Route::get('/', [AuthController::class, 'register'])->name('register');
-    Route::post('/processRegister', [AuthController::class, 'processRegister'])->name('processRegister');
+    Route::post('/processRegister', [AuthController::class, 'processRegister'])->name('processRegister')->middleware('throttle:login');
 });
+
+/**
+ * Users verify email Route
+ */    
+Route::get('/verify-email', [EmailVerificationPromptController::class, '__invoke'])->name('verification.notice');
+
+Route::get('/verify-email/{id}/{hash}', [VerifyEmailController::class, '__invoke'])->middleware(['auth', 'signed'])->name('verification.verify');
+
+Route::post('/email/verification-notification',  [EmailVerificationNotificationController::class, 'store'])->middleware(['auth', 'throttle:6,1'])->name('verification.send');
 
 /**
  * Users login Route
  */
 Route::prefix('/login')->name('auth.')->group(function () {
     Route::get('/', [AuthController::class, 'login'])->name('login');
-    Route::post('/processLogin', [AuthController::class, 'processLogin'])->name('processLogin');
+    Route::post('/processLogin', [AuthController::class, 'processLogin'])->middleware(['throttle:login'])->name('processLogin');
 });
 
 
@@ -54,9 +63,5 @@ Route::prefix('/change-password')->group(function () {
 
 });
 
-Route::get('/verify-email', [EmailVerificationPromptController::class, '__invoke'])->name('verification.notice');
 
-Route::get('/verify-email/{id}/{hash}', [VerifyEmailController::class, '__invoke'])->middleware(['auth', 'signed'])->name('verification.verify');
-
-Route::post('/email/verification-notification',  [EmailVerificationNotificationController::class, 'store'])->middleware(['auth', 'throttle:6,1'])->name('verification.send');
-
+Route::get('/logout', [AuthController::class, 'logout'])->name('auth.logout');
