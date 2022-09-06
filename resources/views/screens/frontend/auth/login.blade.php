@@ -48,27 +48,60 @@
                         <span class="mb-0 fs-1">👋</span>
                         <h1 class="fs-2">Login into Eduport!</h1>
                         <p class="lead mb-4">Nice to see you! Please log in with your account.</p>
+                        @if (session('status'))
+                            <div class="alert alert-success" >
+                                {{ session('status') }}
+                            </div>
+                        @endif
+
+                        @if (session('message'))
+                            <div class="alert alert-danger" style="color: red">
+                                {{ session('message') }}
+                            </div>
+                        @endif
+
+                        @if($errors->any() && $retries > 0)
+                            <div class="alert alert-danger" style="color: red">
+                                Bạn còn {{$retries}} lần login
+                            </div>
+                        @endif
+                        {{-- <div class="alert alert-danger" style="color: red">
+                            Lỗi login thứ {{$retries}}
+                        </div> --}}
+                        @if( $retries <= 0)
+                            <div class="alert alert-danger" style="color: red">
+                                Bạn Login quá nhiều. Thử lại sau {{$secounds}}s
+                            </div>
+                        @endif
 
                         <!-- Form START -->
-                        <form>
+                        <form action="{{route('auth.processLogin')}}" method="POST">
+                            @csrf
+                            @method('POST')
                             <!-- Email -->
                             <div class="mb-4">
                                 <label for="exampleInputEmail1" class="form-label">Email address *</label>
                                 <div class="input-group input-group-lg">
                                     <span class="input-group-text bg-light rounded-start border-0 text-secondary px-3"><i class="bi bi-envelope-fill"></i></span>
-                                    <input type="email" class="form-control border-0 bg-light rounded-end ps-1" placeholder="E-mail" id="exampleInputEmail1">
+                                    <input type="email" name="email" class="form-control border-0 bg-light rounded-end ps-1" placeholder="E-mail" id="exampleInputEmail1">
                                 </div>
+                                @error('email')
+                                    <div id="emailHelp" style="color: red" class="form-text">{{$message}}</div>
+                                @enderror
                             </div>
                             <!-- Password -->
                             <div class="mb-4">
                                 <label for="inputPassword5" class="form-label">Password *</label>
                                 <div class="input-group input-group-lg">
                                     <span class="input-group-text bg-light rounded-start border-0 text-secondary px-3"><i class="fas fa-lock"></i></span>
-                                    <input type="password" class="form-control border-0 bg-light rounded-end ps-1" placeholder="password" id="inputPassword5">
+                                    <input type="password" name="password" class="form-control border-0 bg-light rounded-end ps-1" placeholder="password" id="inputPassword5">
                                 </div>
                                 <div id="passwordHelpBlock" class="form-text">
                                     Your password must be 8 characters at least 
                                 </div>
+                                @error('password')
+                                    <div id="emailHelp" style="color: red" class="form-text">{{$message}}</div>
+                                @enderror
                             </div>
                             <!-- Check box -->
                             <div class="mb-4 d-flex justify-content-between mb-4">
@@ -77,7 +110,7 @@
                                     <label class="form-check-label" for="exampleCheck1">Remember me</label>
                                 </div>
                                 <div class="text-primary-hover">
-                                    <a href="forgot-password.html" class="text-secondary">
+                                    <a href="{{route('forgotPassword.forgotPasswordForm')}}" class="text-secondary">
                                         <u>Forgot password?</u>
                                     </a>
                                 </div>
@@ -85,14 +118,14 @@
                             <!-- Button -->
                             <div class="align-items-center mt-0">
                                 <div class="d-grid">
-                                    <button class="btn btn-primary mb-0" type="button">Login</button>
+                                    <button class="btn btn-primary mb-0" type="submit">Login</button>
                                 </div>
                             </div>
                         </form>
                         <!-- Form END -->
 
                         <!-- Social buttons and divider -->
-                        <div class="row">
+                        {{-- <div class="row">
                             <!-- Divider with text -->
                             <div class="position-relative my-4">
                                 <hr>
@@ -107,11 +140,11 @@
                             <div class="col-xxl-6 d-grid">
                                 <a href="#" class="btn bg-facebook mb-0"><i class="fab fa-fw fa-facebook-f me-2"></i>Login with Facebook</a>
                             </div>
-                        </div>
+                        </div> --}}
 
                         <!-- Sign up link -->
                         <div class="mt-4 text-center">
-                            <span>Don't have an account? <a href="sign-up.html">Signup here</a></span>
+                            <span>Don't have an account? <a href="{{route('auth.register')}}">Signup here</a></span>
                         </div>
                     </div>
                 </div> <!-- Row END -->

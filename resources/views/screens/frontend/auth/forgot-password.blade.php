@@ -41,19 +41,24 @@
                         <h5 class="fw-light mb-4">To receive a new password, enter your email address below.</h5>
                         
                         <!-- Form START -->
-                        <form>
+                        <form action="" method="POST">
+                            @csrf
+                            @method('POST')
                             <!-- Email -->
                             <div class="mb-4">
                                 <label for="exampleInputEmail1" class="form-label">Email address *</label>
                                 <div class="input-group input-group-lg">
                                     <span class="input-group-text bg-light rounded-start border-0 text-secondary px-3"><i class="bi bi-envelope-fill"></i></span>
-                                    <input type="email" class="form-control border-0 bg-light rounded-end ps-1" placeholder="E-mail" id="exampleInputEmail1">
+                                    <input type="email" name="email" class="form-control border-0 bg-light rounded-end ps-1" placeholder="E-mail" id="exampleInputEmail1">
                                 </div>
+                                @error('email')
+                                    <div id="emailHelp" style="color: red" class="form-text">{{$message}}</div>
+                                @enderror
                             </div>
                             <!-- Button -->
                             <div class="align-items-center">
                                 <div class="d-grid">
-                                    <button class="btn btn-primary mb-0" type="button">Reset password</button>
+                                    <button class="btn btn-primary mb-0" type="submit">Reset password</button>
                                 </div>
                             </div>	
                         </form>

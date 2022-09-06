@@ -64,7 +64,9 @@
                             @foreach ($classroom as $item)
                                 <tr>
                                     <th scope="row">{{ $item->id }}</th>
-                                    <td>{{ $item->name }}</td>
+                                    <td>
+                                        <a href="{{route('admin.userclass.list',$item->id)}}">{{ $item->name }}</a> 
+                                    </td>
                                     <td> {{ substr($item->desc, 0, 30) }}...</td>
                                     <td>{{ $item->author->name }}</td>
                                     <td>
