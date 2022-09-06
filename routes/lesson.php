@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\LessonController;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\LessonController as FrontendLessonController;
 
 /**
  * Users Role Route
@@ -20,3 +21,5 @@ Route::prefix('admin/lessons')->name('admin.lesson.')->group(function () {
     Route::post('/{course}', [LessonController::class, 'store'])->name('store');
     Route::delete('/{lesson}', [LessonController::class, 'destroy'])->name('delete');
 });
+
+Route::post('/mark-lesson/{lesson}', [FrontendLessonController::class, 'mark'])->name('mark-lesson');

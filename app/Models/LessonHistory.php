@@ -9,6 +9,8 @@ class LessonHistory extends Model
 {
     use HasFactory;
 
+    protected $table = 'lesson_history';
+
     protected $fillable = [
         'lesson_id',
         'course_id',

@@ -69,7 +69,7 @@
                                             @if ($l->lesson_type == 'document')
                                                 <i class="fas fa-file"></i>
                                             @elseif ($l->lesson_type == 'text')
-                                                <i class="fa-solid fa-text"></i>
+                                                <i class="fas fa-font"></i>
                                             @elseif ($l->lesson_type == 'video' && $l->video_type == 'system')
                                                 <i class="fas fa-video"></i>
                                             @elseif ($l->lesson_type == 'video' && $l->video_type == 'youtube')

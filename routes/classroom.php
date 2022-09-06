@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\ClassroomController;
 use App\Http\Controllers\Admin\UserClassroomController;
+use App\Http\Controllers\ClassroomController as FrontEndClassroomController;
 
 /**
  * Users Role Route
@@ -28,6 +29,6 @@ Route::prefix('admin/userclass')->name('admin.userclass.')->group(function () {
     Route::post('/import/{id}',[UserClassroomController::class,'importExUserClass'])->name('importExUserClass');
 
     // Route::get('/add-student/{id}',[UserClassroomController::class,'addStudent'])->name('addStudent');
-
-
 });
+
+Route::get('/classroom/{classroom}', [FrontEndClassroomController::class, 'show'])->name('classroom');

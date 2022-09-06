@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use GuzzleHttp\Psr7\MimeType;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,14 +27,15 @@ Route::get('/admin', function(){
 
 
 // preview pdf
-Route::get('/pdf/{file}', function ($file) {
+Route::get('/doc-viewer/{file}', function ($file) {
     // file path
-   $path = public_path('documents\pdf\lesson\\' . $file);
+   $path = public_path($file);
+  //  dd($path);
+  $mimeType = MimeType::fromFilename($path);
     // header
    $header = [
-     'Content-Type' => 'application/pdf',
+     'Content-Type' => $mimeType,
      'Content-Disposition' => 'inline; filename="' . $file . '"'
    ];
   return response()->file($path, $header);
-})->name('pdf');
-
+})->name('doc-viewer')->where('file', '.*');
