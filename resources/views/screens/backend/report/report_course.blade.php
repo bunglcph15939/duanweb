@@ -35,8 +35,8 @@
                             <th scope="row">{{$item->id}}</th>
                             <td>{{$item->name}}</td>
                             <td>
-                                <div class="progress">
-                                    <div class="progress-bar" role="progressbar" style="width: 10%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div class="progress"data-toggle="tooltip" data-theme="dark" title="60%">
+                                    <div class="progress-bar"  role="progressbar" style="width: 10%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
                             </td>
                             <td>
@@ -48,8 +48,8 @@
                                 }}
                             </td>
                             <td>
-                               <a class="btn btn-success" href=""><i class="far fa-envelope"></i></a>
-                               <a class="btn btn-danger btn-round mb-0" href=""><i class="fas fa-ban"></i></a>
+                               <a class="btn btn-success" data-toggle="tooltip" data-theme="dark" title="messages" href=""><i class="far fa-envelope"></i></a>
+                               <a class="btn btn-danger btn-round mb-0" data-toggle="tooltip" data-theme="dark" title="block" href=""><i class="fas fa-ban"></i></a>
                             </td>
                         </tr>
                         @endforeach
