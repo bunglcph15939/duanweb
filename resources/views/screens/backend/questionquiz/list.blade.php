@@ -5,7 +5,6 @@
 @section('content')
     @include('screens.backend.questionquiz.components.layout.modalcreate')
     @include('screens.backend.questionquiz.components.layout.modalupdate')
-    <!--begin::Card-->
     <div class="card card-custom">
         <div class="card-header flex-wrap border-0 pt-6 pb-0">
             @include('screens.backend.questionquiz.components.layout.nav')
@@ -15,16 +14,12 @@
         
         </div>
     </div>
-    <!--end::Card-->
     <div id="bach">
-
     </div>
 @endsection
 
 @push('add-script')
-    <!--begin::Page Scripts(used by this page)-->
     <script src="{{ asset('backend/js/pages/crud/forms/widgets/tagify.js') }}"></script>
-    <!--end::Page Scripts-->
 
     <script>
         function alert_error(message) {
@@ -36,14 +31,15 @@
         }
 
         function option_answer(myseft, type_question) {
-            if (type_question == 1) {
+            if (type_question == 1 || type_question == 0 || type_question == 4) {
                 Array.from(document.querySelectorAll('.tools-answer select')).forEach(
-                    (elm, index) => {
+                    (elm) => {
                         let listOption = Array.from(elm.querySelectorAll('option'))
-                        listOption.forEach(elm1 => elm1.selected = false)
+                        listOption.forEach(elm1 => elm1.selected = true)
                     }
                 )
                 if (myseft) {
+                    console.log(myseft, Array.from(myseft.querySelectorAll('option')));
                     let options = Array.from(myseft.querySelectorAll('option'))
                     if (myseft.value == 1) {
                         options[1].selected = true

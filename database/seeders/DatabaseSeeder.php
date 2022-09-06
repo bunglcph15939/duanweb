@@ -24,8 +24,8 @@ class DatabaseSeeder extends Seeder
         $this->call(SectionSeeder::class);
         $this->call(LessonSeeder::class);
         $this->call(QuizSeeder::class);
-        $this->call(QuestionSeeder::class);
-        $this->call(AnswerSeeder::class);
+        // $this->call(QuestionSeeder::class);
+        // $this->call(AnswerSeeder::class);
         $this->call(QuizResultSeeder::class);
         $this->call(QuizResultDetailSeeder::class);
     }

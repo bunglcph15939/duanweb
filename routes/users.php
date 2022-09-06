@@ -28,7 +28,5 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/create-permission', [PermissionController::class, 'createPermission'])->name('create-permission');
         Route::post('/post-permission', [PermissionController::class, 'processPermission'])->name('post-permission');
     });
-
-
 });
 

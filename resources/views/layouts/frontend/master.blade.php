@@ -24,11 +24,12 @@
 	<link rel="stylesheet" type="text/css" href="/frontend/vendor/bootstrap-icons/bootstrap-icons.css">
 	<link rel="stylesheet" type="text/css" href="/frontend/vendor/tiny-slider/tiny-slider.css">
 	<link rel="stylesheet" type="text/css" href="/frontend/vendor/glightbox/css/glightbox.css">
+	@yield('plugin-css')
 
 	<!-- Theme CSS -->
 	<link id="style-switch" rel="stylesheet" type="text/css" href="/frontend/css/style.css">
 	<link id="style-switch" rel="stylesheet" type="text/css" href="/frontend/css/custom.css">
-
+	@yield('custom-css')
 </head>
 
 <body><!-- Pre loader -->
@@ -59,9 +60,12 @@
 <script src="/frontend/vendor/glightbox/js/glightbox.js"></script>
 <script src="/frontend/vendor/purecounterjs/dist/purecounter_vanilla.js"></script>
 
+@yield('custom-js-tag')
+
 <!-- Template Functions -->
 <script src="/frontend/js/functions.js"></script>
-@yield('custom-js-tag')
+
+
 @stack('add-script')
 </body>
 
