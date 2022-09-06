@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Imports\ImportFileUserClass;
 use App\Models\Classroom;
+use App\Models\Course;
 use App\Models\User;
 use App\Models\UserClassroom;
 use App\Notifications\MailAddStudentClass;
@@ -60,22 +61,30 @@ class UserClassroomController extends Controller
         $request->validate($rule,$messages);
         // dd($request->id);
         // dd($request->addstudent);
-        $users = UserClassroom::where('classroom_id', '=', $request->id)
-                            ->pluck('user_id')->all();
+        $userclass = Classroom::find($request->id)->users;
         foreach ($request->addstudent as $key => $studentId) {
-            if (!in_array($studentId, $users)){
-                  UserClassroom::create([
-                    'user_id' => $studentId,
-                    'classroom_id' => $request->id
-                ]);
+            if (!$userclass->contains($studentId)){
+                $user =  User::where('id','=',$studentId)->first();
+                //   UserClassroom::create([
+                //     'user_id' => $studentId,
+                //     'classroom_id' => $request->id
+                //   ]);
 
-                // gửi mail
+                $classroom = Classroom::find($request->id);
+                $classroom->users()->attach($studentId);
+
+                
+                $courses = Classroom::find($request->id)->courses;
+                //   dd($courses->pluck('id')->toArray());
+                $user->courses()->attach($courses->pluck('id')->toArray());
+                
+                // gửi mail tham gia lớp học
                 $emailUser = User::where('id','=',$studentId)->first();
                 $emailUser->notify(new MailAddStudentClass($request->id));
 
-                // thông báo
+                // thông báo tham gia lớp học
                 $class = Classroom::find($request->id);
-                $data['title'] = "Chào mừng bạn đã tham gia lớp học";
+                $data['title'] = "Chào mừng bạn đã tham gia lớp học  ";
                 $data['class'] = $class->name;
 
                 $options = array(

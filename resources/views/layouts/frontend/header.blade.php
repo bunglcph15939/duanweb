@@ -567,33 +567,7 @@
 									<i class="text-warning fa-fw bi bi-life-preserver me-2"></i>Support
 								</a> 
 							</li>
-							<li> 
-								<a class="dropdown-item" href="docs/index.html" target="_blank">
-									<i class="text-danger fa-fw bi bi-card-text me-2"></i>Documentation
-								</a> 
-							</li>
-							<li> <hr class="dropdown-divider"></li>
-							<li> 
-								<a class="dropdown-item" href="rtl/index.html" target="_blank">
-									<i class="text-info fa-fw bi bi-toggle-off me-2"></i>RTL demo
-								</a> 
-							</li>
-							<li> 
-								<a class="dropdown-item" href="https://themes.getbootstrap.com/store/webestica/" target="_blank">
-									<i class="text-success fa-fw bi bi-cloud-download-fill me-2"></i>Buy Eduport!
-								</a> 
-							</li>
-							<li> <hr class="dropdown-divider"></li>
-							<li> 
-								<a class="dropdown-item" href="docs/alerts.html" target="_blank">
-									<i class="text-orange fa-fw bi bi-puzzle-fill me-2"></i>Components
-								</a> 
-							</li>
-							<li> 
-								<a class="dropdown-item" href="docs/snippets.html">
-									<i class="text-purple fa-fw bi bi-stickies-fill me-2"></i>Snippets<span class="badge bg-success ms-2 smaller">New</span>
-								</a>
-							</li>
+							
 						</ul>
 					</li>
 

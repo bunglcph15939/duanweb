@@ -8,7 +8,7 @@
         </div>
         <div class="card-toolbar">
             <!--begin::Dropdown-->
-            <div class="dropdown dropdown-inline mr-2">
+            <div wire:click="exportUser()" class="dropdown dropdown-inline mr-2">
                 <button type="button" class="btn btn-light-primary font-weight-bolder dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="svg-icon svg-icon-md">
                     <!--begin::Svg Icon | path:assets/media/svg/icons/Design/PenAndRuller.svg-->
@@ -43,7 +43,7 @@
                             </a>
                         </li>
                         <li class="navi-item">
-                            <div wire:click="exportUser() " class="navi-link">
+                            <div wire:click="exportUser()" class="navi-link">
                                 <span class="navi-icon">
                                     <i class="la la-file-excel-o"></i>
                                 </span>
@@ -153,6 +153,7 @@
                     <th>Avatar</th>
                     <th>Role</th>
                     <th>Create at</th>
+                    <th>Status</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -171,19 +172,33 @@
                         @endif
                     </td>
                     <td>{{$user->created_at}}</td>
+                    <td>
+                        @if ($user->status == 1)
+                            <span
+                                class="label label-inline label-light-primary font-weight-bold">Hiện</span>
+                        @else
+                            <span class="label label-inline label-light-danger font-weight-bold">Khoá</span>
+                        @endif
+                    </td>
                     <td nowrap="nowrap">
+                        @if ($user->id == Auth::id())
+                            
+                        @else
+                        <a class="btn btn-light  btn-sm mr-2"
+                            id="change_status" wire:click.prevent="editStatus({{$user->id}})">
+                            <i class="ki ki-reload text-warning"></i>
+                        </a>
+
                         <button
-                            {{-- data-url="{{route('admin.user.edit-user')}}"
-                            data-id="{{ $user->id }}" --}}
+
                             wire:click.prevent="editUser({{$user->id}})"
                             class="btn btn-light-primary px-6 font-weight-bold"
-                            {{-- class="show-form-edit btn btn-light-primary px-6 font-weight-bold"  --}}
+
                             data-bs-toggle="modal" data-bs-target="#exampleModal"
                             >
                             <i class="flaticon2-gear text-primary"></i>
                         </button>
-                        {{-- <a href="" class="btn btn-icon btn-primary"><i class="fas fa-trash"></i></a> --}}
-                        {{-- <a href="javascript:;" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger"><i class="la la-trash-o"></i>Delete</a> --}}
+                        @endif
                     </td>
                 </tr>
                 @endforeach

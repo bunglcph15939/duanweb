@@ -59,10 +59,6 @@
         <button class="btn btn-hover-text-primary p-0 ml-2" id="kt_header_mobile_topbar_toggle">
             <span class="svg-icon svg-icon-xl">
 
-<<<<<<< HEAD
->>>>>>> e50da9a565b30fce81d6b882be4816c84c49507e
-=======
->>>>>>> e50da9a565b30fce81d6b882be4816c84c49507e
 						<!--begin::Svg Icon | path:/backend/media/svg/icons/General/User.svg-->
 						<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
                              height="24px" viewBox="0 0 24 24" version="1.1">
@@ -1940,9 +1936,7 @@
 		<!--end::Page Scripts-->
 	</body>
 	<!--end::Body-->
-=======
-=======
->>>>>>> e50da9a565b30fce81d6b882be4816c84c49507e
+
 
 </div>
 <!--end::Scrolltop-->
@@ -2457,8 +2451,4 @@
 </body>
 <!--end::Body-->
 
-<<<<<<< HEAD
->>>>>>> e50da9a565b30fce81d6b882be4816c84c49507e
-=======
->>>>>>> e50da9a565b30fce81d6b882be4816c84c49507e
 </html>

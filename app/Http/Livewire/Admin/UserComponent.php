@@ -18,7 +18,7 @@ class UserComponent extends Component
     public $nameUser, $userRole, $editRole , $editId;
 
 
-    public $perPage = 3;
+    public $perPage = 5;
     public $search = "";
     public $orderBy ='id';
     public $orderAsc = 'asc';
@@ -77,8 +77,33 @@ class UserComponent extends Component
 
     public function exportUser(){
         $ex = User::where('name', 'LIKE', "%$this->search%")
-        ->orderby($this->orderBy, $this->orderAsc)->role($this->role)->get();
+                    ->orderby($this->orderBy, $this->orderAsc)
+                    ->get();
+        if($this->role != ""){
+            $ex = User::where('name', 'LIKE', "%$this->search%")
+                        ->orderby($this->orderBy, $this->orderAsc)
+                        ->role($this->role)->get();
+        }
         return Excel::download(new ExportFileUser($ex), 'users.xlsx');
     }
 
+    public function editStatus($id){
+        $user = User::find($id);
+        if($user->status == 0){
+            $user->update([
+                'status'=>1
+            ]);
+            
+        }
+        elseif($user->status == 1){
+            $user->update([
+                'status'=>0
+            ]);
+        }
+        $this->dispatchBrowserEvent('alert', [
+                'title' => 'Đổi trạng thái thành công.',
+                'icon'=>'success',
+                'iconColor'=>'green',
+            ]);
+    }
 }
