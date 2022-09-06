@@ -46,7 +46,7 @@ class SectionController extends Controller
             $course = $request->course;
             $section = new Section();
             $section->title = $request->title;
-            $section->order = Section::where('course_id', $course)->max('order');
+            $section->order = Section::where('course_id', $course)->max('order') ?? 0;
             $section->course_id = $course;
             $section->save();
             if($request->ajax()){

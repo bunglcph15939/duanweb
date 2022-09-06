@@ -51,6 +51,16 @@ class Course extends Model
         return $this->hasMany(Lesson::class,'course_id','id');
     }
 
+    public function getProgress()
+    {
+        if(!auth()->user()->courses->contains($this->id)) return null;
+        $totalLesson = $this->lessons()->count();
+        $totalHistory = LessonHistory::where('course_id', $this->id)
+                                    ->where('user_id', auth()->user()->id)
+                                    ->count();
+        return ($totalLesson > 0) ? ($totalHistory/$totalLesson)*100 : 0;
+    }
+
     public function scopeFindByName($query, $request){
         if($request->q){
             $query->where('title', 'like', '%'.$request->q.'%');
