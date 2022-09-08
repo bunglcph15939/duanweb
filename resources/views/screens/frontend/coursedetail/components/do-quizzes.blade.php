@@ -7,14 +7,10 @@
             <div class="col-12">
                 <div class="card">
                     <div class="row g-0">
-                        <div class="col-md-2">
-                            <img src="/frontend/images/courses/4by3/01.jpg" class="rounded-2" alt="Card image">
-                        </div>
                         <div class="col-md-10">
                             <div class="card-body">
                                 <!-- Title -->
-                                <h3 class="card-title"><a href="#">The Complete Digital Marketing Course - 12
-                                        Courses in 1</a></h3>
+                                <h3 class="card-title"><a href="#">Name quiz: {{ $quiz->title }}</a></h3>
                             </div>
                         </div>
                     </div>
@@ -71,10 +67,11 @@
 
                                     <input type="text" value="{{ $question->id }}" name="question_id[]" hidden>
                                     <!-- Title -->
-                                    <h4>{{ $question->title }}</h4>
-                                    <img src="/frontend/images/courses/4by3/01.jpg" class="rounded-2" alt="Card image"
-                                        style="max-height: 300px">
-
+                                    <h4>Tiêu đề: {{ $question->title }}</h4>
+                                    @if ($question->attachment)
+                                        <img src="{{ asset("images/question/".$question->attachment) }}"
+                                            class="rounded-2" alt="Card image" style="max-height: 300px">
+                                    @endif
                                     <hr> <!-- Divider -->
                                     <div class="vstack">
                                         <!-- Feed ques item -->

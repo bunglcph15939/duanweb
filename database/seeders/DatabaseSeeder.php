@@ -25,7 +25,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-
         DB::statement('SET FOREIGN_KEY_CHECKS=0;');
         LessonHistory::truncate();
 //        User::truncate();
@@ -36,8 +35,6 @@ class DatabaseSeeder extends Seeder
         Quiz::truncate();
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
 
-
-
 //        $this->call(UserSeeder::class);
          $this->call(CourseCategorySeeder::class);
          $this->call(CourseSeeder::class);
@@ -46,10 +43,6 @@ class DatabaseSeeder extends Seeder
          $this->call(LessonSeeder::class);
          $this->call(LessonHistorySeeder::class);
          $this->call(QuizSeeder::class);
-        // $this->call(QuestionSeeder::class);
-        // $this->call(AnswerSeeder::class);
-        // $this->call(QuizResultSeeder::class);
-        // $this->call(QuizResultDetailSeeder::class);
-        // $this->call(PermissionsSeeder::class);
+
     }
 }

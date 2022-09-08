@@ -20,7 +20,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
 Route::prefix('/')->middleware('auth','verified')->name('frontend.')->group(function(){
     Route::get('/', [HomeController::class, 'index'])->name('home');
     Route::get('/classroom-detail', function () {
