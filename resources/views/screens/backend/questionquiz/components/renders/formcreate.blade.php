@@ -20,7 +20,6 @@
                     typeOption.innerHTML = res.data
                     document.querySelectorAll("input[type=file]")[0].name = "attachment"
                     document.querySelector('#form-errors-create').innerHTML = ''
-                 
                     KTTagifyDemos.init()
                 }
             )

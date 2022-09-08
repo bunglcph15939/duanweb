@@ -7,7 +7,7 @@ use App\Http\Controllers\Admin\CourseCategoryController;
  * Users Role Route
  */
 
-Route::prefix('admin/course_category')->name('course_category.')->group(function () {
+Route::prefix('admin/course_category')->middleware('auth')->name('course_category.')->group(function () {
     Route::get('/',[CourseCategoryController::class,'index']);
     Route::post('/store',[CourseCategoryController::class,'store']);
     Route::post('/update',[CourseCategoryController::class,'update']);

@@ -14,7 +14,6 @@ class Quiz extends Model
         'title',
         'duration',
         'limit',
-        'lesson_id',
     ];
 
     //Quiz thuộc lesson

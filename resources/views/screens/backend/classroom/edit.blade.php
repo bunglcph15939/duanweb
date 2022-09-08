@@ -82,23 +82,33 @@
                         @endif
                     </select>
                 </div>
+
                 <div class="form-group">
-                    <label for="">Các khóa học</label>
-                    <div class="form-group">
-                        @foreach ($course as $item)
-                            <div class="checkbox-list">
-                                <label class="checkbox">
+                    <label for="">Khóa học</label>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>name</th>
+                                <th>title</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($course as $item)
+                            <tr>
+                                <td>
                                     <input type="checkbox"
-                                        @foreach ($classroom->courses as $item1)
-                                 @if ($item->id == $item1->id) checked
-                                 @endif @endforeach
-                                        value="{{ $item->id }}" name="checkbox[]" />
-                                    <span></span>
-                                    {{ $item->title }}
-                                </label>
-                            </div>
-                        @endforeach
-                    </div>
+                                    @foreach ($classroom->courses as $item1)
+                             @if ($item->id == $item1->id) checked
+                             @endif @endforeach
+                                    value="{{ $item->id }}" name="checkbox[]" />
+                                </td>
+                                <td>{{$item->title}}</td>
+                                <td>{{$item->content}}</td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
                 </div>
 
             </div>

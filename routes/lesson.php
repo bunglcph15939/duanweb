@@ -9,7 +9,7 @@ use App\Http\Controllers\LessonController as FrontendLessonController;
  * Users Role Route
  */
 
-Route::prefix('admin/lessons')->name('admin.lesson.')->group(function () {
+Route::prefix('admin/lessons')->middleware(['auth','verified','role:admin|teacher'])->name('admin.lesson.')->group(function () {
     Route::get('/{section}/sort', [LessonController::class, 'sort'])->name('sort');
     Route::patch('/{section}/sort', [LessonController::class, 'processSort'])->name('processSort');
     Route::get('/{lesson}/edit', [LessonController::class, 'edit'])->name('edit');

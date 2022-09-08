@@ -1,7 +1,7 @@
 <!--begin::Quick Actions-->
 <div class="dropdown">
     <!--begin::Toggle-->
-    <div class="topbar-item" data-toggle="dropdown" onclick="show_menu()">
+    <div class="topbar-item" data-toggle="dropdown" onclick="show_menu(0)">
         <i class="flaticon-squares-1 text-success"></i>
         <strong class="btn" id="">Chọn loại câu hỏi</strong>
     </div>

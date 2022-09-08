@@ -40,24 +40,19 @@
 @endsection
 
 @section('custom-js-tag')
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
-    //  $('body').on('click', '#show-form-edit', function () {
-      // $('.show-form-edit').on('click', function(){
-      //   console.log("quân");
-      //   var id = $(this).data("id");
-      //   var link = $(this).data("url");
-      //   $.ajax({
-      //       type: "GET",
-      //       url: link,
-      //       data: {
-      //           "id": id,
-      //       },
-      //       // dataType: "dataType",
-      //       success: function (response) {
-      //           console.log("quân");
-      //           $('.modal-edit-user').html(response)
-      //       }
-      //   });
-      // })
+  window.addEventListener('alert',function(e) {
+      Swal.fire({
+          title:  e.detail.title,
+          icon: e.detail.icon,
+          iconColor: e.detail.iconColor,
+          timer: 3000,
+          toast: true,
+          position: 'top-right',
+          toast:  true,
+          showConfirmButton:  false,
+      });
+  });
 </script>
 @endsection

@@ -4,7 +4,7 @@
         <div id="kt_datatable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
             <div class="row">
                 <div class="col-12">
-                    <form action="{{route('quiz.update', $quiz->id)}}" id="form-update"
+                    <form action="{{route('admin.quiz.update', $quiz->id)}}" id="form-update"
                           class="has-validation-ajax" method="POST">
                         @csrf
                         @method('PUT')

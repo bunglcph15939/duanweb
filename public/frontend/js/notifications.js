@@ -22,7 +22,7 @@ channel.bind('send-student-class', function(data) {
     var newNotificationHtml = `
         <li> 
             <a class="dropdown-item" href="https://support.webestica.com/" target="_blank">
-                <i class="text-warning fa-fw bi bi-life-preserver me-2"></i>` +data.title+ `<strong>`+data.class+ `</strong>` `
+                <i class="text-warning fa-fw bi bi-life-preserver me-2"></i>` +data.title+  `  <strong>`+data.class+ `</strong>
             </a> 
         </li>
     `;

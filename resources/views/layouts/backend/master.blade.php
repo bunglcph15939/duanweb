@@ -12,6 +12,8 @@
     <link rel="canonical" href="https://keenthemes.com/metronic"/>
     <!--begin::Fonts-->
     @livewireStyles
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700"/>
     <!--end::Fonts-->
     <!--begin::Global Theme Styles(used by all pages)-->
@@ -59,6 +61,10 @@
         <button class="btn btn-hover-text-primary p-0 ml-2" id="kt_header_mobile_topbar_toggle">
             <span class="svg-icon svg-icon-xl">
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> 4da5a30a3a789e04c6122283ab8983f70c85a384
 						<!--begin::Svg Icon | path:/backend/media/svg/icons/General/User.svg-->
 						<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
                              height="24px" viewBox="0 0 24 24" version="1.1">
@@ -2069,6 +2075,8 @@
         integrity="sha512-57oZ/vW8ANMjR/KQ6Be9v/+/h6bq9/l3f0Oc7vn6qMqyhvPd1cvKBRWWpzu0QoneImqr2SkmO4MSqU+RpHom3Q=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="/backend/js/pages/my-script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
 {{-- <script src="/backend/plugins/custom/kanban/kanban.bundle.js"></script>
 <script src="/backend/js/pages/features/miscellaneous/kanban-board.js"></script> --}}
 <!-- custom js tag -->
@@ -2078,4 +2086,5 @@
 <!--end::Page Scripts-->
 </body>
 <!--end::Body-->
+
 </html>

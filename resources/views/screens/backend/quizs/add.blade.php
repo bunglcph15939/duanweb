@@ -3,7 +3,7 @@
         <!--begin: Datatable-->
         <div id="kt_datatable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
             <div>
-                <form action="{{route('quiz.store')}}" id="form" class="has-validation-ajax" method="post">
+                <form action="{{route('admin.quiz.store')}}" id="form" class="has-validation-ajax" method="post">
                     @csrf
                     <div>
                         <div>
