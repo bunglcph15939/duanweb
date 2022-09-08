@@ -67,7 +67,7 @@
                                 <tr>
                                     <th scope="row">{{ $item->id }}</th>
                                     <td>
-                                        <a href="{{route('admin.userclass.list',$item->id)}}">{{ $item->name }}</a> 
+                                        <a href="{{route('admin.userclass.list',$item->id)}}">{{ $item->name }}</a>
                                     </td>
                                     <td> {{ substr($item->desc, 0, 30) }}...</td>
                                     <td>{{ $item->author->name }}</td>

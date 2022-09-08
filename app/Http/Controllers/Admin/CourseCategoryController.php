@@ -53,7 +53,7 @@ class CourseCategoryController extends Controller
     }
 
     public function search(Request $request){
-        if ($request->ajax()) {
+
             $course_category = CourseCategory::with('childs')->where('name', 'LIKE', '%' . $request->search . '%')->paginate(9);
             // dd($course_category);
             if ($course_category) {
@@ -62,8 +62,9 @@ class CourseCategoryController extends Controller
                 ])->render();
                 }
             return Response()->json($output,200);
-        }
+
     }
+   
 
 
 }

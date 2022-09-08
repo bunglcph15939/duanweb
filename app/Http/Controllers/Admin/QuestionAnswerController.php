@@ -139,7 +139,7 @@ class QuestionAnswerController extends Controller
             ];
             $html = view('screens.backend.questionquiz.components.forms.update', $data)->render();
             return response()->json($html, 201);
-            
+
         } catch (\Throwable $e) {
             Log::error($e->getMessage());
             DB::rollBack();
