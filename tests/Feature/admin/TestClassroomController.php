@@ -31,8 +31,6 @@ class TestClassroomController extends TestCase
         $response
         ->assertStatus(302)
         ->assertSessionHasErrors('name');
-
-
     }
 
 }
