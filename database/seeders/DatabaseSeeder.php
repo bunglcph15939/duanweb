@@ -5,9 +5,16 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 use App\Models\Classroom;
+use App\Models\Course;
 use App\Models\CourseCategory;
+use App\Models\Lesson;
+use App\Models\LessonHistory;
+use App\Models\Quiz;
 use App\Models\QuizResult;
+use App\Models\Section;
+use App\Models\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
 {
@@ -18,23 +25,24 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UserSeeder::class);
-        // $this->call(CourseCategorySeeder::class);
-        // $this->call(CourseSeeder::class);
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+        LessonHistory::truncate();
+//        User::truncate();
+        Lesson::truncate();
+        Section::truncate();
+        Course::truncate();
+        CourseCategory::truncate();
+        Quiz::truncate();
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
+
+//        $this->call(UserSeeder::class);
+         $this->call(CourseCategorySeeder::class);
+         $this->call(CourseSeeder::class);
         // $this->call(ClassroomSeeder::class);
-        // $this->call(SectionSeeder::class);
-        // $this->call(LessonSeeder::class);
-        // $this->call(QuizSeeder::class);
-        // $this->call(QuestionSeeder::class);
-        // $this->call(AnswerSeeder::class);
-        // $this->call(QuizResultSeeder::class);
-        // $this->call(QuizResultDetailSeeder::class);
-        // $this->call(PermissionsSeeder::class);
-        // $category = CourseCategory::all();
-        // \App\Models\Course::all()->each(function($post) use ($category){
-        //     $post->categories()->attach(
-        //         $category->random(rand(1, 3))->pluck('id')->toArray()
-        //     );
-        // });
+         $this->call(SectionSeeder::class);
+         $this->call(LessonSeeder::class);
+         $this->call(LessonHistorySeeder::class);
+         $this->call(QuizSeeder::class);
+
     }
 }

@@ -13,6 +13,7 @@ class ResultController extends Controller
 {
     public function index($quiz_id, $check_essay = false)
     {
+
         $user_id = auth()->id();
         $quizResult = QuizResult::where([
             ['user_id', '=', $user_id],

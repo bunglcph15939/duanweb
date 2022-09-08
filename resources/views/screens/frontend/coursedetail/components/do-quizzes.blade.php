@@ -72,8 +72,6 @@
                                         <img src="{{ asset("images/question/".$question->attachment) }}"
                                             class="rounded-2" alt="Card image" style="max-height: 300px">
                                     @endif
-
-
                                     <hr> <!-- Divider -->
                                     <div class="vstack">
                                         <!-- Feed ques item -->

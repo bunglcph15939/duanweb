@@ -31,7 +31,14 @@ Route::prefix('/')->middleware('auth','verified')->name('frontend.')->group(func
 });
 
 
+<<<<<<< HEAD
 Route::get('/admin', [DashboardController::class, 'index'])->middleware(['auth', 'role:admin|teacher'])->name('admin');
+=======
+
+Route::get('/admin', function(){
+    return view('screens.backend.dashboard');
+})->middleware(['auth', 'role:admin|teacher'])->name('admin');
+>>>>>>> 0229acf2f56fd83206df233ad07fbd637835053e
 
 
 // preview pdf
