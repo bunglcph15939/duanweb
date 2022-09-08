@@ -200,8 +200,8 @@ IT courses START -->
 					<!-- Course item -->
 					<div class="col-sm-6 col-lg-4 col-xl-3">
 						<!-- Image -->
-						<div class="card card-metro overflow-hidden rounded-3">
-							<img src="{{ getPathImage($course->thumbnail) }}" alt="">
+						<div class="card card-metro overflow-hidden rounded-3" style="aspect-ratio:1.5/1">
+							<img src="{{ getPathImage($course->thumbnail) }}" alt="{{ $course->title }}" style="width: 100%;height: 100%;object-fit:cover">
 							<!-- Image overlay -->
 							<div class="card-img-overlay d-flex"> 
 								<!-- Info -->

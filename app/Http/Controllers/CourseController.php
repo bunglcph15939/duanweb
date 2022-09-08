@@ -7,6 +7,8 @@ use App\Models\Lesson;
 use Illuminate\Http\Request;
 use App\Models\CourseCategory;
 use App\Models\LessonHistory;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class CourseController extends Controller
 {
@@ -53,6 +55,19 @@ class CourseController extends Controller
             $lesson = Lesson::find($lesson);
         }
         return view('screens.frontend.course-learning', compact('course', 'lesson', 'lessonHistories'));
+    }
+
+    public function join($id, $slug, $lesson = 0){
+        $userId = Auth::id();
+        $course = Course::where('id', $id)->where('slug', $slug)->first();
+        // dd($course);
+        $listUser = $course->users->pluck('id')->toArray();
+        
+        if(!in_array($userId,$listUser)){
+            $course->users()->attach($userId);
+        }
+
+        return redirect()->route('course-learn', ['id' => $id, 'slug' => $slug]);
     }
 
 }
