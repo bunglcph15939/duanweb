@@ -57,42 +57,7 @@ class ClassroomController extends Controller
         $classroom->update($data);
         $classroom->courses()->detach($classroom->courses);
         $classroom->courses()->attach($data['checkbox']);
-        // $userclass = Classroom::find($classroom->id)->users->pluck('id');
-        //     // dd($userclass);
-        // foreach ($request->checkbox as $key => $courseId) {
-        //     $course = Course::where('id', '=', $courseId)->get();
-        //     $classroom = Classroom::find($request->id);
-        //     // $classroom->users()->attach($classroom->id);
-        //     $course->user()->attach($userclass);
-        // }
-        // dd($request->checkbox);
-        // $users = User::get();
-        // foreach ($users as $user) {
 
-        //     //các khoá học có trong class $this
-        //     $classCourse = Classroom::find($classroom->id)->courses;
-        //     // các lớp học của ng dùng đó
-        //     foreach ($user->classrooms as $class) {
-
-        //         //các khoá học thuộc ng dùng đó
-        //         $classUser = Classroom::where('id','=',$class->id)->first();
-        //         foreach ($classUser->courses as $courseClass) {
-        //             // các khoá học trong class $this
-        //             foreach ($classCourse as  $course){
-        //                 if($courseClass->id == $course->id){
-        //                     echo "true";
-        //                     echo "<br>";
-        //                 }else{
-        //                     echo "false"; 
-        //                     echo "<br>";
-        //                 }
-        //             }
-        //         }
-                
-
-        //     }
-
-        // }
         return redirect()->route('classroom.index')->with('alert','Thành công');
     }
     public function change_status(Request $request){
@@ -107,22 +72,22 @@ class ClassroomController extends Controller
         return Response()->json($output,200);
     }
     public function search(Request $request){
-        if ($request->ajax()) {
+
             $classroom = Classroom::where('name', 'LIKE', '%' . $request->search . '%')->with('author')->get();
             if ($classroom) {
                 $output=view('layouts.blade_api.class',compact('classroom'))->render();
                 }
             return Response()->json($output,200);
-        }
+        
     }
     public function fillter(Request $request){
-        if ($request->ajax()) {
+
             $classroom=Classroom::where('user_id',$request->fillter)->get();
             if ($classroom) {
                 $output=view('layouts.blade_api.class',compact('classroom'))->with('author')->render();
                 }
                 return Response()->json($output,200);
-            }
+
     }
 
 }

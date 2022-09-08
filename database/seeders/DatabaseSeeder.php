@@ -17,17 +17,17 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(UserSeeder::class);
+        // $this->call(UserSeeder::class);
         // $this->call(CourseCategorySeeder::class);
         // $this->call(CourseSeeder::class);
         // $this->call(ClassroomSeeder::class);
-        // $this->call(SectionSeeder::class);
+        // $this->call(SectionSeeder::class);   
         // $this->call(LessonSeeder::class);
         // $this->call(QuizSeeder::class);
         // $this->call(QuestionSeeder::class);
         // $this->call(AnswerSeeder::class);
         // $this->call(QuizResultSeeder::class);
         // $this->call(QuizResultDetailSeeder::class);
-        // $this->call(PermissionsSeeder::class);
+        $this->call(PermissionsSeeder::class);
     }
 }
