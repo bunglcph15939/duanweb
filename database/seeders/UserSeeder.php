@@ -46,26 +46,34 @@ class UserSeeder extends Seeder
             [
                 'name' => fake()->name(),
                 'email' => 'admin@example.com',
-                'password' => '$2a$12$jtl7DkF9GYRvi0KqX4ocLuuR4onPh9sIn4tQvB0tvot9BfCXs4Rze',
+                'password' => '$2a$12$2nWXKpURCBvPkTcsG3IcF.ViZOHhsK4aJaAyM2lZsLuP55T9ndPTK',
                 'avatar' => fake()->imageUrl(),
+                'email_verified_at' => '2022-09-08 15:00:14',
+                'status' => 1
             ],
             [
                 'name' => fake()->name(),
                 'email' => 'manager@example.com',
-                'password' => '$2a$12$jtl7DkF9GYRvi0KqX4ocLuuR4onPh9sIn4tQvB0tvot9BfCXs4Rze',
+                'password' => '$2a$12$2nWXKpURCBvPkTcsG3IcF.ViZOHhsK4aJaAyM2lZsLuP55T9ndPTK',
                 'avatar' => fake()->imageUrl(),
+                'email_verified_at' => '2022-09-08 15:00:14',
+                'status' => 1
             ],
             [
                 'name' => fake()->name(),
                 'email' => 'teacher@example.com',
-                'password' => '$2a$12$jtl7DkF9GYRvi0KqX4ocLuuR4onPh9sIn4tQvB0tvot9BfCXs4Rze',
+                'password' => '$2a$12$2nWXKpURCBvPkTcsG3IcF.ViZOHhsK4aJaAyM2lZsLuP55T9ndPTK',
                 'avatar' => fake()->imageUrl(),
+                'email_verified_at' => '2022-09-08 15:00:14',
+                'status' => 1
             ],
             [
                 'name' => fake()->name(),
                 'email' => 'student@example.com',
-                'password' => '$2a$12$jtl7DkF9GYRvi0KqX4ocLuuR4onPh9sIn4tQvB0tvot9BfCXs4Rze',
+                'password' => '$2a$12$2nWXKpURCBvPkTcsG3IcF.ViZOHhsK4aJaAyM2lZsLuP55T9ndPTK',
                 'avatar' => fake()->imageUrl(),
+                'email_verified_at' => '2022-09-08 15:00:14',
+                'status' => 1
             ],
         ];
 

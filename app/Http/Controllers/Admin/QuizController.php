@@ -31,7 +31,7 @@ class QuizController extends Controller
         $quiz->save();
 
         $quiz->questions()->attach($request->checkbox);
-        return response()->json(['success' => true, 'msg' => 'Quiz updated success']);
+        return response()->json(['success' => true, 'msg' => 'Quiz updated success'], 200);
     }
 
     public function edit(Quiz $quiz)
@@ -98,14 +98,14 @@ class QuizController extends Controller
     {
         $quiz->users()->attach($request->checkbox);
 
-        return response()->json(['success' => true]);
+        return response()->json(['success' => true],200);
     }
 
     public function insertClass(Quiz $quiz, Request $request)
     {
         $quiz->classrooms()->attach($request->checkbox);
 
-        return response()->json(['success' => true]);
+        return response()->json(['success' => true],200);
     }
 
 }

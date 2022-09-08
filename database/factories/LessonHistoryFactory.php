@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Classroom>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\LessonHistory>
  */
-class ClassroomFactory extends Factory
+class LessonHistoryFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,12 +17,9 @@ class ClassroomFactory extends Factory
     public function definition()
     {
         return [
-            //
-            'name' => fake()->name(),
-            'status' => rand(0,1),
-            'desc' => fake()->text(),
             'user_id' => rand(1,4),
-            'image'=>fake()->imageUrl()
+            'lesson_id' => rand(1,10),
+            'course_id' => rand(1,10)
         ];
     }
 }

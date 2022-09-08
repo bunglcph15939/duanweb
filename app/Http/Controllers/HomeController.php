@@ -13,5 +13,4 @@ class HomeController extends Controller
         // dd($user);
         return view('screens.frontend.index', compact('user'));
     }
-
 }
