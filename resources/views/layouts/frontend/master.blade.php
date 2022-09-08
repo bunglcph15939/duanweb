@@ -67,18 +67,27 @@
 <script src="https://js.pusher.com/7.2/pusher.min.js"></script>
 <script src="/frontend/js/functions.js"></script>
 <script src="/frontend/js/notifications.js"></script>
+
 <script src="https://cdn.plyr.io/3.7.2/plyr.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.4.29/sweetalert2.min.js" integrity="sha512-gCB2+0sWe4La5U90EqaPP2t58EczKkQE9UoCpnkG2EDSOOihgX/6MiT3MC4jYVEX03pv6Ydk1xybLG/AtN+3KQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
+
 	$.ajaxSetup({
 		headers: {
 			'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
 		}
 	})
 </script>
+
+@if(session('status'))
+<script>
+    alert("Lỗi. Bạn không cso quyền truy cập trang này");
+</script>
+@endif
+
 @yield('custom-js-tag')
 @stack('add-script')
+
 </body>
 
-<!-- Mirrored from eduport.webestica.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 30 Aug 2022 16:31:40 GMT -->
 </html>

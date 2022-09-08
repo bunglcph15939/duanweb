@@ -11,7 +11,7 @@ class SearchUser extends Component
 
     public function render()
     {
-        $users = User::where('email', 'like', '%'. $this->searchUser .'%')->get();
+        $users = User::where('email', 'like', '%'. $this->searchUser .'%')->role('student')->get();
         return view('screens.backend.livewire.search-user', ['users' => $users]);
     }
 }

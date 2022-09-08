@@ -48,6 +48,10 @@ class AuthController extends Controller
             'email'=> $email,
             'password' => $password
         ])){
+            if(Auth::user()->status == 0){
+                Auth::logout();
+                return back()->with('message','Không thể login. Tài khoản của bạn hiện đã bị khoá');
+            }
             RateLimiter::clear('login.' .$request->ip());
             return redirect()->route('frontend.home');
         }
@@ -94,5 +98,30 @@ class AuthController extends Controller
         $request->session()->regenerateToken();
 
         return redirect()->route('frontend.home');
+    }
+
+
+    public function editUser(User $user, UserRequest $request){
+
+        if($request->hasFile('avatar')){
+            // dd($request->avatar);
+            $file = $request->avatar;
+            $ext = $request->avatar->extension();
+            $file_name = time().'-'.'user.'.$ext;
+            $file->move(public_path('frontend/images/avatars'), $file_name);
+            $user->update([
+                'name' => $request->name,
+                'email' => $request->email,
+                'avatar' => $file_name,
+            ]);
+
+        }
+        else{
+            $user->update([
+                'name' => $request->name,
+                'email' => $request->email,
+            ]);
+        }
+        
     }
 }

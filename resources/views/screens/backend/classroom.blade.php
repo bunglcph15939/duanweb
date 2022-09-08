@@ -41,9 +41,11 @@
                             </div>
                         </div>
                     </div>
+                    @can('classroom-create')
                     <div class="col-lg-3 col-xl-2 mt-5 mt-lg-0">
                         <a class="btn btn-success" href="{{route('classroom.form_store_classroom')}}">Thêm mới</a>
                     </div>
+                    @endcan
                 </div>
 
 

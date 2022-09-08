@@ -39,6 +39,7 @@
                         <span class="mb-0 fs-1">🤔</span>
                         <h1 class="fs-2">Gửi lại email</h1>
                         <h5 class="fw-light mb-4">Nếu bạn chưa nhận được email hãy thử gửi lại</h5>
+                        <h5 class="fw-light mb-4">Bạn phải xác minh email mới được đi tiếp</h5>
                         
                         <!-- Form START -->
                         <form action="{{ route('verification.send') }}" method="POST">
@@ -53,6 +54,10 @@
                         </form>
                         <!-- Form END -->
                     </div>
+                    <div style="width: 150px;">
+                        <a class="dropdown-item bg-danger-soft-hover" href="{{route('auth.logout')}}"><i class="bi bi-power fa-fw me-2"></i>Sign Out</a>
+                    </div>
+                    
                 </div> <!-- Row END -->
             </div>
         </div> <!-- Row END -->

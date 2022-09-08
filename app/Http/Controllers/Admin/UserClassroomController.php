@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Imports\ImportFileUserClass;
 use App\Models\Classroom;
+use App\Models\Course;
 use App\Models\User;
 use App\Models\UserClassroom;
 use App\Notifications\MailAddStudentClass;
@@ -48,7 +49,8 @@ class UserClassroomController extends Controller
         return view('screens.backend.user-class.add-student',['users'=>$users]);
     }
 
-    public function postAddStudent(Request $request){
+    public function postAddStudent($id,Request $request){
+        // dd($request->all());
         $rule = [
             'addstudent' => 'required',
             
@@ -58,24 +60,39 @@ class UserClassroomController extends Controller
             
         ];
         $request->validate($rule,$messages);
-        // dd($request->id);
+        // dd($id);
         // dd($request->addstudent);
-        $users = UserClassroom::where('classroom_id', '=', $request->id)
-                            ->pluck('user_id')->all();
+        $userclass = Classroom::find($id)->users;
         foreach ($request->addstudent as $key => $studentId) {
-            if (!in_array($studentId, $users)){
-                  UserClassroom::create([
-                    'user_id' => $studentId,
-                    'classroom_id' => $request->id
-                ]);
+            if (!$userclass->contains($studentId)){
+                $user =  User::where('id','=',$studentId)->first();
 
-                // gửi mail
+                $classroom = Classroom::find($id);
+                $classroom->users()->attach($studentId);
+
+                
+                // $courses = Classroom::find($id)->courses;
+                // //   dd($courses->pluck('id')->toArray());
+                // $user->courses()->attach($courses->pluck('id')->toArray());
+
+
+                // add khoá học kiểm tra vòng lặp
+                $class = $classroom->courses->pluck('id')->toArray();
+                // $courseClass = $class->courses->pluck('id')->toArray();
+                $courseUser = $user->courses->pluck('id')->toArray();
+                foreach ($class as $key => $courseItem) {
+                    if(!in_array($courseItem,$courseUser)){
+                        $user->courses()->attach($courseItem);
+                    }
+                    
+                }
+                // gửi mail tham gia lớp học
                 $emailUser = User::where('id','=',$studentId)->first();
-                $emailUser->notify(new MailAddStudentClass($request->id));
+                $emailUser->notify(new MailAddStudentClass($id));
 
-                // thông báo
-                $class = Classroom::find($request->id);
-                $data['title'] = "Chào mừng bạn đã tham gia lớp học";
+                // thông báo tham gia lớp học
+                $class = Classroom::find($id);
+                $data['title'] = "Chào mừng bạn đã tham gia lớp học  ";
                 $data['class'] = $class->name;
 
                 $options = array(
@@ -106,6 +123,14 @@ class UserClassroomController extends Controller
         }
         
         return back();
+    }
+
+    public function removeUserClass($classId, Request $request){
+        // dd($request->userId);
+        $class = Classroom::find($classId);
+        $class->users()->detach($request->userId);
+        // $user = User::find($request->userId);
+        // $user->classrooms()->detach($classId);
     }
 
 }
