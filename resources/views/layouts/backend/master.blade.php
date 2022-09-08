@@ -61,6 +61,10 @@
         <button class="btn btn-hover-text-primary p-0 ml-2" id="kt_header_mobile_topbar_toggle">
             <span class="svg-icon svg-icon-xl">
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> 4da5a30a3a789e04c6122283ab8983f70c85a384
 						<!--begin::Svg Icon | path:/backend/media/svg/icons/General/User.svg-->
 						<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
                              height="24px" viewBox="0 0 24 24" version="1.1">

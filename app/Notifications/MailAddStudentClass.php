@@ -11,7 +11,7 @@ class MailAddStudentClass extends Notification
 {
     use Queueable;
 
-    protected $classroomId; 
+    protected $classroomId;
 
     /**
      * Create a new notification instance.
@@ -41,7 +41,7 @@ class MailAddStudentClass extends Notification
      * @return \Illuminate\Notifications\Messages\MailMessage
      */
     public function toMail($notifiable)
-    {   
+    {
         $url = url('admin/userclass/'. $this->classroomId);
         return (new MailMessage)
                     ->line('Chào mừng bạn tham gia lớp học')
