@@ -7,7 +7,7 @@
 @section('content')
 
 <div>
-    
+
     <div class="card card-custom">
         <div class="card-header flex-wrap border-0 pt-6 pb-0">
             <div class="card-title">
@@ -16,8 +16,8 @@
             </div>
             <div class="card-toolbar">
                 {{-- <a href="{{route('admin.userclass.formImport',$class->id)}}">okok</a> --}}
-                <div class="dropdown dropdown-inline mr-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    <button type="button" class="btn btn-light-primary font-weight-bolder dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <div class="dropdown dropdown-inline mr-2" data-toggle="modal" data-target="#exampleModal">
+                    <button type="button" class="btn btn-light-primary font-weight-bolder dropdown-toggle">
                     <span class="svg-icon svg-icon-md">
                         <!--begin::Svg Icon | path:assets/media/svg/icons/Design/PenAndRuller.svg-->
                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
@@ -68,7 +68,7 @@
                                 </a>
                             </li>
                             <li class="navi-item">
-                                <div wire:click="exportUser() " class="navi-link">
+                                <div class="navi-link">
                                     <span class="navi-icon">
                                         <i class="la la-file-excel-o"></i>
                                     </span>
@@ -96,7 +96,7 @@
                     </div>
                     <!--end::Dropdown Menu-->
                 </div>
-                
+
                 <!--begin::Button-->
                 <a href="{{route('admin.userclass.addStudent', $class->id)}}" class="btn btn-primary font-weight-bolder">
                     <span class="svg-icon svg-icon-md">
@@ -113,7 +113,7 @@
                 </a>
                 <!--end::Button-->
 
-                
+
             </div>
         </div>
         <div class="card-body">
@@ -140,7 +140,7 @@
                                     </select>
                                 </div>
                             </div>
-                           
+
                         </div>
                     </div>
                     <div class="col-lg-3 col-xl-4 mt-5 mt-lg-0">
@@ -184,10 +184,10 @@
                         </td>
                         <td>{{$user->created_at}}</td>
                         <td nowrap="nowrap">
-                            <button 
-                                {{-- data-url="{{route('admin.user.edit-user')}}" 
+                            <button
+                                {{-- data-url="{{route('admin.user.edit-user')}}"
                                 data-id="{{ $user->id }}" --}}
-    
+
                                 class="btn btn-light-primary px-6 font-weight-bold"
                                 {{-- class="show-form-edit btn btn-light-primary px-6 font-weight-bold"  --}}
                                 {{-- data-bs-toggle="modal" data-bs-target="#exampleModal"  --}}
@@ -197,17 +197,17 @@
                             {{-- <a href="" class="btn btn-icon btn-primary"><i class="fas fa-trash"></i></a> --}}
                             <a href="javascript:;" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger"><i class="la la-trash-o"></i>Đuổi</a>
                         </td>
-                    </tr>   
+                    </tr>
                     @endforeach
-                    
-                    
-    
+
+
+
                 </tbody>
             </table>
             {{-- {{ $users->links('vendor.livewire.bootstrap') }} --}}
         </div>
     </div>
-      
+
   <!-- Modal -->
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <form action="{{route('admin.userclass.importExUserClass', $class->id)}}" method="POST" class="modal-dialog" enctype="multipart/form-data">
@@ -216,7 +216,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          {{-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> --}}
         </div>
         <div class="modal-body">
             <div class="mb-3">
@@ -228,15 +228,15 @@
             </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           <button type="submit" class="btn btn-primary">Save changes</button>
         </div>
       </div>
     </form>
   </div>
-    
+
     </div>
-  
+
 @endsection
 
 @section('custom-js-tag')
@@ -244,8 +244,8 @@
         <script>
             $(document).ready(function(){
                 setTimeout(() => {
-                    $('[data-bs-target="#exampleModal"]').trigger('click')
-                }, 1500);
+                    $('[data-target="#exampleModal"]').trigger('click')
+                }, 1000);
             })
         </script>
     @endif

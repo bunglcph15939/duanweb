@@ -70,7 +70,7 @@
                     </select>
                 </div>
 
-                <div class="form-group">
+                {{-- <div class="form-group">
                     <label for="">Các khóa học</label>
                     <div class="form-group">
                         @foreach ($course as $item)
@@ -84,6 +84,29 @@
                         </div>
                         @endforeach
                     </div>
+                </div> --}}
+                <div class="form-group">
+                    <label > Khóa học</label>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>name</th>
+                                <th>title</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($course as $item)
+                            <tr>
+                                <td>
+                                    <input type="checkbox" value="{{$item->id}}"  name="checkbox[]"/>
+                                </td>
+                                <td>{{$item->title}}</td>
+                                <td>{{$item->content}}</td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
                 </div>
 
             </div>

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Classroom;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Course;
 use App\Http\Requests\ClassroomRequest;
 use App\Models\CourseCategory;
@@ -29,7 +30,7 @@ class ClassroomController extends Controller
     public function store_classroom(ClassroomRequest $request){
        $classroom=new Classroom();
        $classroom->fill($request->all());
-       $classroom->user_id=1;
+       $classroom->user_id=Auth::id();
        if($request->hasFile('image')){
         $img=$request->image;
         $imgName=$img->hashName();
