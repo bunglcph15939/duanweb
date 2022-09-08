@@ -20,7 +20,10 @@ Route::prefix('admin/courses')->name('admin.course.')->group(function () {
 
 });
 
-Route::get('/c/{id}-{slug}/learning/{lesson?}', [FrontendCourseController::class, 'learn'])->name('course-learn')->where(['id' => '\d+', 'slug' => '.*']);
+Route::get('/c/{id}-{slug}/learning/{lesson?}', [FrontendCourseController::class, 'learn'])
+->name('course-learn')
+->where(['id' => '\d+', 'slug' => '.*'])
+->middleware(['checkInCourse']);
 
 Route::get('/c/{id}-{slug}', [FrontendCourseController::class, 'show'])->name('course-detail')->where(['id' => '\d+', 'slug' => '.*']);
 

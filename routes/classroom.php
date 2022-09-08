@@ -31,4 +31,4 @@ Route::prefix('admin/userclass')->name('admin.userclass.')->group(function () {
     // Route::get('/add-student/{id}',[UserClassroomController::class,'addStudent'])->name('addStudent');
 });
 
-Route::get('/classroom/{classroom}', [FrontEndClassroomController::class, 'show'])->name('classroom');
+Route::get('/classroom/{classroom}', [FrontEndClassroomController::class, 'show'])->name('classroom')->middleware(['checkInClass']);
