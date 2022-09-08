@@ -76,8 +76,8 @@ Page content START -->
 					<!-- Card item START -->
 					<div class="col-sm-6 col-lg-4 col-xl-3">
 						<div class="card p-2">
-							<div class="position-relative">
-								<img src="{{ getPathImage($course->thumbnail) }}" class="card-img rounded-2" alt="{{ $course->title }}">
+							<div class="position-relative" style="aspect-ratio: 1.5/1">
+								<img src="{{ getPathImage($course->thumbnail) }}" style="width: 100%;height:100%;object-fit:cover" class="card-img rounded-2" alt="{{ $course->title }}">
 								<div class="card-img-overlay">
 									<div class="position-absolute top-50 start-50 translate-middle">
 										<a href="{{ route('course-detail', ['id' => $course->id, 'slug' => $course->slug]) }}" class="btn btn-lg text-danger btn-round btn-white-shadow">

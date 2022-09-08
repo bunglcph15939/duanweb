@@ -25,39 +25,27 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-<<<<<<< HEAD
-        // $this->call(UserSeeder::class);
-        // $this->call(CourseCategorySeeder::class);
-        // $this->call(CourseSeeder::class);
-        // $this->call(ClassroomSeeder::class);
-        // $this->call(SectionSeeder::class);   
-        // $this->call(LessonSeeder::class);
-        // $this->call(QuizSeeder::class);
-        // $this->call(QuestionSeeder::class);
-        // $this->call(AnswerSeeder::class);
-        // $this->call(QuizResultSeeder::class);
-        // $this->call(QuizResultDetailSeeder::class);
-        $this->call(PermissionsSeeder::class);
-=======
-        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
-        LessonHistory::truncate();
-//        User::truncate();
-        Lesson::truncate();
-        Section::truncate();
-        Course::truncate();
-        CourseCategory::truncate();
-        Quiz::truncate();
-        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
 
-//        $this->call(UserSeeder::class);
-         $this->call(CourseCategorySeeder::class);
-         $this->call(CourseSeeder::class);
-        // $this->call(ClassroomSeeder::class);
-         $this->call(SectionSeeder::class);
-         $this->call(LessonSeeder::class);
-         $this->call(LessonHistorySeeder::class);
-         $this->call(QuizSeeder::class);
+//         DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+//         LessonHistory::truncate();
+// //        User::truncate();
+//         Lesson::truncate();
+//         Section::truncate();
+//         Course::truncate();
+//         CourseCategory::truncate();
+//         Quiz::truncate();
+//         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
 
->>>>>>> 0229acf2f56fd83206df233ad07fbd637835053e
+
+// //        $this->call(UserSeeder::class);
+//          $this->call(CourseCategorySeeder::class);
+//          $this->call(CourseSeeder::class);
+//         // $this->call(ClassroomSeeder::class);
+//          $this->call(SectionSeeder::class);
+//          $this->call(LessonSeeder::class);
+//          $this->call(LessonHistorySeeder::class);
+//          $this->call(QuizSeeder::class);
+
+
     }
 }

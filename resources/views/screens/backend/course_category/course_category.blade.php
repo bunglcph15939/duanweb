@@ -16,7 +16,7 @@
                         <div class="row align-items-center m-2">
                             <div class="col-md-4 my-2 my-md-0">
                                 <div class="input-icon">
-                                    <input type="text" class="form-control" placeholder="Search..." id="search"
+                                    <input type="text" class="form-control" placeholder="Tìm kiếm..." id="search"
                                         name="search" />
                                     <span>
                                         <i class="flaticon2-search-1 text-muted"></i>
@@ -27,7 +27,7 @@
                                 <div class="d-flex align-items-center">
                                     <label class="mr-3 mb-0 d-none d-md-block">Status:</label>
                                     <select class="form-control" id="kt_datatable_search_status">
-                                        <option value="">All</option>
+                                        <option value="">Tất cả</option>
                                     </select>
                                 </div>
                             </div>

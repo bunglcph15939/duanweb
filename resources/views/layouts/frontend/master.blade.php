@@ -34,11 +34,11 @@
 </head>
 
 <body><!-- Pre loader -->
-    <div class="preloader">
+    {{-- <div class="preloader">
         <div class="preloader-item">
             <div class="spinner-grow text-primary"></div>
         </div>
-    </div>
+    </div> --}}
 @include('layouts.frontend.header')
 
 <!-- **************** MAIN CONTENT START **************** -->

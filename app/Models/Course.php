@@ -58,7 +58,8 @@ class Course extends Model
         $totalHistory = LessonHistory::where('course_id', $this->id)
                                     ->where('user_id', auth()->user()->id)
                                     ->count();
-        return ($totalLesson > 0) ? ($totalHistory/$totalLesson)*100 : 0;
+        $progress = ($totalLesson > 0) ? ($totalHistory/$totalLesson)*100 : 0;
+        return round($progress, 2, PHP_ROUND_HALF_DOWN);
     }
 
     public function scopeFindByName($query, $request){
