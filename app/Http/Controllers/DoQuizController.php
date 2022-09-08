@@ -3,18 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Models\Answer;
+use App\Models\Question;
 use App\Models\Quiz;
 use App\Models\QuizResult;
 use App\Models\QuizResultDetail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class DoQuizController extends Controller
 {
     public function index($id = 1)
     {
-        // for ($i=1; $i < 12; $i++) { 
-        //     Quiz::find(1)->questions()->attach($i);
-        // }
         $quiz = Quiz::find($id);
         $data = [
             'quiz' => $quiz
@@ -24,12 +24,11 @@ class DoQuizController extends Controller
 
     public function doquiz(Request $request)
     {
+        try {
         date_default_timezone_set("Asia/Ho_Chi_Minh");
         $endTime =  substr_replace(date("Y-m-d h:i:sa"), '', -2);
         $startTime =  substr_replace(date("Y-m-d h:i:sa", strtotime("-10 minutes", strtotime($endTime))), '', -2);
         $score = 0;
-        $answer_correct_true = [];
-        $answer_clicked = [];
         $index_essay = 0;
         if (!$request->answer_id) {
             QuizResult::create([
@@ -41,29 +40,46 @@ class DoQuizController extends Controller
             ]);
             return response()->json($request->quiz_id, 200);
         }
-        $answers = Answer::whereIn('id', $request->answer_id)->get();
-
-        foreach ($answers as $answer) {
-            if ($answer->question->type == 2) {
-                $answer_clicked[] = $answer->id;
-                foreach ($answer->question->answers as $ans) {
-                    if ($ans->is_correct == 1) {
-                        $answer_correct_true[] = $ans->id;
+        $answers =  $request->input('answer_id');
+        foreach ($answers as $qid => $answer) {
+            $question_answers = Answer::where('question_id', $qid)->get();
+            $question = Question::where('id', $qid)->first();
+            if (is_array($answer)) {
+                if ($question->type == 2) {
+                    foreach ($answer as $answer_id) {
+                        $answer_true = Answer::select('is_correct')->where('id', $answer_id)->first();
+                        if ($answer_true->is_correct == 1) {
+                            $answers_check[$qid][] = $answer_true->is_correct;
+                        } else {
+                            $answers_check[$qid] = 0;
+                            break;
+                        }
+                    }
+                    foreach ($question_answers as $question_answer) {
+                        if ($question_answer->is_correct == 1) {
+                            $answers_db_true[$qid][] = $question_answer->is_correct;
+                        }
+                    }
+                } elseif ($question->type == 3) {
+                    foreach ($question_answers as $question_answer) {
+                        $answer_update = Answer::find($question_answer->id);
+                        $answer_update->content = $request->content_answer_essay[$index_essay];
+                        $index_essay++;
+                    }
+                } else {
+                    foreach ($answer as $answer_id) {
+                        $answer_true = Answer::select('is_correct')->where('id', $answer_id)->first();
+                        if ($answer_true->is_correct == 1) {
+                            $score++;
+                        }
                     }
                 }
-            } else if ($answer->question->type == 3) {
-                $answer_update = Answer::find($answer->id);
-                $answer_update->id = $request->content_answer_essay[$index_essay];
-                $index_essay++;
-            } else {
-                if ($answer->is_correct == 1) {
-                    $score++;
-                }
             }
-            $var = array_diff($answer_clicked, $answer_correct_true);
         }
-        if (empty($var)) {
-            $score++;
+        foreach ($answers_db_true as $key => $answer_db_true) {
+            if ($answer_db_true == $answers_check[$key]) { //check 2 array bang nhau thi score++
+                $score++;
+            }
         }
         $score = $score / count($request->question_id) * 10;
         QuizResult::create([
@@ -74,13 +90,27 @@ class DoQuizController extends Controller
             'quiz_id' => $request->quiz_id
         ]);
         $QuizResultId = QuizResult::select('id')->max('id');
-        foreach ($answers as $answer) {
-            QuizResultDetail::create([
-                'question_id' => $answer->question->id,
-                'answer_id' => $answer->id,
-                'quiz_result_id' =>  $QuizResultId
-            ]);
+        foreach ($answers as $question_id => $answer) {
+            foreach ($answer as $ans_id) {
+                QuizResultDetail::create([
+                    'question_id' => $question_id,
+                    'answer_id' => $ans_id,
+                    'quiz_result_id' =>  $QuizResultId
+                ]);
+            }
         }
         return response()->json($request->quiz_id, 200);
+
+        } catch (\Throwable $e) {
+            Log::error($e->getMessage());
+            DB::rollBack();
+            if ($request->ajax()) {
+                session()->flash('success', 'Có lỗi xảy ra, vui lòng thử lại');
+                return response()->json(['success' => false], 406);
+            }
+            return redirect()
+                ->back()
+                ->with('success', 'Có lỗi xảy ra, vui lòng thử lại');
+        }
     }
 }

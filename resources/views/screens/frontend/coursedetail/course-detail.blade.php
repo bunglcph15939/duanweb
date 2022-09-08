@@ -211,10 +211,10 @@
             </div>
         </section>
         <!-- =======================
-                                                                                            Page banner video END -->
+                                                                                                Page banner video END -->
 
         <!-- =======================
-                                                                                            Page content START -->
+                                                                                                Page content START -->
         <section class="pt-0">
             <div class="container">
                 <div class="row g-lg-5">
@@ -1057,6 +1057,7 @@
 
 
         function post_score() {
+            
             const formData = new FormData(document.querySelector('#form-score'));
             axios.post('{{ route('frontend.doquiz') }}', formData)
                 .then(res =>
@@ -1067,6 +1068,7 @@
                     )
                     .then(val => {
                         let _url = "{{ route('frontend.result', ['quiz_id' => ':quiz_id']) }}"
+                        console.log(res);
                         _url = _url.replace(":quiz_id", res.data)
                         window.location.assign(_url)
                     })

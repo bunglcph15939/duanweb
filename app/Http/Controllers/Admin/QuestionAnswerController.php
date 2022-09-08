@@ -1,11 +1,14 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+
 use App\Http\Controllers\Controller;
 use App\Http\Requests\QuestionAnswerRequest;
 use App\Http\Services\UploadService;
 use App\Models\Answer;
 use App\Models\Question;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class QuestionAnswerController extends Controller
 {
@@ -44,19 +47,31 @@ class QuestionAnswerController extends Controller
 
     public function store(QuestionAnswerRequest $request)
     {
-        $request_array = $request->all();
-        if ($request->hasFile('attachment')) {
-            $img = $request->attachment;
-            $request_array['attachment'] =  UploadService::upload($img, 'question');
-        }
-        Question::create($request_array);
-        $question_id = Question::select('id')->max('id');
-        if (!$request->content) {
-            $this->add_answer_essay($question_id);
+        try {
+            $request_array = $request->all();
+            if ($request->hasFile('attachment')) {
+                $img = $request->attachment;
+                $request_array['attachment'] =  UploadService::upload($img, 'question');
+            }
+            Question::create($request_array);
+            $question_id = Question::select('id')->max('id');
+            if (!$request->content) {
+                $this->add_answer_essay($question_id);
+                return response()->json('', 201);
+            }
+            $this->add_answers_check_radio($request, $question_id);
             return response()->json('', 201);
+        } catch (\Throwable $e) {
+            Log::error($e->getMessage());
+            DB::rollBack();
+            if ($request->ajax()) {
+                session()->flash('success', 'Có lỗi xảy ra, vui lòng thử lại');
+                return response()->json(['success' => false], 406);
+            }
+            return redirect()
+                ->back()
+                ->with('success', 'Có lỗi xảy ra, vui lòng thử lại');
         }
-        $this->add_answers_check_radio($request, $question_id);
-        return response()->json('', 201);
     }
 
     public function update($id)
@@ -76,53 +91,66 @@ class QuestionAnswerController extends Controller
         $data = view('screens.backend.questionquiz.components.forms.update', $data)->render();
         return response()->json($data, 200);
     }
-    
+
     public function edit(QuestionAnswerRequest $request)
     {
-        $contentAnswers = '';
-        $question_id = $request->id;
-        $question = Question::find($question_id);
-        $question->title = $request->title;
-        $question->type = $request->type;
-        $question->tag = $request->tag;
-        if ($request->hasFile('attachment')) {
-            $question->attachment = UploadService::upload($request->attachment, 'question');
-        }
-        $question->save();
+        try {
+            $contentAnswers = '';
+            $question_id = $request->id;
+            $question = Question::find($question_id);
+            $question->title = $request->title;
+            $question->type = $request->type;
+            $question->tag = $request->tag;
+            if ($request->hasFile('attachment')) {
+                $question->attachment = UploadService::upload($request->attachment, 'question');
+            }
+            $question->save();
 
-        $contentAnswers = $request->content;
-        $id_answers = $request->id_answer;
-        if ($request->type == 0) {
-            $this->put_answer($id_answers[0], $request);
+            $contentAnswers = $request->content;
+            $id_answers = $request->id_answer;
+            if ($request->type == 0) {
+                $this->put_answer($id_answers[0], $request);
+                $data = [
+                    'question' => $question,
+                    'type' => $question->type
+                ];
+                $html = view('screens.backend.questionquiz.components.forms.update', $data)->render();
+                return response()->json($html, 201);
+            }
+            if ($id_answers) {
+                foreach ($id_answers as $key => $id) {
+                    if ($contentAnswers[$key]) {
+                        $PutAnswer = Answer::find($id);
+                        $PutAnswer->content = $contentAnswers[$key];
+                        unset($contentAnswers[$key]);
+                        $PutAnswer->is_correct = $request->is_correct[$key];
+                        $PutAnswer->save();
+                    }
+                }
+            }
+            if (!empty($contentAnswers)) {
+                foreach ($contentAnswers as $key => $contentAnswer) {
+                    $this->add_answer_queries($contentAnswer, $request->is_correct[$key], $question_id, $key);
+                }
+            }
             $data = [
                 'question' => $question,
                 'type' => $question->type
             ];
             $html = view('screens.backend.questionquiz.components.forms.update', $data)->render();
             return response()->json($html, 201);
-        }
-        if ($id_answers) {
-            foreach ($id_answers as $key => $id) {
-                if ($contentAnswers[$key]) {
-                    $PutAnswer = Answer::find($id);
-                    $PutAnswer->content = $contentAnswers[$key];
-                    unset($contentAnswers[$key]);
-                    $PutAnswer->is_correct = $request->is_correct[$key];
-                    $PutAnswer->save();
-                }
+            
+        } catch (\Throwable $e) {
+            Log::error($e->getMessage());
+            DB::rollBack();
+            if ($request->ajax()) {
+                session()->flash('success', 'Có lỗi xảy ra, vui lòng thử lại');
+                return response()->json(['success' => false], 406);
             }
+            return redirect()
+                ->back()
+                ->with('success', 'Có lỗi xảy ra, vui lòng thử lại');
         }
-        if (!empty($contentAnswers)) {
-            foreach ($contentAnswers as $key => $contentAnswer) {
-                $this->add_answer_queries($contentAnswer, $request->is_correct[$key], $question_id, $key);
-            }
-        }
-        $data = [
-            'question' => $question,
-            'type' => $question->type
-        ];
-        $html = view('screens.backend.questionquiz.components.forms.update', $data)->render();
-        return response()->json($html, 201);
     }
 
     public function destroyAnswer($id)

@@ -26,9 +26,9 @@ Route::prefix('/')->name('frontend.')->group(function(){
         return view('screens.frontend.classroom-detail');
     });
 
-    Route::get('/course-detail/1',[DoQuizController::class,'index'])->name('coursedetail');
+    Route::get('/course-detail/{quiz_id}',[DoQuizController::class,'index'])->name('coursedetail');
     Route::post('/doquiz',[DoQuizController::class,'doquiz'])->name('doquiz');
-    Route::get('/essay-grading',[EssayGradingController::class,'index'])->name('essaygrading');
+    Route::get('/essay-grading/{quiz_id}',[EssayGradingController::class,'index'])->name('essaygrading');
     Route::get('/result/{quiz_id}',[ResultController::class,'index'])->name('result');
 });
 

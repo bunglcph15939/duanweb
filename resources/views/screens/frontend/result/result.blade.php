@@ -10,7 +10,7 @@
     <main>
 
         <!-- =======================
-                    Page Banner START -->
+                                    Page Banner START -->
         <section class="pt-0">
             <div class="container-fluid px-0">
                 <div class="card bg-blue h-100px h-md-200px rounded-0"
@@ -33,36 +33,26 @@
                                 </div>
                                 <!-- Profile info -->
                                 <div class="col d-sm-flex justify-content-between align-items-center">
-                                    @foreach ($quizResults as $quizResult)
-                                        <div>
-                                            <h1 class="my-1 fs-4">{{ $user->name }}</h1>
-                                            <ul class="list-inline mb-0">
-                                                <li class="list-inline-item me-3 mb-1 mb-sm-0 border border-success btn">
-                                                    <span class="text-body fw-light">Quiz: </span>
-                                                    <span class="h6"> {{ $quiz->title }}</span>
-                                                </li>
-                                                <li class="list-inline-item me-3 mb-1 mb-sm-0 border border-success btn">
-                                                    <span class="text-body fw-light">Score: </span>
-                                                    <span class="h6"> {{ $quizResult->score }}</span>
-                                                </li>
-                                                <li class="list-inline-item me-3 mb-1 mb-sm-0 border border-success btn">
-                                                    <span class="text-body fw-light">Start time</span>
-                                                    <span class="h6"> {{ $quizResult->start_time }}</span>
-                                                </li>
-                                                <li class="list-inline-item me-3 mb-1 mb-sm-0 border border-success btn">
-                                                    <span class="text-body fw-light">End time </span>
-                                                    <span class="h6">{{ $quizResult->end_time }}</span>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    @endforeach
-
-                                    @if ($check_essay == true)
-                                        <!-- Button -->
-                                        <div class="mt-2 mt-sm-0">
-                                            <span class="btn btn-outline-primary mb-0">Giáo viên đang chấm phần tự luận</span>
-                                        </div>
-                                    @endif
+                                    <div>
+                                        <ul class="list-inline mb-0">
+                                            <li class="list-inline-item me-3 mb-1 mb-sm-0 border border-success btn">
+                                                <span class="text-body fw-light">Quiz: </span>
+                                                <span class="h6"> {{ $quiz->title }}</span>
+                                            </li>
+                                            <li class="list-inline-item me-3 mb-1 mb-sm-0 border border-success btn">
+                                                <span class="text-body fw-light">Score: </span>
+                                                <span class="h6"> {{ $quizResult->score }}</span>
+                                            </li>
+                                            <li class="list-inline-item me-3 mb-1 mb-sm-0 border border-success btn">
+                                                <span class="text-body fw-light">Start time</span>
+                                                <span class="h6"> {{ $quizResult->start_time }}</span>
+                                            </li>
+                                            <li class="list-inline-item me-3 mb-1 mb-sm-0 border border-success btn">
+                                                <span class="text-body fw-light">End time </span>
+                                                <span class="h6">{{ $quizResult->end_time }}</span>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -70,8 +60,46 @@
                 </div>
             </div>
         </section>
-        <!-- =======================
-                    Page Banner END -->
+
+        <div class="card-body container">
+
+            <!-- Title -->
+            <h5>Chi tiết quiz</h5>
+
+            <!-- Accordion START -->
+            <div class="accordion accordion-icon accordion-bg-light" id="accordionExample2">
+                <div id="collapse-1" class="accordion-collapse collapse show" aria-labelledby="heading-1"
+                    data-bs-parent="#accordionExample2">
+                    <div class="accordion-body mt-3">
+                        <div class="vstack gap-3">
+                            <!-- Course lecture -->
+                            <div>
+                                @forelse ($quizResult->quiz_result_details as $quiz_result_detail)
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <div class="position-relative d-flex align-items-center">
+                                            <a href="#"
+                                                class="btn btn-success btn-round btn-sm mb-0 stretched-link position-static">
+                                                <i class="bi bi-question-diamond fs-5"></i>
+                                            </a>
+                                            <span
+                                                class="d-inline-block text-truncate ms-2 mb-0 h6 fw-light w-150px w-sm-200px">{{\App\Models\Question::where('id',$quiz_result_detail->question_id)->first()->title}}</span>
+                                        </div>
+                                        <p class="mb-0 text-truncate">{{\App\Models\Answer::where('id',$quiz_result_detail->answer_id)->first()->is_correct == 1 ? "đúng":"sai" }}</p>
+                                    </div>
+                                    <hr class="mb-0">
+                                @empty
+                                @endforelse
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Accordion END -->
+        </div>
+
 
     </main>
 

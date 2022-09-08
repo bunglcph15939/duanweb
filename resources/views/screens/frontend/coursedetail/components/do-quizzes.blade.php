@@ -70,7 +70,6 @@
                                     aria-labelledby="steppertrigger{{ $question->id }}">
 
                                     <input type="text" value="{{ $question->id }}" name="question_id[]" hidden>
-                                    <input type="text" value="{{ $question->type }}" name="type[]" hidden>
                                     <!-- Title -->
                                     <h4>{{ $question->title }}</h4>
                                     <img src="/frontend/images/courses/4by3/01.jpg" class="rounded-2" alt="Card image"
@@ -81,60 +80,43 @@
                                         <!-- Feed ques item -->
                                         <div class="form-group  d-flex flex-column">
                                             @switch($question->type)
-                                                @case(0)
-                                                    <select multiple class="form-select" id="exampleFormControlSelect2"
-                                                        name="answer_id[]">
-                                                        @forelse ($question->answers as $answer)
-                                                            <option value="{{ $answer->id }}">{{ $answer->content }} / {{ $answer->is_correct }}
-                                                            </option>
-                                                        @empty
-                                                        @endforelse
-                                                    </select>
-                                                @break
-
-                                                @case(1)
-                                                    <select multiple class="form-select" id="exampleFormControlSelect2"
-                                                        name="answer_id[]">
-                                                        @forelse ($question->answers as $answer)
-                                                            <option value="{{ $answer->id }}">{{ $answer->content }} / {{ $answer->is_correct }}
-                                                            </option>
-                                                        @empty
-                                                        @endforelse
-                                                    </select>
-                                                @break
-
                                                 @case(2)
                                                     @forelse ($question->answers as $answer)
                                                         <div class="form-check form-check-inline">
                                                             <input class="form-check-input" type="checkbox" id="inlineCheckbox2"
-                                                                name="answer_id[]" value="{{ $answer->id }}">
+                                                                name="answer_id[{{ $question->id }}][]"
+                                                                value="{{ $answer->id }}">
                                                             <label class="form-check-label" for="inlineCheckbox2">
                                                                 {{ $answer->content }} / {{ $answer->is_correct }}</label>
-                                                                
+
                                                         </div>
                                                     @empty
                                                     @endforelse
                                                 @break
 
-                                                {{-- @case(3)
+                                                @case(3)
                                                     @forelse ($question->answers as $answer)
-                                                        <input type="text" value="{{ $answer->id }}" name="answer_id[]"
-                                                            hidden>
+                                                        <input type="text" value="{{ $answer->id }}"
+                                                            name="answer_id[{{ $question->id }}][]" hidden>
                                                         <textarea id="editor{{ $answer->id }}" name="content_answer_essay[]"></textarea>
                                                         {{ $answer->is_correct }}
                                                     @empty
                                                     @endforelse
-                                                @break --}}
+                                                @break
 
-                                                @case(4)
-                                                    <select multiple class="form-select" id="exampleFormControlSelect2"
-                                                        name="answer_id[]">
-                                                        @forelse ($question->answers as $answer)
-                                                            <option value="{{ $answer->id }}">{{ $answer->content }} / {{ $answer->is_correct }}
-                                                            </option>
-                                                        @empty
-                                                        @endforelse
-                                                    </select>
+                                                @default
+                                                    @forelse ($question->answers as $answer)
+                                                        <div class="form-check">
+                                                            <input class="form-check-input"
+                                                                name="answer_id[{{ $question->id }}][]" type="radio"
+                                                                name="flexRadioDefault" id="flexRadioDefault1"
+                                                                value="{{ $answer->id }}">
+                                                            <label class="form-check-label" for="flexRadioDefault1">
+                                                                {{ $answer->content }} / {{ $answer->is_correct }}
+                                                            </label>
+                                                        </div>
+                                                    @empty
+                                                    @endforelse
                                                 @break
                                             @endswitch
                                         </div>
