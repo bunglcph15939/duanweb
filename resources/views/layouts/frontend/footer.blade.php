@@ -9,8 +9,8 @@ Footer START -->
 			<div class="col-lg-3">
 				<!-- logo -->
 				<a class="me-0" href="index-2.html">
-					<img class="light-mode-item h-40px" src="assets/images/logo.svg" alt="logo">
-					<img class="dark-mode-item h-40px" src="assets/images/logo-light.svg" alt="logo">
+					<img class="light-mode-item h-40px" src="/frontend/images/logo.svg" alt="logo">
+					<img class="dark-mode-item h-40px" src="/frontend/images/logo-light.svg" alt="logo">
 				</a>
 				<p class="my-3">Eduport education theme, built specifically for the education centers which is dedicated to teaching and involve learners.</p>
 				<!-- Social media icon -->
@@ -76,11 +76,11 @@ Footer START -->
 				<div class="row g-2 mt-2">
 					<!-- Google play store button -->
 					<div class="col-6 col-sm-4 col-md-3 col-lg-6">
-						<a href="#"> <img src="assets/images/client/google-play.svg" alt=""> </a>
+						<a href="#"> <img src="/frontend/images/client/google-play.svg" alt=""> </a>
 					</div>
 					<!-- App store button -->
 					<div class="col-6 col-sm-4 col-md-3 col-lg-6">
-						<a href="#"> <img src="assets/images/client/app-store.svg" alt="app-store"> </a>
+						<a href="#"> <img src="/frontend/images/client/app-store.svg" alt="app-store"> </a>
 					</div>
 				</div> <!-- Row END -->
 			</div> 
@@ -106,9 +106,9 @@ Footer START -->
 										<i class="fas fa-globe me-2"></i>Language
 									</a>
 									<ul class="dropdown-menu min-w-auto" aria-labelledby="languageSwitcher">
-										<li><a class="dropdown-item me-4" href="#"><img class="fa-fw me-2" src="assets/images/flags/uk.svg" alt="">English</a></li>
-										<li><a class="dropdown-item me-4" href="#"><img class="fa-fw me-2" src="assets/images/flags/gr.svg" alt="">German </a></li>
-										<li><a class="dropdown-item me-4" href="#"><img class="fa-fw me-2" src="assets/images/flags/sp.svg" alt="">French</a></li>
+										<li><a class="dropdown-item me-4" href="#"><img class="fa-fw me-2" src="/frontend/images/flags/uk.svg" alt="">English</a></li>
+										<li><a class="dropdown-item me-4" href="#"><img class="fa-fw me-2" src="/frontend/images/flags/gr.svg" alt="">German </a></li>
+										<li><a class="dropdown-item me-4" href="#"><img class="fa-fw me-2" src="/frontend/images/flags/sp.svg" alt="">French</a></li>
 									</ul>
 								</div>
 							</li>

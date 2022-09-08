@@ -47,8 +47,7 @@ class UserComponent extends Component
                             ->paginate($this->perPage);
         }
 
-        $roles = Role::pluck('name','name')->all();
-
+        $roles = Role::pluck('name')->all();
         // dd($roles);
         // $this->users = collect($this->users->items());
         return view('livewire.backend.users.user', ['users' => $this->users, 'roles'=>$roles]);
@@ -59,7 +58,7 @@ class UserComponent extends Component
         $user = User::find($id);
         $this->nameUser = $user->name;
         $userRole = $user->roles->pluck('name')->all();
-        $this->userRole = $userRole[0];
+        $this->editRole = $userRole[0];
         $this->editId = $user->id;
     }
 

@@ -610,8 +610,8 @@
 					</li>
 					<li> <hr class="dropdown-divider"></li>
 					<!-- Links -->
-					@if (Auth::check() && Auth::user()->hasRole('admin'))
-						<li><a class="dropdown-item" href=""><i class="bi bi-person fa-fw me-2"></i>Redirect Admin</a></li>
+					@if (Auth::check() && Auth::user()->hasRole(['admin','teacher','manager']))
+						<li><a class="dropdown-item" href="{{route('admin')}}"><i class="bi bi-person fa-fw me-2"></i>Redirect Admin</a></li>
 					@endif
 					
 					<li><a class="dropdown-item" href="#"><i class="bi bi-person fa-fw me-2"></i>Edit Profile</a></li>

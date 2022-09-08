@@ -49,16 +49,22 @@
                                 <label for="exampleInputEmail1" class="form-label">Name *</label>
                                 <div class="input-group input-group-lg">
                                     <span class="input-group-text bg-light rounded-start border-0 text-secondary px-3"><i class="bi bi-envelope-fill"></i></span>
-                                    <input type="text" name="name" class="form-control border-0 bg-light rounded-end ps-1" placeholder="Name" >
+                                    <input type="text" name="name" value="{{old('name')}}" class="form-control border-0 bg-light rounded-end ps-1" placeholder="Name" >
                                 </div>
+                                @error('name')
+                                    <div id="emailHelp" style="color: red" class="form-text">{{$message}}</div>
+                                @enderror
                             </div>
                             <!-- Email -->
                             <div class="mb-4">
                                 <label for="exampleInputEmail1" class="form-label">Email address *</label>
                                 <div class="input-group input-group-lg">
                                     <span class="input-group-text bg-light rounded-start border-0 text-secondary px-3"><i class="bi bi-envelope-fill"></i></span>
-                                    <input type="email" name="email" class="form-control border-0 bg-light rounded-end ps-1" placeholder="E-mail" id="exampleInputEmail1">
+                                    <input type="email" name="email" value="{{old('email')}}" class="form-control border-0 bg-light rounded-end ps-1" placeholder="E-mail" id="exampleInputEmail1">
                                 </div>
+                                @error('email')
+                                    <div id="emailHelp" style="color: red" class="form-text">{{$message}}</div>
+                                @enderror
                             </div>
                             <!-- Password -->
                             <div class="mb-4">
@@ -67,6 +73,9 @@
                                     <span class="input-group-text bg-light rounded-start border-0 text-secondary px-3"><i class="fas fa-lock"></i></span>
                                     <input type="password" name="password" class="form-control border-0 bg-light rounded-end ps-1" placeholder="*********" id="inputPassword5">
                                 </div>
+                                @error('password')
+                                    <div id="emailHelp" style="color: red" class="form-text">{{$message}}</div>
+                                @enderror
                             </div>
                             <!-- Confirm Password -->
                             <div class="mb-4">
@@ -75,14 +84,20 @@
                                     <span class="input-group-text bg-light rounded-start border-0 text-secondary px-3"><i class="fas fa-lock"></i></span>
                                     <input type="password" name="password_confirm" class="form-control border-0 bg-light rounded-end ps-1" placeholder="*********" id="inputPassword6">
                                 </div>
+                                @error('password_confirm')
+                                    <div id="emailHelp" style="color: red" class="form-text">{{$message}}</div>
+                                @enderror
                             </div>
                             <!-- -->
                             <div class="mb-4">
-                                <label for="inputPassword6" class="form-label">Confirm Password *</label>
+                                <label for="inputPassword6" class="form-label">Avatar *</label>
                                 <div class="input-group input-group-lg">
                                     <span class="input-group-text bg-light rounded-start border-0 text-secondary px-3"><i class="fas fa-lock"></i></span>
                                     <input type="file" name="avatar" class="form-control border-0 bg-light rounded-end ps-1" placeholder="*********" id="inputPassword6">
                                 </div>
+                                @error('avatar')
+                                    <div id="emailHelp" style="color: red" class="form-text">{{$message}}</div>
+                                @enderror
                             </div>
                             <!-- Check box -->
                             <div class="mb-4">

@@ -13,7 +13,7 @@
 
 	<!-- Favicon -->
 	<link rel="shortcut icon" href="/frontend/images/favicon.ico">
-
+	<meta name="csrf-token" content="{{ csrf_token() }}"/>
 	<!-- Google Font -->
 	<link rel="preconnect" href="https://fonts.googleapis.com/">
 	<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
@@ -24,7 +24,8 @@
 	<link rel="stylesheet" type="text/css" href="/frontend/vendor/bootstrap-icons/bootstrap-icons.css">
 	<link rel="stylesheet" type="text/css" href="/frontend/vendor/tiny-slider/tiny-slider.css">
 	<link rel="stylesheet" type="text/css" href="/frontend/vendor/glightbox/css/glightbox.css">
-
+	<link rel="stylesheet" href="https://cdn.plyr.io/3.7.2/plyr.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.4.29/sweetalert2.css" integrity="sha512-e+TwvhjDvKqpzQLJ7zmtqqz+5jF9uIOa+5s1cishBRfmapg7mqcEzEl44ufb04BXOsEbccjHK9V0IVukORmO8w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 	<!-- Theme CSS -->
 	<link id="style-switch" rel="stylesheet" type="text/css" href="/frontend/css/style.css">
 	<link id="style-switch" rel="stylesheet" type="text/css" href="/frontend/css/custom.css">
@@ -66,47 +67,27 @@
 <script src="https://js.pusher.com/7.2/pusher.min.js"></script>
 <script src="/frontend/js/functions.js"></script>
 <script src="/frontend/js/notifications.js"></script>
+
+<script src="https://cdn.plyr.io/3.7.2/plyr.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.4.29/sweetalert2.min.js" integrity="sha512-gCB2+0sWe4La5U90EqaPP2t58EczKkQE9UoCpnkG2EDSOOihgX/6MiT3MC4jYVEX03pv6Ydk1xybLG/AtN+3KQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
-	var notificationsWrapper   = $('.dropdown-notifications');
-var notificationsToggle    = notificationsWrapper.find('a[data-bs-toggle]');
-// var notificationsCountElem = notificationsToggle.find('i[data-count]');
-var notificationsCountElem = $('.amount-notifi')
-var notificationsCount     = parseInt(notificationsCountElem.html());
-var notifications          = notificationsWrapper.find('ul.menu-notify');
 
-// Enable pusher logging - don't include this in production
-Pusher.logToConsole = true;
-
-var pusher = new Pusher('c99225feca5b539fb20f', {
-  cluster: 'ap1'
-});
-
-// Subscribe to the channel we specified in our Laravel Event
-var channel = pusher.subscribe('AddStudentClassNotify');
-
-// Bind a function to a Event (the full Laravel class)
-channel.bind('send-student-class', function(data) {
-    var existingNotifications = notifications.html();
-    var avatar = Math.floor(Math.random() * (71 - 20 + 1)) + 20;
-    var newNotificationHtml = `
-        <li> 
-            <a class="dropdown-item" href="https://support.webestica.com/" target="_blank">
-                <i class="text-warning fa-fw bi bi-life-preserver me-2"></i>` +data.title+ `<strong>`+data.class+ `</strong>
-            </a> 
-        </li>
-    `;
-    notifications.html(newNotificationHtml + existingNotifications);
-
-    notificationsCount += 1;
-    notificationsCountElem.html(notificationsCount);
-    // notificationsWrapper.find('.notif-count').text(notificationsCount);
-    notificationsWrapper.show();
-    console.log(notificationsCount);
-});
+	$.ajaxSetup({
+		headers: {
+			'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+		}
+	})
 </script>
+
+@if(session('status'))
+<script>
+    alert("Lỗi. Bạn không cso quyền truy cập trang này");
+</script>
+@endif
+
 @yield('custom-js-tag')
 @stack('add-script')
+
 </body>
 
-<!-- Mirrored from eduport.webestica.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 30 Aug 2022 16:31:40 GMT -->
 </html>

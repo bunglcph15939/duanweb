@@ -155,6 +155,8 @@
                     <th>Create at</th>
                     <th>Status</th>
                     <th>Actions</th>
+                    <th>Edit Role</th>
+                    {{-- <th>Edit Permission</th> --}}
                 </tr>
             </thead>
             <tbody>
@@ -188,6 +190,16 @@
                             id="change_status" wire:click.prevent="editStatus({{$user->id}})">
                             <i class="ki ki-reload text-warning"></i>
                         </a>
+
+
+                        @endif
+                    </td>
+
+                    <td>
+                        @if ($user->id == Auth::id())
+                            
+                        @else
+
 
                         <button
 
@@ -230,16 +242,16 @@
                     <label for="exampleInputPassword1" class="form-label">Edit Role</label>
                     <select wire:model="editRole" class="form-control" aria-label="Default select example">
                       {{-- <option selected>Open this select menu</option> --}}
-                      @foreach ($roles as $key => $role)
+                      @foreach ($roles as $role)
                           <option
-                          {{$userRole == $role ? "selected" : ""}}
+                          {{-- {{$userRole == $role ? "selected" : ""}} --}}
                           {{-- wire:key="{{$userRole}}" --}}
-                           value="{{$key}}">{{$role}}
+                           value="{{$role}}">{{$role}}
                           </option>
                       @endforeach
                     </select>
                   </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                {{-- <button type="submit" class="btn btn-primary">Submit</button> --}}
               </form>
           </div>
           <div class="modal-footer">
