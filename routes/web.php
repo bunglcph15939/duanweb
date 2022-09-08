@@ -15,14 +15,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::prefix('/')->name('frontend.')->group(function(){
+Route::prefix('/')->middleware('auth','verified')->name('frontend.')->group(function(){
     Route::get('/', [HomeController::class, 'index'])->name('home');
 });
 
 
 Route::get('/admin', function(){
     return view('screens.backend.dashboard');
-})->name('admin');
+})->middleware(['auth', 'role:admin|teacher'])->name('admin');
 
 
 
@@ -39,3 +39,4 @@ Route::get('/doc-viewer/{file}', function ($file) {
    ];
   return response()->file($path, $header);
 })->name('doc-viewer')->where('file', '.*');
+

@@ -29,7 +29,7 @@ class Classroom extends Model
             'user_classroom',
             'classroom_id',
             'user_id'
-        );
+        )->withTimestamps();
     }
 
     // 1 lớp học có nhiều khóa học

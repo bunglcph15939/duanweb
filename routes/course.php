@@ -9,7 +9,7 @@ use App\Http\Controllers\CourseController as FrontendCourseController;
  * Users Role Route
  */
 
-Route::prefix('admin/courses')->name('admin.course.')->group(function () {
+Route::prefix('admin/courses')->middleware(['auth','verified','role:admin|teacher'])->name('admin.course.')->group(function () {
     Route::get('/', [CourseController::class, 'index'])->name('list');
     Route::get('/add', [CourseController::class, 'create'])->name('create');
     Route::post('/add', [CourseController::class, 'store'])->name('store');
