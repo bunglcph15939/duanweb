@@ -20,7 +20,7 @@ class MailAddStudentClass extends Notification
      */
     public function __construct($classroomId)
     {
-        $this->classroomId=$classroomId;
+        $this->classroomId = $classroomId;
     }
 
     /**

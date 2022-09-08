@@ -164,14 +164,14 @@
                         <td>{{$role->created_at}}</td>
                         <td nowrap="nowrap">
                             <button 
-                            wire:click.prevent="editRole({{$role->id}})"
-                            class="btn btn-light-primary px-6 font-weight-bold"
-                            data-bs-toggle="modal" data-bs-target="#exampleModal" 
-                            >
-                            <i class="flaticon2-gear text-primary"></i>
-                        </button>
+                                wire:click.prevent="editRole({{$role->id}})"
+                                class="btn btn-light-primary px-6 font-weight-bold"
+                                data-bs-toggle="modal" data-bs-target="#exampleModal" 
+                                >
+                                <i class="flaticon2-gear text-primary"></i>
+                            </button>
                             {{-- <a href="" class="btn btn-icon btn-primary"><i class="fas fa-trash"></i></a> --}}
-                            <a href="javascript:;" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger"><i class="la la-trash-o"></i>Delete</a>
+                            {{-- <a href="javascript:;" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger"><i class="la la-trash-o"></i>Delete</a> --}}
                         </td>
                     </tr>   
                     @endforeach

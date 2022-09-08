@@ -24,7 +24,7 @@ class AnswerRequest extends FormRequest
     public function rules()
     {
         return [
-            'content.*'=>'sometimes|required|max:255|min:5',
+            'content.*'=>'sometimes|required|max:255|min:1',
         ];
     }
     public function messages(){
