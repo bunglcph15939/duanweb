@@ -25,6 +25,7 @@ class DoQuizController extends Controller
     public function doquiz(Request $request)
     {
         try {
+
             $user_id = auth()->id();
             date_default_timezone_set("Asia/Ho_Chi_Minh");
             $endTime =  substr_replace(date("Y-m-d h:i:sa"), '', -2);

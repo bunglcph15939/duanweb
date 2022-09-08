@@ -33,6 +33,7 @@ Route::prefix('/')->middleware('auth','verified')->name('frontend.')->group(func
 });
 
 
+
 Route::get('/admin', function(){
     return view('screens.backend.dashboard');
 })->middleware(['auth', 'role:admin|teacher'])->name('admin');

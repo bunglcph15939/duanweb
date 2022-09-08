@@ -21,7 +21,7 @@ class ClassroomFactory extends Factory
             'name' => fake()->name(),
             'status' => rand(0,1),
             'desc' => fake()->text(),
-            'user_id' => rand(0,10),
+            'user_id' => rand(1,4),
             'image'=>fake()->imageUrl()
         ];
     }
