@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Route;
  * Users Role Route
  */
 
-Route::prefix('admin/sections')->name('admin.section.')->group(function () {
+Route::prefix('admin/sections')->middleware(['auth','verified','role:admin|teacher'])->name('admin.section.')->group(function () {
     Route::get('/add', [SectionController::class, 'create'])->name('create');
     Route::post('/add', [SectionController::class, 'store'])->name('store');
     Route::get('/{section}', [SectionController::class, 'edit'])->name('edit');

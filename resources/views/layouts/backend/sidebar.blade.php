@@ -89,6 +89,7 @@
                     </ul>
                 </div>
             </li>
+            @role('admin')
             <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
                 <a href="javascript:;" class="menu-link menu-toggle">
                     <span class="svg-icon menu-icon">
@@ -141,6 +142,9 @@
                 </div>
 
             </li>
+            @endrole
+
+            @role('admin|teacher')
             <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
                 <a href="{{route('classroom.index')}}" class="menu-link menu-toggle">
                     <span class="svg-icon menu-icon">
@@ -157,6 +161,7 @@
                     <span class="menu-text">Quản lý Lớp học</span>
                 </a>
             </li>
+            @endrole
             <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
                 <a href="{{route('question.list')}}" class="menu-link menu-toggle">
                     <span class="svg-icon menu-icon">
@@ -190,6 +195,7 @@
                 </a>
 
             </li>
+            @role('admin|teacher')
             <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
                 <a href="javascript:;" class="menu-link menu-toggle">
                     <span class="svg-icon menu-icon">
@@ -226,6 +232,7 @@
                 </div>
 
             </li>
+            @endrole
         </ul>
         <!--end::Menu Nav-->
     </div>

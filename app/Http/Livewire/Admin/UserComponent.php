@@ -18,7 +18,7 @@ class UserComponent extends Component
     public $nameUser, $userRole, $editRole , $editId;
 
 
-    public $perPage = 3;
+    public $perPage = 5;
     public $search = "";
     public $orderBy ='id';
     public $orderAsc = 'asc';
@@ -47,8 +47,7 @@ class UserComponent extends Component
                             ->paginate($this->perPage);
         }
 
-        $roles = Role::pluck('name','name')->all();
-
+        $roles = Role::pluck('name')->all();
         // dd($roles);
         // $this->users = collect($this->users->items());
         return view('livewire.backend.users.user', ['users' => $this->users, 'roles'=>$roles]);
@@ -59,7 +58,7 @@ class UserComponent extends Component
         $user = User::find($id);
         $this->nameUser = $user->name;
         $userRole = $user->roles->pluck('name')->all();
-        $this->userRole = $userRole[0];
+        $this->editRole = $userRole[0];
         $this->editId = $user->id;
     }
 
@@ -77,8 +76,33 @@ class UserComponent extends Component
 
     public function exportUser(){
         $ex = User::where('name', 'LIKE', "%$this->search%")
-        ->orderby($this->orderBy, $this->orderAsc)->role($this->role)->get();
+                    ->orderby($this->orderBy, $this->orderAsc)
+                    ->get();
+        if($this->role != ""){
+            $ex = User::where('name', 'LIKE', "%$this->search%")
+                        ->orderby($this->orderBy, $this->orderAsc)
+                        ->role($this->role)->get();
+        }
         return Excel::download(new ExportFileUser($ex), 'users.xlsx');
     }
 
+    public function editStatus($id){
+        $user = User::find($id);
+        if($user->status == 0){
+            $user->update([
+                'status'=>1
+            ]);
+            
+        }
+        elseif($user->status == 1){
+            $user->update([
+                'status'=>0
+            ]);
+        }
+        $this->dispatchBrowserEvent('alert', [
+                'title' => 'Đổi trạng thái thành công.',
+                'icon'=>'success',
+                'iconColor'=>'green',
+            ]);
+    }
 }
