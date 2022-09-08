@@ -21,7 +21,8 @@ class TestClassroomController extends TestCase
     }
 
 
-    public function test_create_classroom_required(){
+
+    public function test_store_classroom_is_invalid(){
         $params=[
             'name'=>null,
             'desc'=>"jcbd jlcad",
@@ -32,7 +33,9 @@ class TestClassroomController extends TestCase
         ->assertStatus(302)
         ->assertSessionHasErrors('name');
 
-
     }
+
+
+
 
 }
