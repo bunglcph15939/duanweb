@@ -10,7 +10,9 @@ use App\Models\LessonHistory;
 
 class CourseController extends Controller
 {
-
+    /**
+     * @return void
+     */
     public function index(Request $request)
     {
         $categories = CourseCategory::with('childs')->where('parent_id', '=', 0)->get();
@@ -39,7 +41,7 @@ class CourseController extends Controller
                         ->where('slug', $slug)
                         ->with(['users', 
                                 'sections' => fn($q) => $q->with([
-                                                'lessons' => fn($q) => $q->orderBy('order')])
+                                                'lessons' => fn($q) => $q->with('quizs')->orderBy('order')])
                                                 ->orderBy('order')])
                         ->first();
         $lessonHistories = LessonHistory::where('course_id', $course->id)

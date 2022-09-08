@@ -13,15 +13,15 @@ class ResultController extends Controller
 {
     public function index($quiz_id, $check_essay = false)
     {
+        $user_id = auth()->id();
         $quizResult = QuizResult::where([
-            ['user_id', '=', 1],
+            ['user_id', '=', $user_id],
             ['quiz_id', '=', $quiz_id],
         ])->orderBy('id', 'DESC')->first();
         $user = User::select('name', 'avatar')->where('id', $quizResult->user_id)->first();
         $quiz = Quiz::select('title')->where('id', $quizResult->quiz_id)->first();
         $data = [
             'quizResult' => $quizResult,
-            'user' => $user,
             'quiz' => $quiz,
             'check_essay' => $check_essay
         ];
