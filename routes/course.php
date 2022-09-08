@@ -25,6 +25,10 @@ Route::get('/c/{id}-{slug}/learning/{lesson?}', [FrontendCourseController::class
 ->where(['id' => '\d+', 'slug' => '.*'])
 ->middleware(['checkInCourse']);
 
+Route::get('/join/{id}-{slug}/learning/{lesson?}', [FrontendCourseController::class, 'join'])
+->name('join-course-learn');
+// ->where(['id' => '\d+', 'slug' => '.*']);
+
 Route::get('/c/{id}-{slug}', [FrontendCourseController::class, 'show'])->name('course-detail')->where(['id' => '\d+', 'slug' => '.*']);
 
 Route::get('/courses', [FrontendCourseController::class, 'index'])->name('course-list');

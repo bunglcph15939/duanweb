@@ -118,7 +118,7 @@ Page content START -->
 									@if (auth()->user()->courses->contains($course->id))
 									<a href="{{ route('course-learn', ['id' => $course->id, 'slug' => $course->slug]) }}" class="btn btn-outline-primary mb-0">Tiếp tục học</a>
 									@else
-									<a href="#" class="btn btn-success mb-0">Tham gia khóa học</a>
+									<a href="{{ route('join-course-learn', ['id' => $course->id, 'slug' => $course->slug]) }}" class="btn btn-success mb-0">Tham gia khóa học</a>
 									@endif
 									
 								</div>
