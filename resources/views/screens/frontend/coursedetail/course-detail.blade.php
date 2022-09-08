@@ -21,6 +21,7 @@
 @section('content')
 
     <main>
+<<<<<<< HEAD
         <section class="py-0 pb-lg-5">
             <div class="container">
                 <div class="row g-3">
@@ -1005,6 +1006,16 @@
                     <!-- Right sidebar END -->
 
                 </div><!-- Row END -->
+=======
+
+        <section class="pt-0">
+            <div class="container">
+                <a class="btn btn-primary" href="{{url()->previous()}}">
+                    quay lại << 
+                </a>
+                @include('screens.frontend.coursedetail.components.do-quizzes')
+
+>>>>>>> f54e6ae5b62d50b0de839897b29534a9c39f5c9b
             </div>
         </section>
     </main>
@@ -1057,7 +1068,11 @@
 
 
         function post_score() {
+<<<<<<< HEAD
             
+=======
+
+>>>>>>> f54e6ae5b62d50b0de839897b29534a9c39f5c9b
             const formData = new FormData(document.querySelector('#form-score'));
             axios.post('{{ route('frontend.doquiz') }}', formData)
                 .then(res =>

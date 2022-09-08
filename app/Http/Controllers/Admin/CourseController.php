@@ -12,15 +12,15 @@ use Illuminate\Support\Facades\Log;
 
 class CourseController extends Controller
 {
-    
+
     public function index(Request $request)
     {
         $categories = CourseCategory::with('childs')->where('parent_id', '=', 0)->get();
         $courses = Course::with(['lessons', 'sections', 'users', 'classrooms', 'category'])
-                        ->findByName($request)
-                        ->findByCategory($request)
-                        ->findByStatus($request)
-                        ->paginate(6);
+            ->findByName($request)
+            ->findByCategory($request)
+            ->findByStatus($request)
+            ->paginate(6);
         return view('screens.backend.course.list', compact('courses', 'categories'));
     }
 
@@ -32,26 +32,26 @@ class CourseController extends Controller
 
     public function store(CourseRequest $request)
     {
-        try{
-            $course = new Course();
-            $course->fill($request->all());
-            if($request->hasFile('thumbnail')){
-                $fileName = UploadService::upload($request->thumbnail, 'course');
-                $course->thumbnail = $fileName;
-            } else {
-                $course->thumbnail = 'default.jpg';
-            }
-            $course->save();
-            return redirect()
-                        ->route('admin.course.list')
-                        ->with('success', 'Thêm khóa học thành công');
-        }catch(\Exception $e){
-            Log::error($e->getMessage());
-            return redirect()
-                    ->back()
-                    ->withInput()
-                    ->with('error', 'Có lỗi xảy ra, vui lòng thử lại');
+//        try{
+        $course = new Course();
+        $course->fill($request->all());
+        if ($request->hasFile('thumbnail')) {
+            $fileName = UploadService::upload($request->thumbnail, 'course');
+            $course->thumbnail = $fileName;
+        } else {
+            $course->thumbnail = 'default.jpg';
         }
+        $course->save();
+        return redirect()
+            ->route('admin.course.list')
+            ->with('success', 'Thêm khóa học thành công');
+//        }catch(\Exception $e){
+//            Log::error($e->getMessage());
+//            return redirect()
+//                    ->back()
+//                    ->withInput()
+//                    ->with('error', 'Có lỗi xảy ra, vui lòng thử lại');
+//        }
     }
 
     public function edit(Course $course)
@@ -63,49 +63,49 @@ class CourseController extends Controller
 
     public function update(CourseRequest $request, Course $course)
     {
-        try{
-            $course->fill($request->all());
-            if($request->hasFile('thumbnail')){
-                $fileName = UploadService::upload($request->thumbnail, 'course');
-                $course->thumbnail = $fileName;
-            }
-            $course->save();
-            return redirect()
-                        ->to(url()->previous().'#info')
-                        ->with('success', 'Cập nhật khóa học thành công');
-        }catch(\Exception $e){
-            Log::error($e->getMessage());
-            return redirect()
-                    ->back()
-                    ->withInput()
-                    ->with('error', 'Có lỗi xảy ra, vui lòng thử lại');
+//        try{
+        $course->fill($request->all());
+        if ($request->hasFile('thumbnail')) {
+            $fileName = UploadService::upload($request->thumbnail, 'course');
+            $course->thumbnail = $fileName;
         }
+        $course->save();
+        return redirect()
+            ->to(url()->previous() . '#info')
+            ->with('success', 'Cập nhật khóa học thành công');
+//        }catch(\Exception $e){
+//            Log::error($e->getMessage());
+//            return redirect()
+//                    ->back()
+//                    ->withInput()
+//                    ->with('error', 'Có lỗi xảy ra, vui lòng thử lại');
+//        }
     }
 
     public function changeStatus(Course $course)
     {
-        if($course->status == 1){
+        if ($course->status == 1) {
             $course->status = 0;
         } else {
             $course->status = 1;
         }
         $course->save();
         return redirect()
-                    ->back()
-                    ->with('success', 'Cập nhật trạng thái khóa học thành công');
+            ->back()
+            ->with('success', 'Cập nhật trạng thái khóa học thành công');
     }
 
     public function destroy(Course $course)
     {
         $result = $course->delete();
-        if($result){
+        if ($result) {
             return redirect()
-                        ->route('admin.course.list')
-                        ->with('success', 'Xóa khóa học thành công');
+                ->route('admin.course.list')
+                ->with('success', 'Xóa khóa học thành công');
         }
-        return redirect()
-                    ->route('admin.course.list')
-                    ->with('error', 'Có lỗi xảy ra, vui lòng thử lại');
+//        return redirect()
+//            ->route('admin.course.list')
+//            ->with('error', 'Có lỗi xảy ra, vui lòng thử lại');
     }
 
 }

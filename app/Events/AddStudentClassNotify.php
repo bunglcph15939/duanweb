@@ -14,16 +14,16 @@ class AddStudentClassNotify
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
-    public $title;
+    public mixed $title;
 
-    public $class;
+    public mixed $class;
 
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct($data)
+    public function __construct( $data)
     {
         $this->title = $data['title'];
         $this->class = $data['class'];
