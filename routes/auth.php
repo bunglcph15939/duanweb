@@ -11,7 +11,7 @@ use App\Http\Controllers\Auth\EmailVerificationNotificationController;
 /**
  * Users Register Route
  */
-Route::prefix('/register')->name('auth.')->group(function () {
+Route::prefix('/register')->middleware('guest')->name('auth.')->group(function () {
     Route::get('/', [AuthController::class, 'register'])->name('register');
     Route::post('/processRegister', [AuthController::class, 'processRegister'])->name('processRegister')->middleware('throttle:login');
 });
@@ -28,7 +28,7 @@ Route::post('/email/verification-notification',  [EmailVerificationNotificationC
 /**
  * Users login Route
  */
-Route::prefix('/login')->name('auth.')->group(function () {
+Route::prefix('/login')->middleware('guest')->name('auth.')->group(function () {
     Route::get('/', [AuthController::class, 'login'])->name('login');
     Route::post('/processLogin', [AuthController::class, 'processLogin'])->middleware(['throttle:login'])->name('processLogin');
 });
@@ -37,7 +37,7 @@ Route::prefix('/login')->name('auth.')->group(function () {
 /**
  * Reset Password Email Route
  */
-Route::prefix('/forgot-password')->name('forgotPassword.')->group(function () {
+Route::prefix('/forgot-password')->middleware('guest')->name('forgotPassword.')->group(function () {
     Route::get('', [ForgotController::class, 'forgotPassword'])->name('forgotPasswordForm');
     Route::post('', [ForgotController::class, 'processForgotPassword'])->name('processForgotPassword');
     
@@ -47,7 +47,7 @@ Route::prefix('/forgot-password')->name('forgotPassword.')->group(function () {
 /**
  * Reset Password Route
  */
-Route::prefix('/reset-password')->name('reset-password.')->group(function () {
+Route::prefix('/reset-password')->middleware('guest')->name('reset-password.')->group(function () {
     // Route::get('/reset/{token}', [ForgotController::class, 'resetPassword'])->name('resetPassword');
     // Route::post('/reset/{token}', [ForgotController::class, 'processResetPassword'])->name('processResetPassword');
 
@@ -64,4 +64,4 @@ Route::prefix('/change-password')->group(function () {
 });
 
 
-Route::get('/logout', [AuthController::class, 'logout'])->name('auth.logout');
+Route::get('/logout', [AuthController::class, 'logout'])->middleware('auth')->name('auth.logout');

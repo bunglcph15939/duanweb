@@ -195,7 +195,13 @@
                                 <i class="flaticon2-gear text-primary"></i>
                             </button>
                             {{-- <a href="" class="btn btn-icon btn-primary"><i class="fas fa-trash"></i></a> --}}
-                            <a href="javascript:;" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger"><i class="la la-trash-o"></i>Đuổi</a>
+                            <a href="javascript:;"  data-id="{{$user->id}}" 
+                                data-url="{{route('admin.userclass.removeUserClass',$class->id)}}" 
+                                data-token="{{ csrf_token() }}" 
+                                data-repeater-delete=""
+                                class="btn btn-sm font-weight-bolder btn-light-danger remove-student">
+                                <i class="la la-trash-o"></i>Đuổi
+                            </a>
                         </td>
                     </tr>
                     @endforeach
@@ -249,4 +255,30 @@
             })
         </script>
     @endif
+    <script>
+        $('.remove-student').on('click', function() {
+            var id = $(this).data("id");
+            var token = $(this).data("token");
+            var link = $(this).data("url");
+            let _this = $(this)
+            $.ajax({
+                type: "POST",
+                url: link,
+                // dataType: "JSON",
+                data: {
+                    'userId':id,   
+                    '_method':'DELETE',
+                    '_token':token,
+                    
+                },
+                // dataType: "dataType",
+                success: function (response) {
+                    console.log("ok");
+                    $(_this).closest('tr').remove()
+                },
+            });
+        });
+    </script>
+    
+
 @endsection

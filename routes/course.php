@@ -9,7 +9,7 @@ use App\Http\Controllers\CourseController as FrontendCourseController;
  * Users Role Route
  */
 
-Route::prefix('admin/courses')->name('admin.course.')->group(function () {
+Route::prefix('admin/courses')->middleware(['auth','verified','role:admin|teacher'])->name('admin.course.')->group(function () {
     Route::get('/', [CourseController::class, 'index'])->name('list');
     Route::get('/add', [CourseController::class, 'create'])->name('create');
     Route::post('/add', [CourseController::class, 'store'])->name('store');
@@ -20,7 +20,10 @@ Route::prefix('admin/courses')->name('admin.course.')->group(function () {
 
 });
 
-Route::get('/c/{id}-{slug}/learning/{lesson?}', [FrontendCourseController::class, 'learn'])->name('course-learn')->where(['id' => '\d+', 'slug' => '.*']);
+Route::get('/c/{id}-{slug}/learning/{lesson?}', [FrontendCourseController::class, 'learn'])
+->name('course-learn')
+->where(['id' => '\d+', 'slug' => '.*'])
+->middleware(['checkInCourse']);
 
 Route::get('/c/{id}-{slug}', [FrontendCourseController::class, 'show'])->name('course-detail')->where(['id' => '\d+', 'slug' => '.*']);
 

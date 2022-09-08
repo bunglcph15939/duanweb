@@ -108,7 +108,7 @@
 @section('custom-js-tag')
     <script>
         function showQuiz(id) {
-            let _url = "{{route('quiz.edit', ':id')}}";
+            let _url = "{{route('admin.quiz.edit', ':id')}}";
             _url = _url.replace(':id', id);
             let _method = 'get';
             let modalBody = document.querySelector('.modal-body-update');
@@ -138,7 +138,7 @@
             $(document).on('submit','#class-has-validation-ajax', function(e){
                 e.preventDefault();
                 let data = new FormData(this);
-                let _url = "http://127.0.0.1:8000/quiz/insert_classroom/" + getId(id);
+                let _url = "http://127.0.0.1:8000/admin/quiz/insert_classroom/" + getId(id);
                 let _method = $(this).attr('method');
                 $.ajax({
                     url: _url,
@@ -152,7 +152,7 @@
                             title: 'Action successful',
                             showConfirmButton: true,
                         }).then(function () {
-                            window.location.assign('http://127.0.0.1:8000/quiz')
+                            window.location.assign('http://127.0.0.1:8000/admin/quiz')
                         })
                     }
                 })
@@ -160,7 +160,7 @@
             $(document).on('submit', '#user-has-validation-ajax', function (e) {
                 e.preventDefault()
                 let data = new FormData(this);
-                let _url = "http://127.0.0.1:8000/quiz/insert_user/" + getId(id);
+                let _url = "http://127.0.0.1:8000/admin/quiz/insert_user/" + getId(id);
                 let _method = $(this).attr('method');
                 $.ajax({
                     url: _url,
@@ -174,7 +174,7 @@
                             title: 'Action successful',
                             showConfirmButton: true,
                         }).then(function () {
-                            window.location.assign('http://127.0.0.1:8000/quiz')
+                            window.location.assign('http://127.0.0.1:8000/admin/quiz')
                         })
                     }
                 })
@@ -198,7 +198,7 @@
                             title: 'Action successful',
                             showConfirmButton: true,
                         }).then(function () {
-                            window.location.assign('http://127.0.0.1:8000/quiz')
+                            window.location.assign('http://127.0.0.1:8000/admin/quiz')
                         })
 
                     },
@@ -236,7 +236,7 @@
                                 'Your file has been deleted.',
                                 'success'
                             ).then(function () {
-                                window.location.assign('http://127.0.0.1:8000/quiz')
+                                window.location.assign('http://127.0.0.1:8000/admin/quiz')
                             });
                         },
                         error: function (){
@@ -245,7 +245,7 @@
                                 'Your quiz cant delete',
                                 'error'
                             ).then(function () {
-                                window.location.assign('http://127.0.0.1:8000/quiz')
+                                window.location.assign('http://127.0.0.1:8000/admin/quiz')
                             });
                         }
                     })
