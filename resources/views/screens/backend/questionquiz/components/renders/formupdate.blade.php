@@ -38,7 +38,6 @@
     function update_form() {
         const formData = new FormData(document.querySelector('#formupdate'));
         let _form = document.querySelector('#formupdate')
-        //not using put nen dung post
         let valueTag = JSON.parse(formData.get('tag'))
         valueTag = valueTag.map(val => val.value).join(',')
         formData.set('tag', valueTag)

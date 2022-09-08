@@ -28,7 +28,5 @@ Route::prefix('admin')->middleware(['auth','verified','role:admin'])->name('admi
         Route::get('/create-permission', [PermissionController::class, 'createPermission'])->name('create-permission');
         Route::post('/post-permission', [PermissionController::class, 'processPermission'])->name('post-permission');
     });
-
-
 });
 

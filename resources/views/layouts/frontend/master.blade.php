@@ -24,12 +24,13 @@
 	<link rel="stylesheet" type="text/css" href="/frontend/vendor/bootstrap-icons/bootstrap-icons.css">
 	<link rel="stylesheet" type="text/css" href="/frontend/vendor/tiny-slider/tiny-slider.css">
 	<link rel="stylesheet" type="text/css" href="/frontend/vendor/glightbox/css/glightbox.css">
+	@yield('plugin-css')
 	<link rel="stylesheet" href="https://cdn.plyr.io/3.7.2/plyr.css" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.4.29/sweetalert2.css" integrity="sha512-e+TwvhjDvKqpzQLJ7zmtqqz+5jF9uIOa+5s1cishBRfmapg7mqcEzEl44ufb04BXOsEbccjHK9V0IVukORmO8w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 	<!-- Theme CSS -->
 	<link id="style-switch" rel="stylesheet" type="text/css" href="/frontend/css/style.css">
 	<link id="style-switch" rel="stylesheet" type="text/css" href="/frontend/css/custom.css">
-
+	@yield('custom-css')
 </head>
 
 <body><!-- Pre loader -->
@@ -59,6 +60,8 @@
 <script src="/frontend/vendor/tiny-slider/tiny-slider.js"></script>
 <script src="/frontend/vendor/glightbox/js/glightbox.js"></script>
 <script src="/frontend/vendor/purecounterjs/dist/purecounter_vanilla.js"></script>
+
+@yield('custom-js-tag')
 
 <!-- Template Functions -->
 

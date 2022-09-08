@@ -10,8 +10,8 @@ function addAnswercreate(type) {
         <div class="form-group">
             <label class="">Xác thực</label>
             <select class="form-control" aria-label="Default select example" name="is_correct[]" onchange="option_answer(this,${type})">
-            <option value="1" selected>Đúng</option>
-            <option value="0">Sai</option>
+            <option value="1">Đúng</option>
+            <option value="0" selected>Sai</option>
         </select>
         </div>
         <div class="">

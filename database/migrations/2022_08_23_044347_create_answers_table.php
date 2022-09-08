@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('content')->nullable();
             $table->unsignedBigInteger('question_id');
-            $table->tinyInteger('is_correct');
+            $table->tinyInteger('is_correct')->nullable();
             $table->foreign('question_id')->references('id')->on('questions')->onDelete('cascade');
             $table->timestamps();
         });
