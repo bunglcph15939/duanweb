@@ -8,7 +8,7 @@ use App\Http\Controllers\Admin\CourseCategoryController;
  */
 
 Route::prefix('admin/course_category')->middleware('auth')->name('course_category.')->group(function () {
-    Route::get('/',[CourseCategoryController::class,'index']);
+    Route::get('/',[CourseCategoryController::class,'index'])->name('list');
     Route::post('/store',[CourseCategoryController::class,'store']);
     Route::post('/update',[CourseCategoryController::class,'update']);
     Route::get('course_category/delete/{course_category}',[CourseCategoryController::class,'destroy'])->name('delete');

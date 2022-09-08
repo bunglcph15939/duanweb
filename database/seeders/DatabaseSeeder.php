@@ -25,24 +25,24 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
-        LessonHistory::truncate();
-//        User::truncate();
-        Lesson::truncate();
-        Section::truncate();
-        Course::truncate();
-        CourseCategory::truncate();
-        Quiz::truncate();
-        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
+//         DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+//         LessonHistory::truncate();
+// //        User::truncate();
+//         Lesson::truncate();
+//         Section::truncate();
+//         Course::truncate();
+//         CourseCategory::truncate();
+//         Quiz::truncate();
+//         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
 
-//        $this->call(UserSeeder::class);
-         $this->call(CourseCategorySeeder::class);
-         $this->call(CourseSeeder::class);
-        // $this->call(ClassroomSeeder::class);
-         $this->call(SectionSeeder::class);
-         $this->call(LessonSeeder::class);
-         $this->call(LessonHistorySeeder::class);
-         $this->call(QuizSeeder::class);
+// //        $this->call(UserSeeder::class);
+//          $this->call(CourseCategorySeeder::class);
+//          $this->call(CourseSeeder::class);
+//         // $this->call(ClassroomSeeder::class);
+//          $this->call(SectionSeeder::class);
+//          $this->call(LessonSeeder::class);
+//          $this->call(LessonHistorySeeder::class);
+//          $this->call(QuizSeeder::class);
 
     }
 }

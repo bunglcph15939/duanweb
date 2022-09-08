@@ -12,7 +12,9 @@ use Illuminate\Support\Facades\Auth;
 
 class CourseController extends Controller
 {
-
+    /**
+     * @return void
+     */
     public function index(Request $request)
     {
         $categories = CourseCategory::with('childs')->where('parent_id', '=', 0)->get();
@@ -57,7 +59,7 @@ class CourseController extends Controller
 
     public function join($id, $slug, $lesson = 0){
         $userId = Auth::id();
-        $course = Course::where('id', $id)->first();
+        $course = Course::where('id', $id)->where('slug', $slug)->first();
         // dd($course);
         $listUser = $course->users->pluck('id')->toArray();
         
@@ -65,7 +67,7 @@ class CourseController extends Controller
             $course->users()->attach($userId);
         }
 
-        return back();
+        return redirect()->route('course-learn', ['id' => $id, 'slug' => $slug]);
     }
 
 }
