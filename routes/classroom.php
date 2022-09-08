@@ -33,4 +33,6 @@ Route::prefix('admin/userclass')->middleware(['auth','verified','role:admin|teac
     Route::delete('/delete-student/{classId}',[UserClassroomController::class,'removeUserClass'])->name('removeUserClass');
 });
 
-Route::get('/classroom/{classroom}', [FrontEndClassroomController::class, 'show'])->middleware(['auth','verified'])->name('classroom');
+
+Route::get('/classroom/{classroom}', [FrontEndClassroomController::class, 'show'])->middleware(['auth','verified','checkInClass'])->name('classroom');
+
