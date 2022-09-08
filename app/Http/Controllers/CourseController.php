@@ -39,7 +39,7 @@ class CourseController extends Controller
                         ->where('slug', $slug)
                         ->with(['users', 
                                 'sections' => fn($q) => $q->with([
-                                                'lessons' => fn($q) => $q->orderBy('order')])
+                                                'lessons' => fn($q) => $q->with('quizs')->orderBy('order')])
                                                 ->orderBy('order')])
                         ->first();
         $lessonHistories = LessonHistory::where('course_id', $course->id)
