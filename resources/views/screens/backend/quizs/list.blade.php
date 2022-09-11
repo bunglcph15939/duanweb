@@ -152,7 +152,7 @@
                             title: 'Action successful',
                             showConfirmButton: true,
                         }).then(function () {
-                            window.location.assign('http://127.0.0.1:8000/admin/quiz')
+                            window.location.href='http://127.0.0.1:8000/admin/quiz'
                         })
                     }
                 })
@@ -174,7 +174,7 @@
                             title: 'Action successful',
                             showConfirmButton: true,
                         }).then(function () {
-                            window.location.assign('http://127.0.0.1:8000/admin/quiz')
+                            window.location.href='http://127.0.0.1:8000/admin/quiz'
                         })
                     }
                 })
@@ -198,7 +198,7 @@
                             title: 'Action successful',
                             showConfirmButton: true,
                         }).then(function () {
-                            window.location.assign('http://127.0.0.1:8000/admin/quiz')
+                            window.location.href='http://127.0.0.1:8000/admin/quiz'
                         })
 
                     },
@@ -236,7 +236,7 @@
                                 'Your file has been deleted.',
                                 'success'
                             ).then(function () {
-                                window.location.assign('http://127.0.0.1:8000/admin/quiz')
+                                window.location.href='http://127.0.0.1:8000/admin/quiz'
                             });
                         },
                         error: function (){
@@ -245,7 +245,7 @@
                                 'Your quiz cant delete',
                                 'error'
                             ).then(function () {
-                                window.location.assign('http://127.0.0.1:8000/admin/quiz')
+                                window.location.href='http://127.0.0.1:8000/admin/quiz'
                             });
                         }
                     })
